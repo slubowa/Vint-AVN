@@ -1,0 +1,18 @@
+# Ignore datasets
+Datasets/
+
+# Ignore checkpoints
+*.pth
+*.pt
+*.ckpt
+
+# Ignore logs
+logs/
+
+# Ignore system files
+.DS_Store
+
+# Ignore nested virtual environments if any
+venv/
+__pycache__/
+*.pyc
