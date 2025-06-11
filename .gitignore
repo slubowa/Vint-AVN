@@ -1,13 +1,17 @@
 # Ignore datasets
 Datasets/
+trajectory-mapping/visualnav-transformer/diffusion_policy  
+trajectory-mapping/visualnav-transformer/train/diffusion_policy
 
 # Ignore checkpoints
 *.pth
 *.pt
 *.ckpt
+*.jpg
+*.pkl
 
 # Ignore logs
-logs/
+trajectory-mapping/visualnav-transformer/train/logs
 
 # Ignore system files
 .DS_Store
