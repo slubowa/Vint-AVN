@@ -1,0 +1,657 @@
+
+wandb: You chose "Don't visualize my results"
+wandb: Tracking run with wandb version 0.16.6
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+{'project_name': 'vint-release', 'run_name': 'vint-5c_2025_03_23_02_52_28', 'use_wandb': True, 'train': True, 'batch_size': 64, 'eval_batch_size': 64, 'epochs': 30, 'gpu_ids': [0], 'num_workers': 8, 'lr': '5e-4', 'optimizer': 'adamw', 'seed': 0, 'clipping': False, 'train_subset': 1.0, 'model_type': 'vint', 'obs_encoding_size': 512, 'goal_encoding_size': 1024, 'normalize': True, 'context_type': 'temporal', 'context_size': 5, 'alpha': 0.5, 'beta': 0.1, 'obs_type': 'image', 'goal_type': 'image', 'scheduler': 'cosine', 'distance': {'min_dist_cat': 0, 'max_dist_cat': 20}, 'action': {'min_dist_cat': 0, 'max_dist_cat': 10}, 'close_far_threshold': 10, 'len_traj_pred': 5, 'learn_angle': True, 'image_size': [128, 128], 'print_log_freq': 100, 'image_log_freq': 1000, 'num_images_log': 8, 'pairwise_test_freq': 0, 'eval_fraction': 0.25, 'wandb_log_freq': 10, 'eval_freq': 1, 'max_norm': 1.0, 'warmup': True, 'warmup_epochs': 3, 'cyclic_period': 10, 'plateau_patience': 3, 'plateau_factor': 0.5, 'load_run': 'vint-release/vint-5c_2025_03_20_22_38_21', 'early_stopping': False, 'early_stopping_patience': 20, 'scheduler_monitor': 'dist_loss', 'obs_encoder': 'efficientnet-b0', 'mha_num_attention_heads': 4, 'mha_num_attention_layers': 4, 'mha_ff_dim_factor': 4, 'late_fusion': False, 'datasets': {'waymo_vint': {'data_folder': 'vint_train/data/waymo_vint', 'train': 'vint_train/data/data_splits/waymo_vint/train/', 'test': 'vint_train/data/data_splits/waymo_vint/test/', 'end_slack': 3, 'goals_per_obs': 1, 'negative_mining': True}}, 'project_folder': 'logs/vint-release/vint-5c_2025_03_23_02_52_28'}
+Using cuda devices: 0
+DEBUG: data_config = {'data_folder': 'vint_train/data/waymo_vint', 'train': 'vint_train/data/data_splits/waymo_vint/train/', 'test': 'vint_train/data/data_splits/waymo_vint/test/', 'end_slack': 3, 'goals_per_obs': 1, 'negative_mining': True}
+DEBUG: Available dataset names: ['data_folder', 'train', 'test', 'end_slack', 'goals_per_obs', 'negative_mining']
+Using cosine annealing with T_max 30
+Using warmup scheduler
+Loading model from  logs/vint-release/vint-5c_2025_03_20_22_38_21
+Start ViNT Training Epoch 90/119
+Training epoch 90:   0%|                                                                       | 0/32 [00:00<?, ?it/s](epoch 90) (batch 0/31) dist_loss (train): 17.5966 (100pt moving_avg: 17.5966) (avg: 17.5966)
+(epoch 90) (batch 0/31) action_loss (train): 1.5512 (100pt moving_avg: 1.5512) (avg: 1.5512)
+(epoch 90) (batch 0/31) action_waypts_cos_sim (train): 0.8867 (100pt moving_avg: 0.8867) (avg: 0.8867)
+(epoch 90) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8555 (100pt moving_avg: 0.8555) (avg: 0.8555)
+(epoch 90) (batch 0/31) total_loss (train): 0.8636 (100pt moving_avg: 0.8636) (avg: 0.8636)
+(epoch 90) (batch 0/31) action_orien_cos_sim (train): 0.9808 (100pt moving_avg: 0.9808) (avg: 0.9808)
+(epoch 90) (batch 0/31) multi_action_orien_cos_sim (train): 0.9808 (100pt moving_avg: 0.9808) (avg: 0.9808)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 90: 100%|██████████████████████████████████████████████████████████████| 32/32 [01:35<00:00,  2.98s/it]
+Start waymo_vint_test ViNT Testing Epoch 90/119
+Evaluating waymo_vint_test for epoch 90: 100%|██████████████████████████████████████████| 2/2 [00:32<00:00, 16.15s/it]
+(epoch 90) dist_loss (waymo_vint_test) 44.92538928985596
+(epoch 90) action_loss (waymo_vint_test) 1.3144600987434387
+(epoch 90) action_waypts_cos_sim (waymo_vint_test) 0.8553790748119354
+(epoch 90) multi_action_waypts_cos_sim (waymo_vint_test) 0.8456079959869385
+(epoch 90) total_loss (waymo_vint_test) 0.8818570077419281
+(epoch 90) action_orien_cos_sim (waymo_vint_test) 0.9773514866828918
+(epoch 90) multi_action_orien_cos_sim (waymo_vint_test) 0.9773514270782471
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 91/119
+Training epoch 91:   0%|                                                                       | 0/32 [00:00<?, ?it/s](epoch 91) (batch 0/31) dist_loss (train): 11.4545 (100pt moving_avg: 11.4545) (avg: 11.4545)
+(epoch 91) (batch 0/31) action_loss (train): 0.1005 (100pt moving_avg: 0.1005) (avg: 0.1005)
+(epoch 91) (batch 0/31) action_waypts_cos_sim (train): 0.9005 (100pt moving_avg: 0.9005) (avg: 0.9005)
+(epoch 91) (batch 0/31) multi_action_waypts_cos_sim (train): 0.885 (100pt moving_avg: 0.885) (avg: 0.885)
+(epoch 91) (batch 0/31) total_loss (train): 0.1075 (100pt moving_avg: 0.1075) (avg: 0.1075)
+(epoch 91) (batch 0/31) action_orien_cos_sim (train): 0.9728 (100pt moving_avg: 0.9728) (avg: 0.9728)
+(epoch 91) (batch 0/31) multi_action_orien_cos_sim (train): 0.9728 (100pt moving_avg: 0.9728) (avg: 0.9728)
+/home/paperspace/Documents/vint_project/trajectory-mapping/visualnav-transformer/train/vint_train/visualizing/distance_utils.py:183: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, ax = plt.subplots(1, len(imgs))
+/home/paperspace/Documents/vint_project/trajectory-mapping/visualnav-transformer/train/vint_train/visualizing/distance_utils.py:182: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  plt.figure()
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 91: 100%|██████████████████████████████████████████████████████████████| 32/32 [01:16<00:00,  2.40s/it]
+Start waymo_vint_test ViNT Testing Epoch 91/119
+Evaluating waymo_vint_test for epoch 91: 100%|██████████████████████████████████████████| 2/2 [00:32<00:00, 16.22s/it]
+(epoch 91) dist_loss (waymo_vint_test) 37.4183349609375
+(epoch 91) action_loss (waymo_vint_test) 1.7664440870285034
+(epoch 91) action_waypts_cos_sim (waymo_vint_test) 0.8999744057655334
+(epoch 91) multi_action_waypts_cos_sim (waymo_vint_test) 0.9025419652462006
+(epoch 91) total_loss (waymo_vint_test) 1.0703136920928955
+(epoch 91) action_orien_cos_sim (waymo_vint_test) 0.9799280166625977
+(epoch 91) multi_action_orien_cos_sim (waymo_vint_test) 0.9799279868602753
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 92/119
+Training epoch 92:   0%|                                                                       | 0/32 [00:00<?, ?it/s](epoch 92) (batch 0/31) dist_loss (train): 5.6291 (100pt moving_avg: 5.6291) (avg: 5.6291)
+(epoch 92) (batch 0/31) action_loss (train): 0.0129 (100pt moving_avg: 0.0129) (avg: 0.0129)
+(epoch 92) (batch 0/31) action_waypts_cos_sim (train): 0.9394 (100pt moving_avg: 0.9394) (avg: 0.9394)
+(epoch 92) (batch 0/31) multi_action_waypts_cos_sim (train): 0.9368 (100pt moving_avg: 0.9368) (avg: 0.9368)
+(epoch 92) (batch 0/31) total_loss (train): 0.0346 (100pt moving_avg: 0.0346) (avg: 0.0346)
+(epoch 92) (batch 0/31) action_orien_cos_sim (train): 0.9747 (100pt moving_avg: 0.9747) (avg: 0.9747)
+(epoch 92) (batch 0/31) multi_action_orien_cos_sim (train): 0.9747 (100pt moving_avg: 0.9747) (avg: 0.9747)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 92: 100%|██████████████████████████████████████████████████████████████| 32/32 [01:19<00:00,  2.48s/it]
+Start waymo_vint_test ViNT Testing Epoch 92/119
+Evaluating waymo_vint_test for epoch 92: 100%|██████████████████████████████████████████| 2/2 [00:31<00:00, 15.52s/it]
+(epoch 92) dist_loss (waymo_vint_test) 43.04048538208008
+(epoch 92) action_loss (waymo_vint_test) 1.841439664363861
+(epoch 92) action_waypts_cos_sim (waymo_vint_test) 0.9611242115497589
+(epoch 92) multi_action_waypts_cos_sim (waymo_vint_test) 0.965263843536377
+(epoch 92) total_loss (waymo_vint_test) 1.1359222531318665
+(epoch 92) action_orien_cos_sim (waymo_vint_test) 0.9749407172203064
+(epoch 92) multi_action_orien_cos_sim (waymo_vint_test) 0.9749407172203064
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 93/119
+Training epoch 93:   0%|                                                                       | 0/32 [00:00<?, ?it/s](epoch 93) (batch 0/31) dist_loss (train): 9.0677 (100pt moving_avg: 9.0677) (avg: 9.0677)
+(epoch 93) (batch 0/31) action_loss (train): 0.0225 (100pt moving_avg: 0.0225) (avg: 0.0225)
+(epoch 93) (batch 0/31) action_waypts_cos_sim (train): 0.9788 (100pt moving_avg: 0.9788) (avg: 0.9788)
+(epoch 93) (batch 0/31) multi_action_waypts_cos_sim (train): 0.9785 (100pt moving_avg: 0.9785) (avg: 0.9785)
+(epoch 93) (batch 0/31) total_loss (train): 0.0566 (100pt moving_avg: 0.0566) (avg: 0.0566)
+(epoch 93) (batch 0/31) action_orien_cos_sim (train): 0.9791 (100pt moving_avg: 0.9791) (avg: 0.9791)
+(epoch 93) (batch 0/31) multi_action_orien_cos_sim (train): 0.9791 (100pt moving_avg: 0.9791) (avg: 0.9791)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 93: 100%|██████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.36s/it]
+Start waymo_vint_test ViNT Testing Epoch 93/119
+Evaluating waymo_vint_test for epoch 93: 100%|██████████████████████████████████████████| 2/2 [00:32<00:00, 16.19s/it]
+(epoch 93) dist_loss (waymo_vint_test) 30.899816513061523
+(epoch 93) action_loss (waymo_vint_test) 1.787052869796753
+(epoch 93) action_waypts_cos_sim (waymo_vint_test) 0.9339956641197205
+(epoch 93) multi_action_waypts_cos_sim (waymo_vint_test) 0.9415647089481354
+(epoch 93) total_loss (waymo_vint_test) 1.0480255484580994
+(epoch 93) action_orien_cos_sim (waymo_vint_test) 0.9793805778026581
+(epoch 93) multi_action_orien_cos_sim (waymo_vint_test) 0.9793805181980133
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 94/119
+Training epoch 94:   0%|                                                                       | 0/32 [00:00<?, ?it/s](epoch 94) (batch 0/31) dist_loss (train): 4.6504 (100pt moving_avg: 4.6504) (avg: 4.6504)
+(epoch 94) (batch 0/31) action_loss (train): 0.0122 (100pt moving_avg: 0.0122) (avg: 0.0122)
+(epoch 94) (batch 0/31) action_waypts_cos_sim (train): 0.8288 (100pt moving_avg: 0.8288) (avg: 0.8288)
+(epoch 94) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8278 (100pt moving_avg: 0.8278) (avg: 0.8278)
+(epoch 94) (batch 0/31) total_loss (train): 0.0293 (100pt moving_avg: 0.0293) (avg: 0.0293)
+(epoch 94) (batch 0/31) action_orien_cos_sim (train): 0.9749 (100pt moving_avg: 0.9749) (avg: 0.9749)
+(epoch 94) (batch 0/31) multi_action_orien_cos_sim (train): 0.9749 (100pt moving_avg: 0.9749) (avg: 0.9749)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 94: 100%|██████████████████████████████████████████████████████████████| 32/32 [01:16<00:00,  2.40s/it]
+Start waymo_vint_test ViNT Testing Epoch 94/119
+Evaluating waymo_vint_test for epoch 94: 100%|██████████████████████████████████████████| 2/2 [00:32<00:00, 16.15s/it]
+(epoch 94) dist_loss (waymo_vint_test) 34.048208236694336
+(epoch 94) action_loss (waymo_vint_test) 2.168680191040039
+(epoch 94) action_waypts_cos_sim (waymo_vint_test) 0.9168578684329987
+(epoch 94) multi_action_waypts_cos_sim (waymo_vint_test) 0.9275653660297394
+(epoch 94) total_loss (waymo_vint_test) 1.2545811533927917
+(epoch 94) action_orien_cos_sim (waymo_vint_test) 0.9782220125198364
+(epoch 94) multi_action_orien_cos_sim (waymo_vint_test) 0.9782218635082245
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 95/119
+Training epoch 95:   0%|                                                                       | 0/32 [00:00<?, ?it/s](epoch 95) (batch 0/31) dist_loss (train): 2.7534 (100pt moving_avg: 2.7534) (avg: 2.7534)
+(epoch 95) (batch 0/31) action_loss (train): 0.0122 (100pt moving_avg: 0.0122) (avg: 0.0122)
+(epoch 95) (batch 0/31) action_waypts_cos_sim (train): 0.8277 (100pt moving_avg: 0.8277) (avg: 0.8277)
+(epoch 95) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8207 (100pt moving_avg: 0.8207) (avg: 0.8207)
+(epoch 95) (batch 0/31) total_loss (train): 0.0199 (100pt moving_avg: 0.0199) (avg: 0.0199)
+(epoch 95) (batch 0/31) action_orien_cos_sim (train): 0.9768 (100pt moving_avg: 0.9768) (avg: 0.9768)
+(epoch 95) (batch 0/31) multi_action_orien_cos_sim (train): 0.9768 (100pt moving_avg: 0.9768) (avg: 0.9768)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 95: 100%|██████████████████████████████████████████████████████████████| 32/32 [01:16<00:00,  2.40s/it]
+Start waymo_vint_test ViNT Testing Epoch 95/119
+Evaluating waymo_vint_test for epoch 95: 100%|██████████████████████████████████████████| 2/2 [00:30<00:00, 15.47s/it]
+(epoch 95) dist_loss (waymo_vint_test) 24.778579711914062
+(epoch 95) action_loss (waymo_vint_test) 2.0402883291244507
+(epoch 95) action_waypts_cos_sim (waymo_vint_test) 0.892840564250946
+(epoch 95) multi_action_waypts_cos_sim (waymo_vint_test) 0.8987341821193695
+(epoch 95) total_loss (waymo_vint_test) 1.1440370380878448
+(epoch 95) action_orien_cos_sim (waymo_vint_test) 0.9786652624607086
+(epoch 95) multi_action_orien_cos_sim (waymo_vint_test) 0.9786651730537415
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 96/119
+Training epoch 96:   0%|                                                                       | 0/32 [00:00<?, ?it/s](epoch 96) (batch 0/31) dist_loss (train): 2.7728 (100pt moving_avg: 2.7728) (avg: 2.7728)
+(epoch 96) (batch 0/31) action_loss (train): 0.0089 (100pt moving_avg: 0.0089) (avg: 0.0089)
+(epoch 96) (batch 0/31) action_waypts_cos_sim (train): 0.8414 (100pt moving_avg: 0.8414) (avg: 0.8414)
+(epoch 96) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8494 (100pt moving_avg: 0.8494) (avg: 0.8494)
+(epoch 96) (batch 0/31) total_loss (train): 0.0183 (100pt moving_avg: 0.0183) (avg: 0.0183)
+(epoch 96) (batch 0/31) action_orien_cos_sim (train): 0.9776 (100pt moving_avg: 0.9776) (avg: 0.9776)
+(epoch 96) (batch 0/31) multi_action_orien_cos_sim (train): 0.9776 (100pt moving_avg: 0.9776) (avg: 0.9776)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 96: 100%|██████████████████████████████████████████████████████████████| 32/32 [01:16<00:00,  2.40s/it]
+Start waymo_vint_test ViNT Testing Epoch 96/119
+Evaluating waymo_vint_test for epoch 96: 100%|██████████████████████████████████████████| 2/2 [00:30<00:00, 15.48s/it]
+(epoch 96) dist_loss (waymo_vint_test) 23.468860626220703
+(epoch 96) action_loss (waymo_vint_test) 2.3173564672470093
+(epoch 96) action_waypts_cos_sim (waymo_vint_test) 0.8563796579837799
+(epoch 96) multi_action_waypts_cos_sim (waymo_vint_test) 0.8621723055839539
+(epoch 96) total_loss (waymo_vint_test) 1.2760225534439087
+(epoch 96) action_orien_cos_sim (waymo_vint_test) 0.9802866578102112
+(epoch 96) multi_action_orien_cos_sim (waymo_vint_test) 0.980286568403244
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 97/119
+Training epoch 97:   0%|                                                                       | 0/32 [00:00<?, ?it/s](epoch 97) (batch 0/31) dist_loss (train): 3.451 (100pt moving_avg: 3.451) (avg: 3.451)
+(epoch 97) (batch 0/31) action_loss (train): 0.0082 (100pt moving_avg: 0.0082) (avg: 0.0082)
+(epoch 97) (batch 0/31) action_waypts_cos_sim (train): 0.9002 (100pt moving_avg: 0.9002) (avg: 0.9002)
+(epoch 97) (batch 0/31) multi_action_waypts_cos_sim (train): 0.9066 (100pt moving_avg: 0.9066) (avg: 0.9066)
+(epoch 97) (batch 0/31) total_loss (train): 0.0213 (100pt moving_avg: 0.0213) (avg: 0.0213)
+(epoch 97) (batch 0/31) action_orien_cos_sim (train): 0.9809 (100pt moving_avg: 0.9809) (avg: 0.9809)
+(epoch 97) (batch 0/31) multi_action_orien_cos_sim (train): 0.9809 (100pt moving_avg: 0.9809) (avg: 0.9809)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 97: 100%|██████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.36s/it]
+Start waymo_vint_test ViNT Testing Epoch 97/119
+Evaluating waymo_vint_test for epoch 97: 100%|██████████████████████████████████████████| 2/2 [00:31<00:00, 15.98s/it]
+(epoch 97) dist_loss (waymo_vint_test) 27.89894676208496
+(epoch 97) action_loss (waymo_vint_test) 2.191036105155945
+(epoch 97) action_waypts_cos_sim (waymo_vint_test) 0.957041472196579
+(epoch 97) multi_action_waypts_cos_sim (waymo_vint_test) 0.9517079889774323
+(epoch 97) total_loss (waymo_vint_test) 1.2350127696990967
+(epoch 97) action_orien_cos_sim (waymo_vint_test) 0.9719821214675903
+(epoch 97) multi_action_orien_cos_sim (waymo_vint_test) 0.9719820618629456
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 98/119
+Training epoch 98:   0%|                                                                       | 0/32 [00:00<?, ?it/s](epoch 98) (batch 0/31) dist_loss (train): 1.9949 (100pt moving_avg: 1.9949) (avg: 1.9949)
+(epoch 98) (batch 0/31) action_loss (train): 0.0103 (100pt moving_avg: 0.0103) (avg: 0.0103)
+(epoch 98) (batch 0/31) action_waypts_cos_sim (train): 0.8191 (100pt moving_avg: 0.8191) (avg: 0.8191)
+(epoch 98) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8296 (100pt moving_avg: 0.8296) (avg: 0.8296)
+(epoch 98) (batch 0/31) total_loss (train): 0.0151 (100pt moving_avg: 0.0151) (avg: 0.0151)
+(epoch 98) (batch 0/31) action_orien_cos_sim (train): 0.9767 (100pt moving_avg: 0.9767) (avg: 0.9767)
+(epoch 98) (batch 0/31) multi_action_orien_cos_sim (train): 0.9767 (100pt moving_avg: 0.9767) (avg: 0.9767)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 98: 100%|██████████████████████████████████████████████████████████████| 32/32 [01:16<00:00,  2.40s/it]
+Start waymo_vint_test ViNT Testing Epoch 98/119
+Evaluating waymo_vint_test for epoch 98: 100%|██████████████████████████████████████████| 2/2 [00:31<00:00, 15.92s/it]
+(epoch 98) dist_loss (waymo_vint_test) 24.882603645324707
+(epoch 98) action_loss (waymo_vint_test) 1.5738779306411743
+(epoch 98) action_waypts_cos_sim (waymo_vint_test) 0.9644885063171387
+(epoch 98) multi_action_waypts_cos_sim (waymo_vint_test) 0.9717421233654022
+(epoch 98) total_loss (waymo_vint_test) 0.9113519787788391
+(epoch 98) action_orien_cos_sim (waymo_vint_test) 0.9774595201015472
+(epoch 98) multi_action_orien_cos_sim (waymo_vint_test) 0.9774594604969025
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 99/119
+Training epoch 99:   0%|                                                                       | 0/32 [00:00<?, ?it/s](epoch 99) (batch 0/31) dist_loss (train): 2.5589 (100pt moving_avg: 2.5589) (avg: 2.5589)
+(epoch 99) (batch 0/31) action_loss (train): 0.0053 (100pt moving_avg: 0.0053) (avg: 0.0053)
+(epoch 99) (batch 0/31) action_waypts_cos_sim (train): 0.8789 (100pt moving_avg: 0.8789) (avg: 0.8789)
+(epoch 99) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8644 (100pt moving_avg: 0.8644) (avg: 0.8644)
+(epoch 99) (batch 0/31) total_loss (train): 0.0154 (100pt moving_avg: 0.0154) (avg: 0.0154)
+(epoch 99) (batch 0/31) action_orien_cos_sim (train): 0.9791 (100pt moving_avg: 0.9791) (avg: 0.9791)
+(epoch 99) (batch 0/31) multi_action_orien_cos_sim (train): 0.9791 (100pt moving_avg: 0.9791) (avg: 0.9791)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 99: 100%|██████████████████████████████████████████████████████████████| 32/32 [01:14<00:00,  2.34s/it]
+Start waymo_vint_test ViNT Testing Epoch 99/119
+Evaluating waymo_vint_test for epoch 99: 100%|██████████████████████████████████████████| 2/2 [00:32<00:00, 16.11s/it]
+(epoch 99) dist_loss (waymo_vint_test) 22.242846488952637
+(epoch 99) action_loss (waymo_vint_test) 1.876228928565979
+(epoch 99) action_waypts_cos_sim (waymo_vint_test) 0.8384256362915039
+(epoch 99) multi_action_waypts_cos_sim (waymo_vint_test) 0.8459613919258118
+(epoch 99) total_loss (waymo_vint_test) 1.0493286848068237
+(epoch 99) action_orien_cos_sim (waymo_vint_test) 0.9777303040027618
+(epoch 99) multi_action_orien_cos_sim (waymo_vint_test) 0.9777302145957947
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 100/119
+Training epoch 100:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 100) (batch 0/31) dist_loss (train): 1.5254 (100pt moving_avg: 1.5254) (avg: 1.5254)
+(epoch 100) (batch 0/31) action_loss (train): 0.0063 (100pt moving_avg: 0.0063) (avg: 0.0063)
+(epoch 100) (batch 0/31) action_waypts_cos_sim (train): 0.8121 (100pt moving_avg: 0.8121) (avg: 0.8121)
+(epoch 100) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8098 (100pt moving_avg: 0.8098) (avg: 0.8098)
+(epoch 100) (batch 0/31) total_loss (train): 0.0108 (100pt moving_avg: 0.0108) (avg: 0.0108)
+(epoch 100) (batch 0/31) action_orien_cos_sim (train): 0.9809 (100pt moving_avg: 0.9809) (avg: 0.9809)
+(epoch 100) (batch 0/31) multi_action_orien_cos_sim (train): 0.9809 (100pt moving_avg: 0.9809) (avg: 0.9809)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 100: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:18<00:00,  2.46s/it]
+Start waymo_vint_test ViNT Testing Epoch 100/119
+Evaluating waymo_vint_test for epoch 100: 100%|█████████████████████████████████████████| 2/2 [00:31<00:00, 15.95s/it]
+(epoch 100) dist_loss (waymo_vint_test) 23.04050350189209
+(epoch 100) action_loss (waymo_vint_test) 1.3801947236061096
+(epoch 100) action_waypts_cos_sim (waymo_vint_test) 0.8737140893936157
+(epoch 100) multi_action_waypts_cos_sim (waymo_vint_test) 0.8772329688072205
+(epoch 100) total_loss (waymo_vint_test) 0.8052998781204224
+(epoch 100) action_orien_cos_sim (waymo_vint_test) 0.9716336131095886
+(epoch 100) multi_action_orien_cos_sim (waymo_vint_test) 0.9716335833072662
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 101/119
+Training epoch 101:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 101) (batch 0/31) dist_loss (train): 1.3057 (100pt moving_avg: 1.3057) (avg: 1.3057)
+(epoch 101) (batch 0/31) action_loss (train): 0.008 (100pt moving_avg: 0.008) (avg: 0.008)
+(epoch 101) (batch 0/31) action_waypts_cos_sim (train): 0.8739 (100pt moving_avg: 0.8739) (avg: 0.8739)
+(epoch 101) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8416 (100pt moving_avg: 0.8416) (avg: 0.8416)
+(epoch 101) (batch 0/31) total_loss (train): 0.0105 (100pt moving_avg: 0.0105) (avg: 0.0105)
+(epoch 101) (batch 0/31) action_orien_cos_sim (train): 0.9784 (100pt moving_avg: 0.9784) (avg: 0.9784)
+(epoch 101) (batch 0/31) multi_action_orien_cos_sim (train): 0.9784 (100pt moving_avg: 0.9784) (avg: 0.9784)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 101: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.37s/it]
+Start waymo_vint_test ViNT Testing Epoch 101/119
+Evaluating waymo_vint_test for epoch 101: 100%|█████████████████████████████████████████| 2/2 [00:32<00:00, 16.14s/it]
+(epoch 101) dist_loss (waymo_vint_test) 18.05702495574951
+(epoch 101) action_loss (waymo_vint_test) 1.8752747178077698
+(epoch 101) action_waypts_cos_sim (waymo_vint_test) 0.9022411704063416
+(epoch 101) multi_action_waypts_cos_sim (waymo_vint_test) 0.9118929505348206
+(epoch 101) total_loss (waymo_vint_test) 1.0279224514961243
+(epoch 101) action_orien_cos_sim (waymo_vint_test) 0.9787058532238007
+(epoch 101) multi_action_orien_cos_sim (waymo_vint_test) 0.9787058234214783
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 102/119
+Training epoch 102:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 102) (batch 0/31) dist_loss (train): 2.8492 (100pt moving_avg: 2.8492) (avg: 2.8492)
+(epoch 102) (batch 0/31) action_loss (train): 0.0065 (100pt moving_avg: 0.0065) (avg: 0.0065)
+(epoch 102) (batch 0/31) action_waypts_cos_sim (train): 0.8842 (100pt moving_avg: 0.8842) (avg: 0.8842)
+(epoch 102) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8671 (100pt moving_avg: 0.8671) (avg: 0.8671)
+(epoch 102) (batch 0/31) total_loss (train): 0.0175 (100pt moving_avg: 0.0175) (avg: 0.0175)
+(epoch 102) (batch 0/31) action_orien_cos_sim (train): 0.9809 (100pt moving_avg: 0.9809) (avg: 0.9809)
+(epoch 102) (batch 0/31) multi_action_orien_cos_sim (train): 0.9809 (100pt moving_avg: 0.9809) (avg: 0.9809)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 102: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.36s/it]
+Start waymo_vint_test ViNT Testing Epoch 102/119
+Evaluating waymo_vint_test for epoch 102: 100%|█████████████████████████████████████████| 2/2 [00:31<00:00, 15.84s/it]
+(epoch 102) dist_loss (waymo_vint_test) 21.787535667419434
+(epoch 102) action_loss (waymo_vint_test) 1.7306532263755798
+(epoch 102) action_waypts_cos_sim (waymo_vint_test) 0.8982647359371185
+(epoch 102) multi_action_waypts_cos_sim (waymo_vint_test) 0.9000517427921295
+(epoch 102) total_loss (waymo_vint_test) 0.9742642939090729
+(epoch 102) action_orien_cos_sim (waymo_vint_test) 0.9716285467147827
+(epoch 102) multi_action_orien_cos_sim (waymo_vint_test) 0.9716284871101379
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 103/119
+Training epoch 103:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 103) (batch 0/31) dist_loss (train): 1.821 (100pt moving_avg: 1.821) (avg: 1.821)
+(epoch 103) (batch 0/31) action_loss (train): 0.0033 (100pt moving_avg: 0.0033) (avg: 0.0033)
+(epoch 103) (batch 0/31) action_waypts_cos_sim (train): 0.8939 (100pt moving_avg: 0.8939) (avg: 0.8939)
+(epoch 103) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8909 (100pt moving_avg: 0.8909) (avg: 0.8909)
+(epoch 103) (batch 0/31) total_loss (train): 0.0107 (100pt moving_avg: 0.0107) (avg: 0.0107)
+(epoch 103) (batch 0/31) action_orien_cos_sim (train): 0.9766 (100pt moving_avg: 0.9766) (avg: 0.9766)
+(epoch 103) (batch 0/31) multi_action_orien_cos_sim (train): 0.9766 (100pt moving_avg: 0.9766) (avg: 0.9766)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 103: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.36s/it]
+Start waymo_vint_test ViNT Testing Epoch 103/119
+Evaluating waymo_vint_test for epoch 103: 100%|█████████████████████████████████████████| 2/2 [00:32<00:00, 16.23s/it]
+(epoch 103) dist_loss (waymo_vint_test) 17.421438217163086
+(epoch 103) action_loss (waymo_vint_test) 1.5624977350234985
+(epoch 103) action_waypts_cos_sim (waymo_vint_test) 0.8699658513069153
+(epoch 103) multi_action_waypts_cos_sim (waymo_vint_test) 0.8667892217636108
+(epoch 103) total_loss (waymo_vint_test) 0.8683560490608215
+(epoch 103) action_orien_cos_sim (waymo_vint_test) 0.9793796837329865
+(epoch 103) multi_action_orien_cos_sim (waymo_vint_test) 0.9793795645236969
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 104/119
+Training epoch 104:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 104) (batch 0/31) dist_loss (train): 2.3168 (100pt moving_avg: 2.3168) (avg: 2.3168)
+(epoch 104) (batch 0/31) action_loss (train): 0.004 (100pt moving_avg: 0.004) (avg: 0.004)
+(epoch 104) (batch 0/31) action_waypts_cos_sim (train): 0.8465 (100pt moving_avg: 0.8465) (avg: 0.8465)
+(epoch 104) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8464 (100pt moving_avg: 0.8464) (avg: 0.8464)
+(epoch 104) (batch 0/31) total_loss (train): 0.0136 (100pt moving_avg: 0.0136) (avg: 0.0136)
+(epoch 104) (batch 0/31) action_orien_cos_sim (train): 0.9674 (100pt moving_avg: 0.9674) (avg: 0.9674)
+(epoch 104) (batch 0/31) multi_action_orien_cos_sim (train): 0.9674 (100pt moving_avg: 0.9674) (avg: 0.9674)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 104: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:17<00:00,  2.43s/it]
+Start waymo_vint_test ViNT Testing Epoch 104/119
+Evaluating waymo_vint_test for epoch 104: 100%|█████████████████████████████████████████| 2/2 [00:32<00:00, 16.17s/it]
+(epoch 104) dist_loss (waymo_vint_test) 19.037095069885254
+(epoch 104) action_loss (waymo_vint_test) 1.5165204405784607
+(epoch 104) action_waypts_cos_sim (waymo_vint_test) 0.8506409227848053
+(epoch 104) multi_action_waypts_cos_sim (waymo_vint_test) 0.8606872856616974
+(epoch 104) total_loss (waymo_vint_test) 0.8534457087516785
+(epoch 104) action_orien_cos_sim (waymo_vint_test) 0.9799302220344543
+(epoch 104) multi_action_orien_cos_sim (waymo_vint_test) 0.9799301326274872
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 105/119
+Training epoch 105:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 105) (batch 0/31) dist_loss (train): 3.8571 (100pt moving_avg: 3.8571) (avg: 3.8571)
+(epoch 105) (batch 0/31) action_loss (train): 0.0074 (100pt moving_avg: 0.0074) (avg: 0.0074)
+(epoch 105) (batch 0/31) action_waypts_cos_sim (train): 0.8888 (100pt moving_avg: 0.8888) (avg: 0.8888)
+(epoch 105) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8909 (100pt moving_avg: 0.8909) (avg: 0.8909)
+(epoch 105) (batch 0/31) total_loss (train): 0.023 (100pt moving_avg: 0.023) (avg: 0.023)
+(epoch 105) (batch 0/31) action_orien_cos_sim (train): 0.9791 (100pt moving_avg: 0.9791) (avg: 0.9791)
+(epoch 105) (batch 0/31) multi_action_orien_cos_sim (train): 0.9791 (100pt moving_avg: 0.9791) (avg: 0.9791)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 105: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.37s/it]
+Start waymo_vint_test ViNT Testing Epoch 105/119
+Evaluating waymo_vint_test for epoch 105: 100%|█████████████████████████████████████████| 2/2 [00:31<00:00, 15.86s/it]
+(epoch 105) dist_loss (waymo_vint_test) 17.394969940185547
+(epoch 105) action_loss (waymo_vint_test) 1.2821262180805206
+(epoch 105) action_waypts_cos_sim (waymo_vint_test) 0.9034265577793121
+(epoch 105) multi_action_waypts_cos_sim (waymo_vint_test) 0.8956279754638672
+(epoch 105) total_loss (waymo_vint_test) 0.72803795337677
+(epoch 105) action_orien_cos_sim (waymo_vint_test) 0.9793597459793091
+(epoch 105) multi_action_orien_cos_sim (waymo_vint_test) 0.9793597161769867
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 106/119
+Training epoch 106:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 106) (batch 0/31) dist_loss (train): 7.2089 (100pt moving_avg: 7.2089) (avg: 7.2089)
+(epoch 106) (batch 0/31) action_loss (train): 0.0068 (100pt moving_avg: 0.0068) (avg: 0.0068)
+(epoch 106) (batch 0/31) action_waypts_cos_sim (train): 0.7797 (100pt moving_avg: 0.7797) (avg: 0.7797)
+(epoch 106) (batch 0/31) multi_action_waypts_cos_sim (train): 0.7778 (100pt moving_avg: 0.7778) (avg: 0.7778)
+(epoch 106) (batch 0/31) total_loss (train): 0.0394 (100pt moving_avg: 0.0394) (avg: 0.0394)
+(epoch 106) (batch 0/31) action_orien_cos_sim (train): 0.9809 (100pt moving_avg: 0.9809) (avg: 0.9809)
+(epoch 106) (batch 0/31) multi_action_orien_cos_sim (train): 0.9809 (100pt moving_avg: 0.9809) (avg: 0.9809)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 106: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:16<00:00,  2.39s/it]
+Start waymo_vint_test ViNT Testing Epoch 106/119
+Evaluating waymo_vint_test for epoch 106: 100%|█████████████████████████████████████████| 2/2 [00:31<00:00, 15.58s/it]
+(epoch 106) dist_loss (waymo_vint_test) 23.25342559814453
+(epoch 106) action_loss (waymo_vint_test) 1.8016578555107117
+(epoch 106) action_waypts_cos_sim (waymo_vint_test) 0.8899365961551666
+(epoch 106) multi_action_waypts_cos_sim (waymo_vint_test) 0.887396514415741
+(epoch 106) total_loss (waymo_vint_test) 1.0170960426330566
+(epoch 106) action_orien_cos_sim (waymo_vint_test) 0.9761291146278381
+(epoch 106) multi_action_orien_cos_sim (waymo_vint_test) 0.9761290550231934
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 107/119
+Training epoch 107:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 107) (batch 0/31) dist_loss (train): 2.7785 (100pt moving_avg: 2.7785) (avg: 2.7785)
+(epoch 107) (batch 0/31) action_loss (train): 0.0049 (100pt moving_avg: 0.0049) (avg: 0.0049)
+(epoch 107) (batch 0/31) action_waypts_cos_sim (train): 0.7386 (100pt moving_avg: 0.7386) (avg: 0.7386)
+(epoch 107) (batch 0/31) multi_action_waypts_cos_sim (train): 0.7127 (100pt moving_avg: 0.7127) (avg: 0.7127)
+(epoch 107) (batch 0/31) total_loss (train): 0.0164 (100pt moving_avg: 0.0164) (avg: 0.0164)
+(epoch 107) (batch 0/31) action_orien_cos_sim (train): 0.9797 (100pt moving_avg: 0.9797) (avg: 0.9797)
+(epoch 107) (batch 0/31) multi_action_orien_cos_sim (train): 0.9797 (100pt moving_avg: 0.9797) (avg: 0.9797)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 107: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.35s/it]
+Start waymo_vint_test ViNT Testing Epoch 107/119
+Evaluating waymo_vint_test for epoch 107: 100%|█████████████████████████████████████████| 2/2 [00:31<00:00, 15.59s/it]
+(epoch 107) dist_loss (waymo_vint_test) 20.478676795959473
+(epoch 107) action_loss (waymo_vint_test) 1.6457315683364868
+(epoch 107) action_waypts_cos_sim (waymo_vint_test) 0.840524435043335
+(epoch 107) multi_action_waypts_cos_sim (waymo_vint_test) 0.8449233770370483
+(epoch 107) total_loss (waymo_vint_test) 0.92525914311409
+(epoch 107) action_orien_cos_sim (waymo_vint_test) 0.9754521250724792
+(epoch 107) multi_action_orien_cos_sim (waymo_vint_test) 0.9754520952701569
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 108/119
+Training epoch 108:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 108) (batch 0/31) dist_loss (train): 1.4351 (100pt moving_avg: 1.4351) (avg: 1.4351)
+(epoch 108) (batch 0/31) action_loss (train): 0.0054 (100pt moving_avg: 0.0054) (avg: 0.0054)
+(epoch 108) (batch 0/31) action_waypts_cos_sim (train): 0.8183 (100pt moving_avg: 0.8183) (avg: 0.8183)
+(epoch 108) (batch 0/31) multi_action_waypts_cos_sim (train): 0.827 (100pt moving_avg: 0.827) (avg: 0.827)
+(epoch 108) (batch 0/31) total_loss (train): 0.0099 (100pt moving_avg: 0.0099) (avg: 0.0099)
+(epoch 108) (batch 0/31) action_orien_cos_sim (train): 0.9784 (100pt moving_avg: 0.9784) (avg: 0.9784)
+(epoch 108) (batch 0/31) multi_action_orien_cos_sim (train): 0.9784 (100pt moving_avg: 0.9784) (avg: 0.9784)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 108: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:16<00:00,  2.39s/it]
+Start waymo_vint_test ViNT Testing Epoch 108/119
+Evaluating waymo_vint_test for epoch 108: 100%|█████████████████████████████████████████| 2/2 [00:32<00:00, 16.09s/it]
+(epoch 108) dist_loss (waymo_vint_test) 17.900554180145264
+(epoch 108) action_loss (waymo_vint_test) 2.466056227684021
+(epoch 108) action_waypts_cos_sim (waymo_vint_test) 0.9501066207885742
+(epoch 108) multi_action_waypts_cos_sim (waymo_vint_test) 0.9613501727581024
+(epoch 108) total_loss (waymo_vint_test) 1.3225308656692505
+(epoch 108) action_orien_cos_sim (waymo_vint_test) 0.9775910675525665
+(epoch 108) multi_action_orien_cos_sim (waymo_vint_test) 0.9775910377502441
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 109/119
+Training epoch 109:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 109) (batch 0/31) dist_loss (train): 2.6662 (100pt moving_avg: 2.6662) (avg: 2.6662)
+(epoch 109) (batch 0/31) action_loss (train): 0.0066 (100pt moving_avg: 0.0066) (avg: 0.0066)
+(epoch 109) (batch 0/31) action_waypts_cos_sim (train): 0.8606 (100pt moving_avg: 0.8606) (avg: 0.8606)
+(epoch 109) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8647 (100pt moving_avg: 0.8647) (avg: 0.8647)
+(epoch 109) (batch 0/31) total_loss (train): 0.0166 (100pt moving_avg: 0.0166) (avg: 0.0166)
+(epoch 109) (batch 0/31) action_orien_cos_sim (train): 0.9776 (100pt moving_avg: 0.9776) (avg: 0.9776)
+(epoch 109) (batch 0/31) multi_action_orien_cos_sim (train): 0.9776 (100pt moving_avg: 0.9776) (avg: 0.9776)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 109: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.35s/it]
+Start waymo_vint_test ViNT Testing Epoch 109/119
+Evaluating waymo_vint_test for epoch 109: 100%|█████████████████████████████████████████| 2/2 [00:31<00:00, 15.95s/it]
+(epoch 109) dist_loss (waymo_vint_test) 22.892144203186035
+(epoch 109) action_loss (waymo_vint_test) 1.401929259300232
+(epoch 109) action_waypts_cos_sim (waymo_vint_test) 0.9070894122123718
+(epoch 109) multi_action_waypts_cos_sim (waymo_vint_test) 0.9125963747501373
+(epoch 109) total_loss (waymo_vint_test) 0.8154253661632538
+(epoch 109) action_orien_cos_sim (waymo_vint_test) 0.9799171984195709
+(epoch 109) multi_action_orien_cos_sim (waymo_vint_test) 0.9799171686172485
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 110/119
+Training epoch 110:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 110) (batch 0/31) dist_loss (train): 1.1573 (100pt moving_avg: 1.1573) (avg: 1.1573)
+(epoch 110) (batch 0/31) action_loss (train): 0.004 (100pt moving_avg: 0.004) (avg: 0.004)
+(epoch 110) (batch 0/31) action_waypts_cos_sim (train): 0.7743 (100pt moving_avg: 0.7743) (avg: 0.7743)
+(epoch 110) (batch 0/31) multi_action_waypts_cos_sim (train): 0.7554 (100pt moving_avg: 0.7554) (avg: 0.7554)
+(epoch 110) (batch 0/31) total_loss (train): 0.0078 (100pt moving_avg: 0.0078) (avg: 0.0078)
+(epoch 110) (batch 0/31) action_orien_cos_sim (train): 0.9768 (100pt moving_avg: 0.9768) (avg: 0.9768)
+(epoch 110) (batch 0/31) multi_action_orien_cos_sim (train): 0.9768 (100pt moving_avg: 0.9768) (avg: 0.9768)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 110: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:13<00:00,  2.29s/it]
+Start waymo_vint_test ViNT Testing Epoch 110/119
+Evaluating waymo_vint_test for epoch 110: 100%|█████████████████████████████████████████| 2/2 [00:31<00:00, 15.70s/it]
+(epoch 110) dist_loss (waymo_vint_test) 23.823612213134766
+(epoch 110) action_loss (waymo_vint_test) 1.4708884954452515
+(epoch 110) action_waypts_cos_sim (waymo_vint_test) 0.9336462020874023
+(epoch 110) multi_action_waypts_cos_sim (waymo_vint_test) 0.9216220080852509
+(epoch 110) total_loss (waymo_vint_test) 0.8545623123645782
+(epoch 110) action_orien_cos_sim (waymo_vint_test) 0.9767992198467255
+(epoch 110) multi_action_orien_cos_sim (waymo_vint_test) 0.9767992198467255
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 111/119
+Training epoch 111:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 111) (batch 0/31) dist_loss (train): 2.1494 (100pt moving_avg: 2.1494) (avg: 2.1494)
+(epoch 111) (batch 0/31) action_loss (train): 0.0092 (100pt moving_avg: 0.0092) (avg: 0.0092)
+(epoch 111) (batch 0/31) action_waypts_cos_sim (train): 0.9456 (100pt moving_avg: 0.9456) (avg: 0.9456)
+(epoch 111) (batch 0/31) multi_action_waypts_cos_sim (train): 0.9483 (100pt moving_avg: 0.9483) (avg: 0.9483)
+(epoch 111) (batch 0/31) total_loss (train): 0.0154 (100pt moving_avg: 0.0154) (avg: 0.0154)
+(epoch 111) (batch 0/31) action_orien_cos_sim (train): 0.9776 (100pt moving_avg: 0.9776) (avg: 0.9776)
+(epoch 111) (batch 0/31) multi_action_orien_cos_sim (train): 0.9776 (100pt moving_avg: 0.9776) (avg: 0.9776)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 111: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.37s/it]
+Start waymo_vint_test ViNT Testing Epoch 111/119
+Evaluating waymo_vint_test for epoch 111: 100%|█████████████████████████████████████████| 2/2 [00:32<00:00, 16.02s/it]
+(epoch 111) dist_loss (waymo_vint_test) 23.825702667236328
+(epoch 111) action_loss (waymo_vint_test) 2.4097611904144287
+(epoch 111) action_waypts_cos_sim (waymo_vint_test) 0.845139741897583
+(epoch 111) multi_action_waypts_cos_sim (waymo_vint_test) 0.8592402338981628
+(epoch 111) total_loss (waymo_vint_test) 1.3240090608596802
+(epoch 111) action_orien_cos_sim (waymo_vint_test) 0.9797208309173584
+(epoch 111) multi_action_orien_cos_sim (waymo_vint_test) 0.9797207415103912
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 112/119
+Training epoch 112:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 112) (batch 0/31) dist_loss (train): 0.6622 (100pt moving_avg: 0.6622) (avg: 0.6622)
+(epoch 112) (batch 0/31) action_loss (train): 0.0031 (100pt moving_avg: 0.0031) (avg: 0.0031)
+(epoch 112) (batch 0/31) action_waypts_cos_sim (train): 0.8688 (100pt moving_avg: 0.8688) (avg: 0.8688)
+(epoch 112) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8425 (100pt moving_avg: 0.8425) (avg: 0.8425)
+(epoch 112) (batch 0/31) total_loss (train): 0.0049 (100pt moving_avg: 0.0049) (avg: 0.0049)
+(epoch 112) (batch 0/31) action_orien_cos_sim (train): 0.9748 (100pt moving_avg: 0.9748) (avg: 0.9748)
+(epoch 112) (batch 0/31) multi_action_orien_cos_sim (train): 0.9748 (100pt moving_avg: 0.9748) (avg: 0.9748)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 112: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:17<00:00,  2.43s/it]
+Start waymo_vint_test ViNT Testing Epoch 112/119
+Evaluating waymo_vint_test for epoch 112: 100%|█████████████████████████████████████████| 2/2 [00:32<00:00, 16.03s/it]
+(epoch 112) dist_loss (waymo_vint_test) 23.561833381652832
+(epoch 112) action_loss (waymo_vint_test) 1.6900292038917542
+(epoch 112) action_waypts_cos_sim (waymo_vint_test) 0.8060696125030518
+(epoch 112) multi_action_waypts_cos_sim (waymo_vint_test) 0.8074916005134583
+(epoch 112) total_loss (waymo_vint_test) 0.9628237783908844
+(epoch 112) action_orien_cos_sim (waymo_vint_test) 0.9759099781513214
+(epoch 112) multi_action_orien_cos_sim (waymo_vint_test) 0.9759098589420319
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 113/119
+Training epoch 113:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 113) (batch 0/31) dist_loss (train): 1.2602 (100pt moving_avg: 1.2602) (avg: 1.2602)
+(epoch 113) (batch 0/31) action_loss (train): 0.0086 (100pt moving_avg: 0.0086) (avg: 0.0086)
+(epoch 113) (batch 0/31) action_waypts_cos_sim (train): 0.9191 (100pt moving_avg: 0.9191) (avg: 0.9191)
+(epoch 113) (batch 0/31) multi_action_waypts_cos_sim (train): 0.9157 (100pt moving_avg: 0.9157) (avg: 0.9157)
+(epoch 113) (batch 0/31) total_loss (train): 0.0106 (100pt moving_avg: 0.0106) (avg: 0.0106)
+(epoch 113) (batch 0/31) action_orien_cos_sim (train): 0.975 (100pt moving_avg: 0.975) (avg: 0.975)
+(epoch 113) (batch 0/31) multi_action_orien_cos_sim (train): 0.975 (100pt moving_avg: 0.975) (avg: 0.975)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 113: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.36s/it]
+Start waymo_vint_test ViNT Testing Epoch 113/119
+Evaluating waymo_vint_test for epoch 113: 100%|█████████████████████████████████████████| 2/2 [00:31<00:00, 15.68s/it]
+(epoch 113) dist_loss (waymo_vint_test) 18.958441257476807
+(epoch 113) action_loss (waymo_vint_test) 1.4297223091125488
+(epoch 113) action_waypts_cos_sim (waymo_vint_test) 0.908328115940094
+(epoch 113) multi_action_waypts_cos_sim (waymo_vint_test) 0.9071128666400909
+(epoch 113) total_loss (waymo_vint_test) 0.8096533715724945
+(epoch 113) action_orien_cos_sim (waymo_vint_test) 0.9803224503993988
+(epoch 113) multi_action_orien_cos_sim (waymo_vint_test) 0.980322390794754
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 114/119
+Training epoch 114:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 114) (batch 0/31) dist_loss (train): 0.9928 (100pt moving_avg: 0.9928) (avg: 0.9928)
+(epoch 114) (batch 0/31) action_loss (train): 0.0035 (100pt moving_avg: 0.0035) (avg: 0.0035)
+(epoch 114) (batch 0/31) action_waypts_cos_sim (train): 0.82 (100pt moving_avg: 0.82) (avg: 0.82)
+(epoch 114) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8064 (100pt moving_avg: 0.8064) (avg: 0.8064)
+(epoch 114) (batch 0/31) total_loss (train): 0.0067 (100pt moving_avg: 0.0067) (avg: 0.0067)
+(epoch 114) (batch 0/31) action_orien_cos_sim (train): 0.9776 (100pt moving_avg: 0.9776) (avg: 0.9776)
+(epoch 114) (batch 0/31) multi_action_orien_cos_sim (train): 0.9776 (100pt moving_avg: 0.9776) (avg: 0.9776)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 114: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:14<00:00,  2.33s/it]
+Start waymo_vint_test ViNT Testing Epoch 114/119
+Evaluating waymo_vint_test for epoch 114: 100%|█████████████████████████████████████████| 2/2 [00:31<00:00, 15.74s/it]
+(epoch 114) dist_loss (waymo_vint_test) 18.178924560546875
+(epoch 114) action_loss (waymo_vint_test) 2.0002681016921997
+(epoch 114) action_waypts_cos_sim (waymo_vint_test) 0.8958969414234161
+(epoch 114) multi_action_waypts_cos_sim (waymo_vint_test) 0.8964875638484955
+(epoch 114) total_loss (waymo_vint_test) 1.0910286605358124
+(epoch 114) action_orien_cos_sim (waymo_vint_test) 0.9787295162677765
+(epoch 114) multi_action_orien_cos_sim (waymo_vint_test) 0.9787294566631317
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 115/119
+Training epoch 115:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 115) (batch 0/31) dist_loss (train): 0.9813 (100pt moving_avg: 0.9813) (avg: 0.9813)
+(epoch 115) (batch 0/31) action_loss (train): 0.0052 (100pt moving_avg: 0.0052) (avg: 0.0052)
+(epoch 115) (batch 0/31) action_waypts_cos_sim (train): 0.928 (100pt moving_avg: 0.928) (avg: 0.928)
+(epoch 115) (batch 0/31) multi_action_waypts_cos_sim (train): 0.9276 (100pt moving_avg: 0.9276) (avg: 0.9276)
+(epoch 115) (batch 0/31) total_loss (train): 0.0075 (100pt moving_avg: 0.0075) (avg: 0.0075)
+(epoch 115) (batch 0/31) action_orien_cos_sim (train): 0.9783 (100pt moving_avg: 0.9783) (avg: 0.9783)
+(epoch 115) (batch 0/31) multi_action_orien_cos_sim (train): 0.9783 (100pt moving_avg: 0.9783) (avg: 0.9783)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 115: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.35s/it]
+Start waymo_vint_test ViNT Testing Epoch 115/119
+Evaluating waymo_vint_test for epoch 115: 100%|█████████████████████████████████████████| 2/2 [00:30<00:00, 15.40s/it]
+(epoch 115) dist_loss (waymo_vint_test) 21.883353233337402
+(epoch 115) action_loss (waymo_vint_test) 1.7522462606430054
+(epoch 115) action_waypts_cos_sim (waymo_vint_test) 0.9285596609115601
+(epoch 115) multi_action_waypts_cos_sim (waymo_vint_test) 0.9255689084529877
+(epoch 115) total_loss (waymo_vint_test) 0.9855398833751678
+(epoch 115) action_orien_cos_sim (waymo_vint_test) 0.9796368181705475
+(epoch 115) multi_action_orien_cos_sim (waymo_vint_test) 0.9796367287635803
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 116/119
+Training epoch 116:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 116) (batch 0/31) dist_loss (train): 0.6814 (100pt moving_avg: 0.6814) (avg: 0.6814)
+(epoch 116) (batch 0/31) action_loss (train): 0.0024 (100pt moving_avg: 0.0024) (avg: 0.0024)
+(epoch 116) (batch 0/31) action_waypts_cos_sim (train): 0.9179 (100pt moving_avg: 0.9179) (avg: 0.9179)
+(epoch 116) (batch 0/31) multi_action_waypts_cos_sim (train): 0.9175 (100pt moving_avg: 0.9175) (avg: 0.9175)
+(epoch 116) (batch 0/31) total_loss (train): 0.0046 (100pt moving_avg: 0.0046) (avg: 0.0046)
+(epoch 116) (batch 0/31) action_orien_cos_sim (train): 0.9791 (100pt moving_avg: 0.9791) (avg: 0.9791)
+(epoch 116) (batch 0/31) multi_action_orien_cos_sim (train): 0.9791 (100pt moving_avg: 0.9791) (avg: 0.9791)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 116: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:16<00:00,  2.39s/it]
+Start waymo_vint_test ViNT Testing Epoch 116/119
+Evaluating waymo_vint_test for epoch 116: 100%|█████████████████████████████████████████| 2/2 [00:32<00:00, 16.12s/it]
+(epoch 116) dist_loss (waymo_vint_test) 23.71425437927246
+(epoch 116) action_loss (waymo_vint_test) 1.8320536613464355
+(epoch 116) action_waypts_cos_sim (waymo_vint_test) 0.83427494764328
+(epoch 116) multi_action_waypts_cos_sim (waymo_vint_test) 0.8326722681522369
+(epoch 116) total_loss (waymo_vint_test) 1.0345980823040009
+(epoch 116) action_orien_cos_sim (waymo_vint_test) 0.9749568402767181
+(epoch 116) multi_action_orien_cos_sim (waymo_vint_test) 0.9749568402767181
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 117/119
+Training epoch 117:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 117) (batch 0/31) dist_loss (train): 1.6131 (100pt moving_avg: 1.6131) (avg: 1.6131)
+(epoch 117) (batch 0/31) action_loss (train): 0.0015 (100pt moving_avg: 0.0015) (avg: 0.0015)
+(epoch 117) (batch 0/31) action_waypts_cos_sim (train): 0.8871 (100pt moving_avg: 0.8871) (avg: 0.8871)
+(epoch 117) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8837 (100pt moving_avg: 0.8837) (avg: 0.8837)
+(epoch 117) (batch 0/31) total_loss (train): 0.0088 (100pt moving_avg: 0.0088) (avg: 0.0088)
+(epoch 117) (batch 0/31) action_orien_cos_sim (train): 0.9782 (100pt moving_avg: 0.9782) (avg: 0.9782)
+(epoch 117) (batch 0/31) multi_action_orien_cos_sim (train): 0.9782 (100pt moving_avg: 0.9782) (avg: 0.9782)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 117: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:18<00:00,  2.47s/it]
+Start waymo_vint_test ViNT Testing Epoch 117/119
+Evaluating waymo_vint_test for epoch 117: 100%|█████████████████████████████████████████| 2/2 [00:32<00:00, 16.06s/it]
+(epoch 117) dist_loss (waymo_vint_test) 25.629207611083984
+(epoch 117) action_loss (waymo_vint_test) 1.5685360431671143
+(epoch 117) action_waypts_cos_sim (waymo_vint_test) 0.8809524178504944
+(epoch 117) multi_action_waypts_cos_sim (waymo_vint_test) 0.8723546266555786
+(epoch 117) total_loss (waymo_vint_test) 0.9124140739440918
+(epoch 117) action_orien_cos_sim (waymo_vint_test) 0.9811038076877594
+(epoch 117) multi_action_orien_cos_sim (waymo_vint_test) 0.981103777885437
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 118/119
+Training epoch 118:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 118) (batch 0/31) dist_loss (train): 1.7985 (100pt moving_avg: 1.7985) (avg: 1.7985)
+(epoch 118) (batch 0/31) action_loss (train): 0.0016 (100pt moving_avg: 0.0016) (avg: 0.0016)
+(epoch 118) (batch 0/31) action_waypts_cos_sim (train): 0.9016 (100pt moving_avg: 0.9016) (avg: 0.9016)
+(epoch 118) (batch 0/31) multi_action_waypts_cos_sim (train): 0.909 (100pt moving_avg: 0.909) (avg: 0.909)
+(epoch 118) (batch 0/31) total_loss (train): 0.0098 (100pt moving_avg: 0.0098) (avg: 0.0098)
+(epoch 118) (batch 0/31) action_orien_cos_sim (train): 0.9703 (100pt moving_avg: 0.9703) (avg: 0.9703)
+(epoch 118) (batch 0/31) multi_action_orien_cos_sim (train): 0.9703 (100pt moving_avg: 0.9703) (avg: 0.9703)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 118: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.35s/it]
+Start waymo_vint_test ViNT Testing Epoch 118/119
+Evaluating waymo_vint_test for epoch 118: 100%|█████████████████████████████████████████| 2/2 [00:31<00:00, 15.56s/it]
+(epoch 118) dist_loss (waymo_vint_test) 24.57077693939209
+(epoch 118) action_loss (waymo_vint_test) 1.4463891983032227
+(epoch 118) action_waypts_cos_sim (waymo_vint_test) 0.9422607421875
+(epoch 118) multi_action_waypts_cos_sim (waymo_vint_test) 0.9434043765068054
+(epoch 118) total_loss (waymo_vint_test) 0.8460484743118286
+(epoch 118) action_orien_cos_sim (waymo_vint_test) 0.9787291586399078
+(epoch 118) multi_action_orien_cos_sim (waymo_vint_test) 0.9787291288375854
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 119/119
+Training epoch 119:   0%|                                                                      | 0/32 [00:00<?, ?it/s](epoch 119) (batch 0/31) dist_loss (train): 2.0253 (100pt moving_avg: 2.0253) (avg: 2.0253)
+(epoch 119) (batch 0/31) action_loss (train): 0.01 (100pt moving_avg: 0.01) (avg: 0.01)
+(epoch 119) (batch 0/31) action_waypts_cos_sim (train): 0.8982 (100pt moving_avg: 0.8982) (avg: 0.8982)
+(epoch 119) (batch 0/31) multi_action_waypts_cos_sim (train): 0.8927 (100pt moving_avg: 0.8927) (avg: 0.8927)
+(epoch 119) (batch 0/31) total_loss (train): 0.0151 (100pt moving_avg: 0.0151) (avg: 0.0151)
+(epoch 119) (batch 0/31) action_orien_cos_sim (train): 0.9789 (100pt moving_avg: 0.9789) (avg: 0.9789)
+(epoch 119) (batch 0/31) multi_action_orien_cos_sim (train): 0.9789 (100pt moving_avg: 0.9789) (avg: 0.9789)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 119: 100%|█████████████████████████████████████████████████████████████| 32/32 [01:15<00:00,  2.36s/it]
+Start waymo_vint_test ViNT Testing Epoch 119/119
+Evaluating waymo_vint_test for epoch 119: 100%|█████████████████████████████████████████| 2/2 [00:31<00:00, 15.51s/it]
+(epoch 119) dist_loss (waymo_vint_test) 22.618525505065918
+(epoch 119) action_loss (waymo_vint_test) 1.9541484117507935
+(epoch 119) action_waypts_cos_sim (waymo_vint_test) 0.932172566652298
+(epoch 119) multi_action_waypts_cos_sim (waymo_vint_test) 0.9252457916736603
+(epoch 119) total_loss (waymo_vint_test) 1.0901668071746826
+(epoch 119) action_orien_cos_sim (waymo_vint_test) 0.9798073470592499
+(epoch 119) multi_action_orien_cos_sim (waymo_vint_test) 0.9798073470592499
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+
+FINISHED TRAINING
+wandb: 
+wandb: Run history:
+wandb:                           action_loss (train) █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                 action_loss (waymo_vint_test) ▁▄▄▄▆▅▇▆▃▅▂▅▄▃▂▁▄▃█▂▂█▃▂▅▄▄▃▂▅
+wandb:                  action_orien_cos_sim (train) ▇█▆▆▆▆▇▆▆▆▅▅▆▅▆▃▇▆▅▁▆▇▆▆▇▆▂▅▄▄▆▅▇▆▅▆▅▂▇▅
+wandb:        action_orien_cos_sim (waymo_vint_test) ▅▇▃▇▆▆▇▁▅▆▁▆▁▇▇▇▄▄▅▇▅▇▄▇▆▇▃█▆▇
+wandb:                 action_waypts_cos_sim (train) ▆▇▇▅█▇▅▆▄▆▄█▅▄▁█▅▄█▆▅▃▄▇▂▅▆▃▁▅▄▆▅▇▅▅▇▆▃▂
+wandb:       action_waypts_cos_sim (waymo_vint_test) ▃▅█▇▆▅▃██▂▄▅▅▄▃▅▅▃▇▅▇▃▁▆▅▆▂▄▇▇
+wandb:                           avg_total_test_loss ▃▅▆▅▇▆▇▇▃▅▂▅▄▃▂▁▄▃█▂▂█▄▂▅▄▅▃▂▅
+wandb:                             dist_loss (train) █▅▄▂▄▂▂▂▂▃▂▂▂▁▁▃▂▁▁▁▁▄▁▂▂▂▁▂▂▁▁▁▂▁▁▁▁▁▂▁
+wandb:                   dist_loss (waymo_vint_test) █▆█▄▅▃▃▄▃▂▂▁▂▁▁▁▂▂▁▂▃▃▃▁▁▂▃▃▃▂
+wandb:                                            lr ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:            multi_action_orien_cos_sim (train) ▇█▆▆▆▆▇▆▆▆▅▅▆▅▆▃▇▆▅▁▆▇▆▆▇▆▂▅▄▄▆▅▇▆▅▆▅▂▇▅
+wandb:  multi_action_orien_cos_sim (waymo_vint_test) ▅▇▃▇▆▆▇▁▅▆▁▆▁▇▇▇▄▄▅▇▅▇▄▇▆▇▃█▆▇
+wandb:           multi_action_waypts_cos_sim (train) ▅▇▇▆█▇▅▆▄▆▄█▅▄▁█▅▄█▆▅▃▅▆▂▅▆▃▁▄▄▆▅▇▅▅▇▆▂▂
+wandb: multi_action_waypts_cos_sim (waymo_vint_test) ▃▅█▇▆▅▃▇█▃▄▅▅▄▃▅▄▃█▅▆▃▁▅▅▆▂▄▇▆
+wandb:                            total_loss (train) █▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:                  total_loss (waymo_vint_test) ▃▅▆▅▇▆▇▇▃▅▂▅▄▃▂▁▄▃█▂▂█▄▂▅▄▅▃▂▅
+wandb: 
+wandb: Run summary:
+wandb:                           action_loss (train) 0.00283
+wandb:                 action_loss (waymo_vint_test) 1.95415
+wandb:                  action_orien_cos_sim (train) 0.9768
+wandb:        action_orien_cos_sim (waymo_vint_test) 0.97981
+wandb:                 action_waypts_cos_sim (train) 0.76688
+wandb:       action_waypts_cos_sim (waymo_vint_test) 0.93217
+wandb:                           avg_total_test_loss 1.09017
+wandb:                             dist_loss (train) 0.94144
+wandb:                   dist_loss (waymo_vint_test) 22.61853
+wandb:                                            lr 0.00043
+wandb:            multi_action_orien_cos_sim (train) 0.9768
+wandb:  multi_action_orien_cos_sim (waymo_vint_test) 0.97981
+wandb:           multi_action_waypts_cos_sim (train) 0.76519
+wandb: multi_action_waypts_cos_sim (waymo_vint_test) 0.92525
+wandb:                            total_loss (train) 0.00612
+wandb:                  total_loss (waymo_vint_test) 1.09017
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /home/paperspace/Documents/vint_project/trajectory-mapping/visualnav-transformer/train/wandb/offline

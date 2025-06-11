@@ -1,0 +1,1457 @@
+(vint_env) paperspace@psz6p9hqyzfy:~/Documents/vint_project/trajectory-mapping/visualnav-transformer/train$ python train.py
+wandb: (1) Create a W&B account
+wandb: (2) Use an existing W&B account
+wandb: (3) Don't visualize my results
+wandb: Enter your choice: 3
+wandb: You chose "Don't visualize my results"
+wandb: Tracking run with wandb version 0.16.6
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+{'project_name': 'vint-release', 'run_name': 'vint-5c_2025_03_20_22_38_21', 'use_wandb': True, 'train': True, 'batch_size': 64, 'eval_batch_size': 64, 'epochs': 30, 'gpu_ids': [0], 'num_workers': 8, 'lr': '5e-4', 'optimizer': 'adamw', 'seed': 0, 'clipping': False, 'train_subset': 1.0, 'model_type': 'vint', 'obs_encoding_size': 512, 'goal_encoding_size': 1024, 'normalize': True, 'context_type': 'temporal', 'context_size': 5, 'alpha': 0.5, 'beta': 0.1, 'obs_type': 'image', 'goal_type': 'image', 'scheduler': 'cosine', 'distance': {'min_dist_cat': 0, 'max_dist_cat': 20}, 'action': {'min_dist_cat': 0, 'max_dist_cat': 10}, 'close_far_threshold': 10, 'len_traj_pred': 5, 'learn_angle': True, 'image_size': [128, 128], 'print_log_freq': 100, 'image_log_freq': 1000, 'num_images_log': 8, 'pairwise_test_freq': 0, 'eval_fraction': 0.25, 'wandb_log_freq': 10, 'eval_freq': 1, 'max_norm': 1.0, 'warmup': True, 'warmup_epochs': 4, 'cyclic_period': 10, 'plateau_patience': 3, 'plateau_factor': 0.5, 'load_run': 'vint-release/vint-5c_2025_03_17_00_14_22', 'early_stopping': True, 'early_stopping_patience': 15, 'scheduler_monitor': 'dist_loss', 'obs_encoder': 'efficientnet-b0', 'mha_num_attention_heads': 4, 'mha_num_attention_layers': 4, 'mha_ff_dim_factor': 4, 'late_fusion': False, 'datasets': {'nuScenes_custom': {'data_folder': 'vint_train/data/nu_output', 'train': 'vint_train/data/data_splits/nuScenes_custom/train/', 'test': 'vint_train/data/data_splits/nuScenes_custom/test/', 'end_slack': 3, 'goals_per_obs': 1, 'negative_mining': True, 'dynamic_spacing': True}, 'idd_multi': {'data_folder': 'vint_train/data/idd_multi', 'train': 'vint_train/data/data_splits/idd_multi/train/', 'test': 'vint_train/data/data_splits/idd_multi/test/', 'end_slack': 3, 'goals_per_obs': 1, 'negative_mining': True, 'dynamic_spacing': True}}, 'project_folder': 'logs/vint-release/vint-5c_2025_03_20_22_38_21'}
+Using cuda devices: 0
+DEBUG: data_config = {'data_folder': 'vint_train/data/nu_output', 'train': 'vint_train/data/data_splits/nuScenes_custom/train/', 'test': 'vint_train/data/data_splits/nuScenes_custom/test/', 'end_slack': 3, 'goals_per_obs': 1, 'negative_mining': True, 'dynamic_spacing': True}
+DEBUG: Available dataset names: ['data_folder', 'train', 'test', 'end_slack', 'goals_per_obs', 'negative_mining', 'dynamic_spacing']
+DEBUG: data_config = {'data_folder': 'vint_train/data/idd_multi', 'train': 'vint_train/data/data_splits/idd_multi/train/', 'test': 'vint_train/data/data_splits/idd_multi/test/', 'end_slack': 3, 'goals_per_obs': 1, 'negative_mining': True, 'dynamic_spacing': True}
+DEBUG: Available dataset names: ['data_folder', 'train', 'test', 'end_slack', 'goals_per_obs', 'negative_mining', 'dynamic_spacing']
+Using cosine annealing with T_max 30
+Using warmup scheduler
+Loading model from  logs/vint-release/vint-5c_2025_03_17_00_14_22
+Start ViNT Training Epoch 60/89
+Training epoch 60:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 60) (batch 0/385) dist_loss (train): 53.883 (100pt moving_avg: 53.883) (avg: 53.883)
+(epoch 60) (batch 0/385) action_loss (train): 1.9169 (100pt moving_avg: 1.9169) (avg: 1.9169)
+(epoch 60) (batch 0/385) action_waypts_cos_sim (train): 0.9446 (100pt moving_avg: 0.9446) (avg: 0.9446)
+(epoch 60) (batch 0/385) multi_action_waypts_cos_sim (train): 0.9266 (100pt moving_avg: 0.9266) (avg: 0.9266)
+(epoch 60) (batch 0/385) total_loss (train): 1.2279 (100pt moving_avg: 1.2279) (avg: 1.2279)
+(epoch 60) (batch 0/385) action_orien_cos_sim (train): 0.9674 (100pt moving_avg: 0.9674) (avg: 0.9674)
+(epoch 60) (batch 0/385) multi_action_orien_cos_sim (train): 0.9674 (100pt moving_avg: 0.9674) (avg: 0.9674)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 60:  26%|█████▋                | 100/386 [03:04<07:00,  1.47s/it](epoch 60) (batch 100/385) dist_loss (train): 14.9978 (100pt moving_avg: 21.9757) (avg: 22.2916)
+(epoch 60) (batch 100/385) action_loss (train): 0.3157 (100pt moving_avg: 0.4494) (avg: 0.464)
+(epoch 60) (batch 100/385) action_waypts_cos_sim (train): 0.7215 (100pt moving_avg: 0.848) (avg: 0.849)
+(epoch 60) (batch 100/385) multi_action_waypts_cos_sim (train): 0.7461 (100pt moving_avg: 0.8478) (avg: 0.8486)
+(epoch 60) (batch 100/385) total_loss (train): 0.2328 (100pt moving_avg: 0.3346) (avg: 0.3434)
+(epoch 60) (batch 100/385) action_orien_cos_sim (train): 0.9808 (100pt moving_avg: 0.9726) (avg: 0.9725)
+(epoch 60) (batch 100/385) multi_action_orien_cos_sim (train): 0.9808 (100pt moving_avg: 0.9726) (avg: 0.9725)
+Training epoch 60:  52%|███████████▍          | 200/386 [05:39<03:07,  1.01s/it](epoch 60) (batch 200/385) dist_loss (train): 24.6858 (100pt moving_avg: 16.7915) (avg: 19.5552)
+(epoch 60) (batch 200/385) action_loss (train): 0.3456 (100pt moving_avg: 0.3175) (avg: 0.3911)
+(epoch 60) (batch 200/385) action_waypts_cos_sim (train): 0.8236 (100pt moving_avg: 0.858) (avg: 0.8535)
+(epoch 60) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8266 (100pt moving_avg: 0.8587) (avg: 0.8536)
+(epoch 60) (batch 200/385) total_loss (train): 0.2962 (100pt moving_avg: 0.2427) (avg: 0.2933)
+(epoch 60) (batch 200/385) action_orien_cos_sim (train): 0.9748 (100pt moving_avg: 0.9728) (avg: 0.9726)
+(epoch 60) (batch 200/385) multi_action_orien_cos_sim (train): 0.9748 (100pt moving_avg: 0.9728) (avg: 0.9726)
+Training epoch 60:  78%|█████████████████     | 300/386 [08:14<02:05,  1.46s/it](epoch 60) (batch 300/385) dist_loss (train): 25.1875 (100pt moving_avg: 16.6014) (avg: 18.5739)
+(epoch 60) (batch 300/385) action_loss (train): 0.2932 (100pt moving_avg: 0.2821) (avg: 0.3549)
+(epoch 60) (batch 300/385) action_waypts_cos_sim (train): 0.9774 (100pt moving_avg: 0.8518) (avg: 0.8529)
+(epoch 60) (batch 300/385) multi_action_waypts_cos_sim (train): 0.9744 (100pt moving_avg: 0.8555) (avg: 0.8542)
+(epoch 60) (batch 300/385) total_loss (train): 0.2725 (100pt moving_avg: 0.224) (avg: 0.2703)
+(epoch 60) (batch 300/385) action_orien_cos_sim (train): 0.9805 (100pt moving_avg: 0.9742) (avg: 0.9732)
+(epoch 60) (batch 300/385) multi_action_orien_cos_sim (train): 0.9805 (100pt moving_avg: 0.9742) (avg: 0.9732)
+Training epoch 60: 100%|██████████████████████| 386/386 [10:28<00:00,  1.63s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 60/89
+Evaluating nuScenes_custom_test for epoch 60: 100%|█| 18/18 [02:50<00:00,  9.48s
+(epoch 60) dist_loss (nuScenes_custom_test) 19.089088333977593
+(epoch 60) action_loss (nuScenes_custom_test) 0.4302423853013251
+(epoch 60) action_waypts_cos_sim (nuScenes_custom_test) 0.8036166297064887
+(epoch 60) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8074367278152041
+(epoch 60) total_loss (nuScenes_custom_test) 0.3105666372511122
+(epoch 60) action_orien_cos_sim (nuScenes_custom_test) 0.9762501153681014
+(epoch 60) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9762500557634566
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start idd_multi_test ViNT Testing Epoch 60/89
+Evaluating idd_multi_test for epoch 60: 100%|███| 12/12 [03:18<00:00, 16.55s/it]
+(epoch 60) dist_loss (idd_multi_test) 14.081098556518555
+(epoch 60) action_loss (idd_multi_test) 0.214315136273702
+(epoch 60) action_waypts_cos_sim (idd_multi_test) 0.967753067612648
+(epoch 60) multi_action_waypts_cos_sim (idd_multi_test) 0.9643265257279078
+(epoch 60) total_loss (idd_multi_test) 0.17756306131680807
+(epoch 60) action_orien_cos_sim (idd_multi_test) 0.96976238489151
+(epoch 60) multi_action_orien_cos_sim (idd_multi_test) 0.9697623401880264
+/home/paperspace/Documents/vint_project/trajectory-mapping/visualnav-transformer/train/vint_train/visualizing/distance_utils.py:183: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, ax = plt.subplots(1, len(imgs))
+/home/paperspace/Documents/vint_project/trajectory-mapping/visualnav-transformer/train/vint_train/visualizing/distance_utils.py:182: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  plt.figure()
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 61/89
+Training epoch 61:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 61) (batch 0/385) dist_loss (train): 18.3703 (100pt moving_avg: 18.3703) (avg: 18.3703)
+(epoch 61) (batch 0/385) action_loss (train): 0.1566 (100pt moving_avg: 0.1566) (avg: 0.1566)
+(epoch 61) (batch 0/385) action_waypts_cos_sim (train): 0.7364 (100pt moving_avg: 0.7364) (avg: 0.7364)
+(epoch 61) (batch 0/385) multi_action_waypts_cos_sim (train): 0.7343 (100pt moving_avg: 0.7343) (avg: 0.7343)
+(epoch 61) (batch 0/385) total_loss (train): 0.1702 (100pt moving_avg: 0.1702) (avg: 0.1702)
+(epoch 61) (batch 0/385) action_orien_cos_sim (train): 0.9735 (100pt moving_avg: 0.9735) (avg: 0.9735)
+(epoch 61) (batch 0/385) multi_action_orien_cos_sim (train): 0.9735 (100pt moving_avg: 0.9735) (avg: 0.9735)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 61:  26%|█████▋                | 100/386 [02:44<07:08,  1.50s/it](epoch 61) (batch 100/385) dist_loss (train): 13.598 (100pt moving_avg: 14.5554) (avg: 14.5932)
+(epoch 61) (batch 100/385) action_loss (train): 0.1773 (100pt moving_avg: 0.1907) (avg: 0.1904)
+(epoch 61) (batch 100/385) action_waypts_cos_sim (train): 0.7953 (100pt moving_avg: 0.8501) (avg: 0.849)
+(epoch 61) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8013 (100pt moving_avg: 0.8491) (avg: 0.848)
+(epoch 61) (batch 100/385) total_loss (train): 0.1566 (100pt moving_avg: 0.1681) (avg: 0.1681)
+(epoch 61) (batch 100/385) action_orien_cos_sim (train): 0.9788 (100pt moving_avg: 0.9746) (avg: 0.9746)
+(epoch 61) (batch 100/385) multi_action_orien_cos_sim (train): 0.9788 (100pt moving_avg: 0.9746) (avg: 0.9746)
+Training epoch 61:  52%|███████████▍          | 200/386 [05:19<03:16,  1.06s/it](epoch 61) (batch 200/385) dist_loss (train): 12.3245 (100pt moving_avg: 14.1385) (avg: 14.367)
+(epoch 61) (batch 200/385) action_loss (train): 0.1687 (100pt moving_avg: 0.1966) (avg: 0.1934)
+(epoch 61) (batch 200/385) action_waypts_cos_sim (train): 0.8572 (100pt moving_avg: 0.84) (avg: 0.8445)
+(epoch 61) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8558 (100pt moving_avg: 0.8438) (avg: 0.8459)
+(epoch 61) (batch 200/385) total_loss (train): 0.146 (100pt moving_avg: 0.169) (avg: 0.1686)
+(epoch 61) (batch 200/385) action_orien_cos_sim (train): 0.9776 (100pt moving_avg: 0.9748) (avg: 0.9747)
+(epoch 61) (batch 200/385) multi_action_orien_cos_sim (train): 0.9776 (100pt moving_avg: 0.9748) (avg: 0.9747)
+Training epoch 61:  78%|█████████████████     | 300/386 [07:55<01:59,  1.39s/it](epoch 61) (batch 300/385) dist_loss (train): 13.1347 (100pt moving_avg: 13.8517) (avg: 14.1958)
+(epoch 61) (batch 300/385) action_loss (train): 0.1647 (100pt moving_avg: 0.1752) (avg: 0.1874)
+(epoch 61) (batch 300/385) action_waypts_cos_sim (train): 0.8834 (100pt moving_avg: 0.8564) (avg: 0.8485)
+(epoch 61) (batch 300/385) multi_action_waypts_cos_sim (train): 0.8878 (100pt moving_avg: 0.8614) (avg: 0.851)
+(epoch 61) (batch 300/385) total_loss (train): 0.148 (100pt moving_avg: 0.1569) (avg: 0.1647)
+(epoch 61) (batch 300/385) action_orien_cos_sim (train): 0.9768 (100pt moving_avg: 0.9751) (avg: 0.9748)
+(epoch 61) (batch 300/385) multi_action_orien_cos_sim (train): 0.9768 (100pt moving_avg: 0.9751) (avg: 0.9748)
+Training epoch 61: 100%|██████████████████████| 386/386 [10:03<00:00,  1.56s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 61/89
+Evaluating nuScenes_custom_test for epoch 61: 100%|█| 18/18 [02:50<00:00,  9.47s
+(epoch 61) dist_loss (nuScenes_custom_test) 19.72378529442681
+(epoch 61) action_loss (nuScenes_custom_test) 0.49406736261314815
+(epoch 61) action_waypts_cos_sim (nuScenes_custom_test) 0.7568197713957893
+(epoch 61) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.7603245178858439
+(epoch 61) total_loss (nuScenes_custom_test) 0.34565260592434144
+(epoch 61) action_orien_cos_sim (nuScenes_custom_test) 0.9762613806459639
+(epoch 61) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9762613342867957
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 1/15
+Start idd_multi_test ViNT Testing Epoch 61/89
+Evaluating idd_multi_test for epoch 61: 100%|███| 12/12 [03:15<00:00, 16.30s/it]
+(epoch 61) dist_loss (idd_multi_test) 11.992878357569376
+(epoch 61) action_loss (idd_multi_test) 0.21736509228746095
+(epoch 61) action_waypts_cos_sim (idd_multi_test) 0.9748798161745071
+(epoch 61) multi_action_waypts_cos_sim (idd_multi_test) 0.9721617301305135
+(epoch 61) total_loss (idd_multi_test) 0.1686469353735447
+(epoch 61) action_orien_cos_sim (idd_multi_test) 0.9709175030390421
+(epoch 61) multi_action_orien_cos_sim (idd_multi_test) 0.9709174285332361
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Start ViNT Training Epoch 62/89
+Training epoch 62:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 62) (batch 0/385) dist_loss (train): 13.5937 (100pt moving_avg: 13.5937) (avg: 13.5937)
+(epoch 62) (batch 0/385) action_loss (train): 0.1471 (100pt moving_avg: 0.1471) (avg: 0.1471)
+(epoch 62) (batch 0/385) action_waypts_cos_sim (train): 0.9452 (100pt moving_avg: 0.9452) (avg: 0.9452)
+(epoch 62) (batch 0/385) multi_action_waypts_cos_sim (train): 0.9401 (100pt moving_avg: 0.9401) (avg: 0.9401)
+(epoch 62) (batch 0/385) total_loss (train): 0.1415 (100pt moving_avg: 0.1415) (avg: 0.1415)
+(epoch 62) (batch 0/385) action_orien_cos_sim (train): 0.9704 (100pt moving_avg: 0.9704) (avg: 0.9704)
+(epoch 62) (batch 0/385) multi_action_orien_cos_sim (train): 0.9704 (100pt moving_avg: 0.9704) (avg: 0.9704)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 62:  26%|█████▋                | 100/386 [02:45<09:05,  1.91s/it](epoch 62) (batch 100/385) dist_loss (train): 12.1193 (100pt moving_avg: 13.093) (avg: 13.098)
+(epoch 62) (batch 100/385) action_loss (train): 0.2482 (100pt moving_avg: 0.1501) (avg: 0.1501)
+(epoch 62) (batch 100/385) action_waypts_cos_sim (train): 0.8935 (100pt moving_avg: 0.8437) (avg: 0.8447)
+(epoch 62) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8892 (100pt moving_avg: 0.8456) (avg: 0.8465)
+(epoch 62) (batch 100/385) total_loss (train): 0.1847 (100pt moving_avg: 0.1405) (avg: 0.1405)
+(epoch 62) (batch 100/385) action_orien_cos_sim (train): 0.9775 (100pt moving_avg: 0.976) (avg: 0.976)
+(epoch 62) (batch 100/385) multi_action_orien_cos_sim (train): 0.9775 (100pt moving_avg: 0.976) (avg: 0.976)
+Training epoch 62:  52%|███████████▍          | 200/386 [05:17<03:25,  1.10s/it](epoch 62) (batch 200/385) dist_loss (train): 11.7966 (100pt moving_avg: 12.599) (avg: 12.8497)
+(epoch 62) (batch 200/385) action_loss (train): 0.1327 (100pt moving_avg: 0.1351) (avg: 0.1427)
+(epoch 62) (batch 200/385) action_waypts_cos_sim (train): 0.9424 (100pt moving_avg: 0.8681) (avg: 0.8563)
+(epoch 62) (batch 200/385) multi_action_waypts_cos_sim (train): 0.9388 (100pt moving_avg: 0.8759) (avg: 0.8611)
+(epoch 62) (batch 200/385) total_loss (train): 0.1253 (100pt moving_avg: 0.1306) (avg: 0.1356)
+(epoch 62) (batch 200/385) action_orien_cos_sim (train): 0.9788 (100pt moving_avg: 0.9748) (avg: 0.9754)
+(epoch 62) (batch 200/385) multi_action_orien_cos_sim (train): 0.9788 (100pt moving_avg: 0.9748) (avg: 0.9754)
+Training epoch 62:  78%|█████████████████     | 300/386 [07:55<03:13,  2.26s/it](epoch 62) (batch 300/385) dist_loss (train): 11.647 (100pt moving_avg: 12.3509) (avg: 12.684)
+(epoch 62) (batch 300/385) action_loss (train): 0.0871 (100pt moving_avg: 0.1269) (avg: 0.1374)
+(epoch 62) (batch 300/385) action_waypts_cos_sim (train): 0.9058 (100pt moving_avg: 0.8598) (avg: 0.8575)
+(epoch 62) (batch 300/385) multi_action_waypts_cos_sim (train): 0.9334 (100pt moving_avg: 0.8686) (avg: 0.8636)
+(epoch 62) (batch 300/385) total_loss (train): 0.1018 (100pt moving_avg: 0.1252) (avg: 0.1321)
+(epoch 62) (batch 300/385) action_orien_cos_sim (train): 0.9784 (100pt moving_avg: 0.9749) (avg: 0.9752)
+(epoch 62) (batch 300/385) multi_action_orien_cos_sim (train): 0.9784 (100pt moving_avg: 0.9749) (avg: 0.9752)
+Training epoch 62: 100%|██████████████████████| 386/386 [10:02<00:00,  1.56s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 62/89
+Evaluating nuScenes_custom_test for epoch 62: 100%|█| 18/18 [02:50<00:00,  9.48s
+(epoch 62) dist_loss (nuScenes_custom_test) 19.874359554714626
+(epoch 62) action_loss (nuScenes_custom_test) 0.43357877764436936
+(epoch 62) action_waypts_cos_sim (nuScenes_custom_test) 0.8155840900209215
+(epoch 62) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8212662902143266
+(epoch 62) total_loss (nuScenes_custom_test) 0.3161611821916368
+(epoch 62) action_orien_cos_sim (nuScenes_custom_test) 0.9772177007463243
+(epoch 62) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9772176378303103
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 1/15
+Start idd_multi_test ViNT Testing Epoch 62/89
+Evaluating idd_multi_test for epoch 62: 100%|███| 12/12 [03:16<00:00, 16.34s/it]
+(epoch 62) dist_loss (idd_multi_test) 13.853093385696411
+(epoch 62) action_loss (idd_multi_test) 0.24097677568594614
+(epoch 62) action_waypts_cos_sim (idd_multi_test) 0.9666400303443273
+(epoch 62) multi_action_waypts_cos_sim (idd_multi_test) 0.9644885609547297
+(epoch 62) total_loss (idd_multi_test) 0.1897538515428702
+(epoch 62) action_orien_cos_sim (idd_multi_test) 0.9626004000504812
+(epoch 62) multi_action_orien_cos_sim (idd_multi_test) 0.9626003156105677
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 2/15
+Start ViNT Training Epoch 63/89
+Training epoch 63:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 63) (batch 0/385) dist_loss (train): 6.2462 (100pt moving_avg: 6.2462) (avg: 6.2462)
+(epoch 63) (batch 0/385) action_loss (train): 0.0944 (100pt moving_avg: 0.0944) (avg: 0.0944)
+(epoch 63) (batch 0/385) action_waypts_cos_sim (train): 0.9319 (100pt moving_avg: 0.9319) (avg: 0.9319)
+(epoch 63) (batch 0/385) multi_action_waypts_cos_sim (train): 0.9251 (100pt moving_avg: 0.9251) (avg: 0.9251)
+(epoch 63) (batch 0/385) total_loss (train): 0.0784 (100pt moving_avg: 0.0784) (avg: 0.0784)
+(epoch 63) (batch 0/385) action_orien_cos_sim (train): 0.9745 (100pt moving_avg: 0.9745) (avg: 0.9745)
+(epoch 63) (batch 0/385) multi_action_orien_cos_sim (train): 0.9745 (100pt moving_avg: 0.9745) (avg: 0.9745)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 63:  26%|█████▋                | 100/386 [02:43<08:32,  1.79s/it](epoch 63) (batch 100/385) dist_loss (train): 11.7124 (100pt moving_avg: 11.9229) (avg: 11.8667)
+(epoch 63) (batch 100/385) action_loss (train): 0.1315 (100pt moving_avg: 0.1206) (avg: 0.1204)
+(epoch 63) (batch 100/385) action_waypts_cos_sim (train): 0.8513 (100pt moving_avg: 0.8491) (avg: 0.8499)
+(epoch 63) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8424 (100pt moving_avg: 0.8525) (avg: 0.8532)
+(epoch 63) (batch 100/385) total_loss (train): 0.1243 (100pt moving_avg: 0.1199) (avg: 0.1195)
+(epoch 63) (batch 100/385) action_orien_cos_sim (train): 0.9694 (100pt moving_avg: 0.9754) (avg: 0.9754)
+(epoch 63) (batch 100/385) multi_action_orien_cos_sim (train): 0.9694 (100pt moving_avg: 0.9754) (avg: 0.9754)
+Training epoch 63:  52%|███████████▍          | 200/386 [05:15<03:21,  1.08s/it](epoch 63) (batch 200/385) dist_loss (train): 10.1993 (100pt moving_avg: 11.5928) (avg: 11.7304)
+(epoch 63) (batch 200/385) action_loss (train): 0.0934 (100pt moving_avg: 0.1162) (avg: 0.1183)
+(epoch 63) (batch 200/385) action_waypts_cos_sim (train): 0.8632 (100pt moving_avg: 0.8498) (avg: 0.8499)
+(epoch 63) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8563 (100pt moving_avg: 0.852) (avg: 0.8526)
+(epoch 63) (batch 200/385) total_loss (train): 0.0977 (100pt moving_avg: 0.1161) (avg: 0.1178)
+(epoch 63) (batch 200/385) action_orien_cos_sim (train): 0.9753 (100pt moving_avg: 0.9762) (avg: 0.9758)
+(epoch 63) (batch 200/385) multi_action_orien_cos_sim (train): 0.9753 (100pt moving_avg: 0.9762) (avg: 0.9758)
+Training epoch 63:  78%|█████████████████     | 300/386 [07:52<03:49,  2.66s/it](epoch 63) (batch 300/385) dist_loss (train): 14.0753 (100pt moving_avg: 11.072) (avg: 11.5117)
+(epoch 63) (batch 300/385) action_loss (train): 0.1012 (100pt moving_avg: 0.1073) (avg: 0.1146)
+(epoch 63) (batch 300/385) action_waypts_cos_sim (train): 0.9309 (100pt moving_avg: 0.8395) (avg: 0.8464)
+(epoch 63) (batch 300/385) multi_action_waypts_cos_sim (train): 0.9324 (100pt moving_avg: 0.8405) (avg: 0.8486)
+(epoch 63) (batch 300/385) total_loss (train): 0.121 (100pt moving_avg: 0.109) (avg: 0.1149)
+(epoch 63) (batch 300/385) action_orien_cos_sim (train): 0.9795 (100pt moving_avg: 0.9759) (avg: 0.9759)
+(epoch 63) (batch 300/385) multi_action_orien_cos_sim (train): 0.9795 (100pt moving_avg: 0.9759) (avg: 0.9759)
+Training epoch 63: 100%|██████████████████████| 386/386 [09:58<00:00,  1.55s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 63/89
+Evaluating nuScenes_custom_test for epoch 63: 100%|█| 18/18 [02:48<00:00,  9.38s
+(epoch 63) dist_loss (nuScenes_custom_test) 23.215041054619682
+(epoch 63) action_loss (nuScenes_custom_test) 0.49104401883151794
+(epoch 63) action_waypts_cos_sim (nuScenes_custom_test) 0.8564238250255585
+(epoch 63) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8640735844771067
+(epoch 63) total_loss (nuScenes_custom_test) 0.3615972134802077
+(epoch 63) action_orien_cos_sim (nuScenes_custom_test) 0.9759635395473905
+(epoch 63) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9759634567631615
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 3/15
+Start idd_multi_test ViNT Testing Epoch 63/89
+Evaluating idd_multi_test for epoch 63: 100%|███| 12/12 [03:10<00:00, 15.90s/it]
+(epoch 63) dist_loss (idd_multi_test) 13.77803349494934
+(epoch 63) action_loss (idd_multi_test) 0.22384492556254068
+(epoch 63) action_waypts_cos_sim (idd_multi_test) 0.969362735748291
+(epoch 63) multi_action_waypts_cos_sim (idd_multi_test) 0.9671800037225088
+(epoch 63) total_loss (idd_multi_test) 0.18081262956062952
+(epoch 63) action_orien_cos_sim (idd_multi_test) 0.9669889609018961
+(epoch 63) multi_action_orien_cos_sim (idd_multi_test) 0.9669888863960902
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 4/15
+Start ViNT Training Epoch 64/89
+Training epoch 64:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 64) (batch 0/385) dist_loss (train): 17.0765 (100pt moving_avg: 17.0765) (avg: 17.0765)
+(epoch 64) (batch 0/385) action_loss (train): 0.1077 (100pt moving_avg: 0.1077) (avg: 0.1077)
+(epoch 64) (batch 0/385) action_waypts_cos_sim (train): 0.9379 (100pt moving_avg: 0.9379) (avg: 0.9379)
+(epoch 64) (batch 0/385) multi_action_waypts_cos_sim (train): 0.931 (100pt moving_avg: 0.931) (avg: 0.931)
+(epoch 64) (batch 0/385) total_loss (train): 0.1392 (100pt moving_avg: 0.1392) (avg: 0.1392)
+(epoch 64) (batch 0/385) action_orien_cos_sim (train): 0.9761 (100pt moving_avg: 0.9761) (avg: 0.9761)
+(epoch 64) (batch 0/385) multi_action_orien_cos_sim (train): 0.9761 (100pt moving_avg: 0.9761) (avg: 0.9761)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 64:  26%|█████▋                | 100/386 [02:41<06:42,  1.41s/it](epoch 64) (batch 100/385) dist_loss (train): 12.6507 (100pt moving_avg: 10.5126) (avg: 10.5776)
+(epoch 64) (batch 100/385) action_loss (train): 0.0783 (100pt moving_avg: 0.1025) (avg: 0.1026)
+(epoch 64) (batch 100/385) action_waypts_cos_sim (train): 0.8518 (100pt moving_avg: 0.8557) (avg: 0.8565)
+(epoch 64) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8696 (100pt moving_avg: 0.8614) (avg: 0.8621)
+(epoch 64) (batch 100/385) total_loss (train): 0.1024 (100pt moving_avg: 0.1038) (avg: 0.1042)
+(epoch 64) (batch 100/385) action_orien_cos_sim (train): 0.9745 (100pt moving_avg: 0.9756) (avg: 0.9756)
+(epoch 64) (batch 100/385) multi_action_orien_cos_sim (train): 0.9745 (100pt moving_avg: 0.9756) (avg: 0.9756)
+Training epoch 64:  52%|███████████▍          | 200/386 [05:14<03:00,  1.03it/s](epoch 64) (batch 200/385) dist_loss (train): 10.3914 (100pt moving_avg: 10.8942) (avg: 10.7351)
+(epoch 64) (batch 200/385) action_loss (train): 0.1112 (100pt moving_avg: 0.0946) (avg: 0.0986)
+(epoch 64) (batch 200/385) action_waypts_cos_sim (train): 0.78 (100pt moving_avg: 0.8461) (avg: 0.8513)
+(epoch 64) (batch 200/385) multi_action_waypts_cos_sim (train): 0.7781 (100pt moving_avg: 0.8515) (avg: 0.8568)
+(epoch 64) (batch 200/385) total_loss (train): 0.1076 (100pt moving_avg: 0.1018) (avg: 0.103)
+(epoch 64) (batch 200/385) action_orien_cos_sim (train): 0.9714 (100pt moving_avg: 0.9759) (avg: 0.9758)
+(epoch 64) (batch 200/385) multi_action_orien_cos_sim (train): 0.9714 (100pt moving_avg: 0.9759) (avg: 0.9758)
+Training epoch 64:  78%|█████████████████     | 300/386 [07:56<03:11,  2.22s/it](epoch 64) (batch 300/385) dist_loss (train): 11.1811 (100pt moving_avg: 10.4604) (avg: 10.6438)
+(epoch 64) (batch 300/385) action_loss (train): 0.0922 (100pt moving_avg: 0.0983) (avg: 0.0985)
+(epoch 64) (batch 300/385) action_waypts_cos_sim (train): 0.8807 (100pt moving_avg: 0.8568) (avg: 0.8532)
+(epoch 64) (batch 300/385) multi_action_waypts_cos_sim (train): 0.894 (100pt moving_avg: 0.8616) (avg: 0.8584)
+(epoch 64) (batch 300/385) total_loss (train): 0.102 (100pt moving_avg: 0.1014) (avg: 0.1025)
+(epoch 64) (batch 300/385) action_orien_cos_sim (train): 0.9595 (100pt moving_avg: 0.9764) (avg: 0.976)
+(epoch 64) (batch 300/385) multi_action_orien_cos_sim (train): 0.9595 (100pt moving_avg: 0.9763) (avg: 0.976)
+Training epoch 64: 100%|██████████████████████| 386/386 [10:09<00:00,  1.58s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 64/89
+Evaluating nuScenes_custom_test for epoch 64: 100%|█| 18/18 [02:51<00:00,  9.51s
+(epoch 64) dist_loss (nuScenes_custom_test) 21.736179722679985
+(epoch 64) action_loss (nuScenes_custom_test) 0.4812944299644894
+(epoch 64) action_waypts_cos_sim (nuScenes_custom_test) 0.7821044259601169
+(epoch 64) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.7920458316802979
+(epoch 64) total_loss (nuScenes_custom_test) 0.34932811227109695
+(epoch 64) action_orien_cos_sim (nuScenes_custom_test) 0.9783623251650069
+(epoch 64) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9783622556262546
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 5/15
+Start idd_multi_test ViNT Testing Epoch 64/89
+Evaluating idd_multi_test for epoch 64: 100%|███| 12/12 [03:10<00:00, 15.87s/it]
+(epoch 64) dist_loss (idd_multi_test) 12.229778210322062
+(epoch 64) action_loss (idd_multi_test) 0.2095907051116228
+(epoch 64) action_waypts_cos_sim (idd_multi_test) 0.9719600329796473
+(epoch 64) multi_action_waypts_cos_sim (idd_multi_test) 0.9713797022898992
+(epoch 64) total_loss (idd_multi_test) 0.16594424222906431
+(epoch 64) action_orien_cos_sim (idd_multi_test) 0.9722460259993871
+(epoch 64) multi_action_orien_cos_sim (idd_multi_test) 0.9722459614276886
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 6/15
+Start ViNT Training Epoch 65/89
+Training epoch 65:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 65) (batch 0/385) dist_loss (train): 11.7791 (100pt moving_avg: 11.7791) (avg: 11.7791)
+(epoch 65) (batch 0/385) action_loss (train): 0.071 (100pt moving_avg: 0.071) (avg: 0.071)
+(epoch 65) (batch 0/385) action_waypts_cos_sim (train): 0.7209 (100pt moving_avg: 0.7209) (avg: 0.7209)
+(epoch 65) (batch 0/385) multi_action_waypts_cos_sim (train): 0.7324 (100pt moving_avg: 0.7324) (avg: 0.7324)
+(epoch 65) (batch 0/385) total_loss (train): 0.0944 (100pt moving_avg: 0.0944) (avg: 0.0944)
+(epoch 65) (batch 0/385) action_orien_cos_sim (train): 0.9821 (100pt moving_avg: 0.9821) (avg: 0.9821)
+(epoch 65) (batch 0/385) multi_action_orien_cos_sim (train): 0.9821 (100pt moving_avg: 0.9821) (avg: 0.9821)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 65:  26%|█████▋                | 100/386 [02:43<07:34,  1.59s/it](epoch 65) (batch 100/385) dist_loss (train): 13.7669 (100pt moving_avg: 10.564) (avg: 10.5761)
+(epoch 65) (batch 100/385) action_loss (train): 0.076 (100pt moving_avg: 0.0928) (avg: 0.0926)
+(epoch 65) (batch 100/385) action_waypts_cos_sim (train): 0.9299 (100pt moving_avg: 0.84) (avg: 0.8388)
+(epoch 65) (batch 100/385) multi_action_waypts_cos_sim (train): 0.9342 (100pt moving_avg: 0.8433) (avg: 0.8422)
+(epoch 65) (batch 100/385) total_loss (train): 0.1068 (100pt moving_avg: 0.0992) (avg: 0.0992)
+(epoch 65) (batch 100/385) action_orien_cos_sim (train): 0.9777 (100pt moving_avg: 0.976) (avg: 0.9761)
+(epoch 65) (batch 100/385) multi_action_orien_cos_sim (train): 0.9777 (100pt moving_avg: 0.976) (avg: 0.9761)
+Training epoch 65:  52%|███████████▍          | 200/386 [05:14<03:02,  1.02it/s](epoch 65) (batch 200/385) dist_loss (train): 9.9535 (100pt moving_avg: 10.3197) (avg: 10.4485)
+(epoch 65) (batch 200/385) action_loss (train): 0.0791 (100pt moving_avg: 0.0904) (avg: 0.0915)
+(epoch 65) (batch 200/385) action_waypts_cos_sim (train): 0.8587 (100pt moving_avg: 0.8568) (avg: 0.8478)
+(epoch 65) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8315 (100pt moving_avg: 0.8581) (avg: 0.8501)
+(epoch 65) (batch 200/385) total_loss (train): 0.0893 (100pt moving_avg: 0.0968) (avg: 0.098)
+(epoch 65) (batch 200/385) action_orien_cos_sim (train): 0.9818 (100pt moving_avg: 0.9761) (avg: 0.9761)
+(epoch 65) (batch 200/385) multi_action_orien_cos_sim (train): 0.9818 (100pt moving_avg: 0.9761) (avg: 0.9761)
+Training epoch 65:  78%|█████████████████     | 300/386 [07:50<02:07,  1.48s/it](epoch 65) (batch 300/385) dist_loss (train): 8.2088 (100pt moving_avg: 9.8163) (avg: 10.2385)
+(epoch 65) (batch 300/385) action_loss (train): 0.1055 (100pt moving_avg: 0.0839) (avg: 0.089)
+(epoch 65) (batch 300/385) action_waypts_cos_sim (train): 0.8349 (100pt moving_avg: 0.8381) (avg: 0.8446)
+(epoch 65) (batch 300/385) multi_action_waypts_cos_sim (train): 0.833 (100pt moving_avg: 0.8417) (avg: 0.8473)
+(epoch 65) (batch 300/385) total_loss (train): 0.0938 (100pt moving_avg: 0.091) (avg: 0.0957)
+(epoch 65) (batch 300/385) action_orien_cos_sim (train): 0.9778 (100pt moving_avg: 0.9767) (avg: 0.9763)
+(epoch 65) (batch 300/385) multi_action_orien_cos_sim (train): 0.9778 (100pt moving_avg: 0.9767) (avg: 0.9763)
+Training epoch 65: 100%|██████████████████████| 386/386 [09:58<00:00,  1.55s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 65/89
+Evaluating nuScenes_custom_test for epoch 65: 100%|█| 18/18 [02:48<00:00,  9.37s
+(epoch 65) dist_loss (nuScenes_custom_test) 19.524347199334038
+(epoch 65) action_loss (nuScenes_custom_test) 0.5046350227461921
+(epoch 65) action_waypts_cos_sim (nuScenes_custom_test) 0.8381680283281538
+(epoch 65) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8427107168568505
+(epoch 65) total_loss (nuScenes_custom_test) 0.3499392436610328
+(epoch 65) action_orien_cos_sim (nuScenes_custom_test) 0.976860953701867
+(epoch 65) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9768608510494232
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 7/15
+Start idd_multi_test ViNT Testing Epoch 65/89
+Evaluating idd_multi_test for epoch 65: 100%|███| 12/12 [03:14<00:00, 16.19s/it]
+(epoch 65) dist_loss (idd_multi_test) 14.138600587844849
+(epoch 65) action_loss (idd_multi_test) 0.1870260542879502
+(epoch 65) action_waypts_cos_sim (idd_multi_test) 0.9706082493066788
+(epoch 65) multi_action_waypts_cos_sim (idd_multi_test) 0.9686051259438196
+(epoch 65) total_loss (idd_multi_test) 0.16420602922638258
+(epoch 65) action_orien_cos_sim (idd_multi_test) 0.9673294574022293
+(epoch 65) multi_action_orien_cos_sim (idd_multi_test) 0.9673294027646383
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 8/15
+Start ViNT Training Epoch 66/89
+Training epoch 66:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 66) (batch 0/385) dist_loss (train): 6.9807 (100pt moving_avg: 6.9807) (avg: 6.9807)
+(epoch 66) (batch 0/385) action_loss (train): 0.0698 (100pt moving_avg: 0.0698) (avg: 0.0698)
+(epoch 66) (batch 0/385) action_waypts_cos_sim (train): 0.8676 (100pt moving_avg: 0.8676) (avg: 0.8676)
+(epoch 66) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8838 (100pt moving_avg: 0.8838) (avg: 0.8838)
+(epoch 66) (batch 0/385) total_loss (train): 0.0698 (100pt moving_avg: 0.0698) (avg: 0.0698)
+(epoch 66) (batch 0/385) action_orien_cos_sim (train): 0.9787 (100pt moving_avg: 0.9787) (avg: 0.9787)
+(epoch 66) (batch 0/385) multi_action_orien_cos_sim (train): 0.9787 (100pt moving_avg: 0.9787) (avg: 0.9787)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 66:  26%|█████▋                | 100/386 [02:44<07:01,  1.47s/it](epoch 66) (batch 100/385) dist_loss (train): 10.2615 (100pt moving_avg: 9.7026) (avg: 9.6756)
+(epoch 66) (batch 100/385) action_loss (train): 0.0705 (100pt moving_avg: 0.0768) (avg: 0.0767)
+(epoch 66) (batch 100/385) action_waypts_cos_sim (train): 0.7946 (100pt moving_avg: 0.8514) (avg: 0.8515)
+(epoch 66) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8077 (100pt moving_avg: 0.8565) (avg: 0.8568)
+(epoch 66) (batch 100/385) total_loss (train): 0.0866 (100pt moving_avg: 0.0869) (avg: 0.0867)
+(epoch 66) (batch 100/385) action_orien_cos_sim (train): 0.968 (100pt moving_avg: 0.9768) (avg: 0.9768)
+(epoch 66) (batch 100/385) multi_action_orien_cos_sim (train): 0.968 (100pt moving_avg: 0.9768) (avg: 0.9768)
+Training epoch 66:  52%|███████████▍          | 200/386 [05:20<03:31,  1.14s/it](epoch 66) (batch 200/385) dist_loss (train): 9.0718 (100pt moving_avg: 9.8737) (avg: 9.7742)
+(epoch 66) (batch 200/385) action_loss (train): 0.0645 (100pt moving_avg: 0.0821) (avg: 0.0794)
+(epoch 66) (batch 200/385) action_waypts_cos_sim (train): 0.8556 (100pt moving_avg: 0.8496) (avg: 0.8506)
+(epoch 66) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8625 (100pt moving_avg: 0.854) (avg: 0.8554)
+(epoch 66) (batch 200/385) total_loss (train): 0.0776 (100pt moving_avg: 0.0904) (avg: 0.0886)
+(epoch 66) (batch 200/385) action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9766) (avg: 0.9767)
+(epoch 66) (batch 200/385) multi_action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9766) (avg: 0.9767)
+Training epoch 66:  78%|█████████████████     | 300/386 [07:53<02:51,  1.99s/it](epoch 66) (batch 300/385) dist_loss (train): 9.5982 (100pt moving_avg: 9.5721) (avg: 9.7071)
+(epoch 66) (batch 300/385) action_loss (train): 0.0546 (100pt moving_avg: 0.079) (avg: 0.0793)
+(epoch 66) (batch 300/385) action_waypts_cos_sim (train): 0.8073 (100pt moving_avg: 0.834) (avg: 0.8451)
+(epoch 66) (batch 300/385) multi_action_waypts_cos_sim (train): 0.8085 (100pt moving_avg: 0.8378) (avg: 0.8496)
+(epoch 66) (batch 300/385) total_loss (train): 0.0753 (100pt moving_avg: 0.0874) (avg: 0.0882)
+(epoch 66) (batch 300/385) action_orien_cos_sim (train): 0.9702 (100pt moving_avg: 0.9765) (avg: 0.9767)
+(epoch 66) (batch 300/385) multi_action_orien_cos_sim (train): 0.9702 (100pt moving_avg: 0.9765) (avg: 0.9767)
+Training epoch 66: 100%|██████████████████████| 386/386 [09:59<00:00,  1.55s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 66/89
+Evaluating nuScenes_custom_test for epoch 66: 100%|█| 18/18 [02:52<00:00,  9.57s
+(epoch 66) dist_loss (nuScenes_custom_test) 22.19726938671536
+(epoch 66) action_loss (nuScenes_custom_test) 0.4860168356034491
+(epoch 66) action_waypts_cos_sim (nuScenes_custom_test) 0.7878221968809763
+(epoch 66) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.79018391834365
+(epoch 66) total_loss (nuScenes_custom_test) 0.3539947619040807
+(epoch 66) action_orien_cos_sim (nuScenes_custom_test) 0.9760778016514249
+(epoch 66) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9760777354240417
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 9/15
+Start idd_multi_test ViNT Testing Epoch 66/89
+Evaluating idd_multi_test for epoch 66: 100%|███| 12/12 [03:15<00:00, 16.27s/it]
+(epoch 66) dist_loss (idd_multi_test) 16.665560642878216
+(epoch 66) action_loss (idd_multi_test) 0.21555932238698006
+(epoch 66) action_waypts_cos_sim (idd_multi_test) 0.9660366624593735
+(epoch 66) multi_action_waypts_cos_sim (idd_multi_test) 0.9643164426088333
+(epoch 66) total_loss (idd_multi_test) 0.19110746681690216
+(epoch 66) action_orien_cos_sim (idd_multi_test) 0.9628333499034246
+(epoch 66) multi_action_orien_cos_sim (idd_multi_test) 0.9628332853317261
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 10/15
+Start ViNT Training Epoch 67/89
+Training epoch 67:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 67) (batch 0/385) dist_loss (train): 10.1196 (100pt moving_avg: 10.1196) (avg: 10.1196)
+(epoch 67) (batch 0/385) action_loss (train): 0.0904 (100pt moving_avg: 0.0904) (avg: 0.0904)
+(epoch 67) (batch 0/385) action_waypts_cos_sim (train): 0.8585 (100pt moving_avg: 0.8585) (avg: 0.8585)
+(epoch 67) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8575 (100pt moving_avg: 0.8575) (avg: 0.8575)
+(epoch 67) (batch 0/385) total_loss (train): 0.0958 (100pt moving_avg: 0.0958) (avg: 0.0958)
+(epoch 67) (batch 0/385) action_orien_cos_sim (train): 0.9795 (100pt moving_avg: 0.9795) (avg: 0.9795)
+(epoch 67) (batch 0/385) multi_action_orien_cos_sim (train): 0.9795 (100pt moving_avg: 0.9795) (avg: 0.9795)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 67:  26%|█████▋                | 100/386 [02:46<06:59,  1.47s/it](epoch 67) (batch 100/385) dist_loss (train): 6.8568 (100pt moving_avg: 9.0602) (avg: 9.0707)
+(epoch 67) (batch 100/385) action_loss (train): 0.0568 (100pt moving_avg: 0.0779) (avg: 0.0781)
+(epoch 67) (batch 100/385) action_waypts_cos_sim (train): 0.8808 (100pt moving_avg: 0.8487) (avg: 0.8488)
+(epoch 67) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8738 (100pt moving_avg: 0.8514) (avg: 0.8515)
+(epoch 67) (batch 100/385) total_loss (train): 0.0627 (100pt moving_avg: 0.0843) (avg: 0.0844)
+(epoch 67) (batch 100/385) action_orien_cos_sim (train): 0.9759 (100pt moving_avg: 0.9765) (avg: 0.9765)
+(epoch 67) (batch 100/385) multi_action_orien_cos_sim (train): 0.9759 (100pt moving_avg: 0.9765) (avg: 0.9765)
+Training epoch 67:  52%|███████████▍          | 200/386 [05:18<03:01,  1.02it/s](epoch 67) (batch 200/385) dist_loss (train): 12.2084 (100pt moving_avg: 8.8215) (avg: 8.9467)
+(epoch 67) (batch 200/385) action_loss (train): 0.0879 (100pt moving_avg: 0.0732) (avg: 0.0756)
+(epoch 67) (batch 200/385) action_waypts_cos_sim (train): 0.9337 (100pt moving_avg: 0.8472) (avg: 0.848)
+(epoch 67) (batch 200/385) multi_action_waypts_cos_sim (train): 0.9237 (100pt moving_avg: 0.85) (avg: 0.8508)
+(epoch 67) (batch 200/385) total_loss (train): 0.105 (100pt moving_avg: 0.0807) (avg: 0.0826)
+(epoch 67) (batch 200/385) action_orien_cos_sim (train): 0.9723 (100pt moving_avg: 0.9763) (avg: 0.9764)
+(epoch 67) (batch 200/385) multi_action_orien_cos_sim (train): 0.9723 (100pt moving_avg: 0.9763) (avg: 0.9764)
+Training epoch 67:  78%|█████████████████     | 300/386 [07:52<01:50,  1.28s/it](epoch 67) (batch 300/385) dist_loss (train): 8.9277 (100pt moving_avg: 8.9932) (avg: 8.9622)
+(epoch 67) (batch 300/385) action_loss (train): 0.0969 (100pt moving_avg: 0.0742) (avg: 0.0752)
+(epoch 67) (batch 300/385) action_waypts_cos_sim (train): 0.8607 (100pt moving_avg: 0.8573) (avg: 0.8511)
+(epoch 67) (batch 300/385) multi_action_waypts_cos_sim (train): 0.8556 (100pt moving_avg: 0.864) (avg: 0.8551)
+(epoch 67) (batch 300/385) total_loss (train): 0.0931 (100pt moving_avg: 0.0821) (avg: 0.0824)
+(epoch 67) (batch 300/385) action_orien_cos_sim (train): 0.9741 (100pt moving_avg: 0.9763) (avg: 0.9764)
+(epoch 67) (batch 300/385) multi_action_orien_cos_sim (train): 0.9741 (100pt moving_avg: 0.9763) (avg: 0.9764)
+Training epoch 67: 100%|██████████████████████| 386/386 [10:06<00:00,  1.57s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 67/89
+Evaluating nuScenes_custom_test for epoch 67: 100%|█| 18/18 [02:50<00:00,  9.47s
+(epoch 67) dist_loss (nuScenes_custom_test) 22.688061502244736
+(epoch 67) action_loss (nuScenes_custom_test) 0.4758635817302598
+(epoch 67) action_waypts_cos_sim (nuScenes_custom_test) 0.8201024300522275
+(epoch 67) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8103069563706716
+(epoch 67) total_loss (nuScenes_custom_test) 0.3513720954457919
+(epoch 67) action_orien_cos_sim (nuScenes_custom_test) 0.9744428793589274
+(epoch 67) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9744428296883901
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 11/15
+Start idd_multi_test ViNT Testing Epoch 67/89
+Evaluating idd_multi_test for epoch 67: 100%|███| 12/12 [03:12<00:00, 16.03s/it]
+(epoch 67) dist_loss (idd_multi_test) 17.19683003425598
+(epoch 67) action_loss (idd_multi_test) 0.17519025256236395
+(epoch 67) action_waypts_cos_sim (idd_multi_test) 0.9693392614523569
+(epoch 67) multi_action_waypts_cos_sim (idd_multi_test) 0.966404010852178
+(epoch 67) total_loss (idd_multi_test) 0.1735792743662993
+(epoch 67) action_orien_cos_sim (idd_multi_test) 0.9669065028429031
+(epoch 67) multi_action_orien_cos_sim (idd_multi_test) 0.9669064482053121
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 12/15
+Start ViNT Training Epoch 68/89
+Training epoch 68:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 68) (batch 0/385) dist_loss (train): 10.6524 (100pt moving_avg: 10.6524) (avg: 10.6524)
+(epoch 68) (batch 0/385) action_loss (train): 0.0335 (100pt moving_avg: 0.0335) (avg: 0.0335)
+(epoch 68) (batch 0/385) action_waypts_cos_sim (train): 0.9061 (100pt moving_avg: 0.9061) (avg: 0.9061)
+(epoch 68) (batch 0/385) multi_action_waypts_cos_sim (train): 0.9002 (100pt moving_avg: 0.9002) (avg: 0.9002)
+(epoch 68) (batch 0/385) total_loss (train): 0.07 (100pt moving_avg: 0.07) (avg: 0.07)
+(epoch 68) (batch 0/385) action_orien_cos_sim (train): 0.9785 (100pt moving_avg: 0.9785) (avg: 0.9785)
+(epoch 68) (batch 0/385) multi_action_orien_cos_sim (train): 0.9785 (100pt moving_avg: 0.9785) (avg: 0.9785)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 68:  26%|█████▋                | 100/386 [02:46<06:54,  1.45s/it](epoch 68) (batch 100/385) dist_loss (train): 8.5025 (100pt moving_avg: 8.6664) (avg: 8.6861)
+(epoch 68) (batch 100/385) action_loss (train): 0.0761 (100pt moving_avg: 0.0724) (avg: 0.072)
+(epoch 68) (batch 100/385) action_waypts_cos_sim (train): 0.8962 (100pt moving_avg: 0.8413) (avg: 0.8419)
+(epoch 68) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8977 (100pt moving_avg: 0.843) (avg: 0.8436)
+(epoch 68) (batch 100/385) total_loss (train): 0.0806 (100pt moving_avg: 0.0795) (avg: 0.0794)
+(epoch 68) (batch 100/385) action_orien_cos_sim (train): 0.9772 (100pt moving_avg: 0.9764) (avg: 0.9765)
+(epoch 68) (batch 100/385) multi_action_orien_cos_sim (train): 0.9772 (100pt moving_avg: 0.9764) (avg: 0.9765)
+Training epoch 68:  52%|███████████▍          | 200/386 [05:17<02:50,  1.09it/s](epoch 68) (batch 200/385) dist_loss (train): 6.1433 (100pt moving_avg: 8.5582) (avg: 8.6224)
+(epoch 68) (batch 200/385) action_loss (train): 0.0901 (100pt moving_avg: 0.0649) (avg: 0.0685)
+(epoch 68) (batch 200/385) action_waypts_cos_sim (train): 0.8925 (100pt moving_avg: 0.8633) (avg: 0.8525)
+(epoch 68) (batch 200/385) multi_action_waypts_cos_sim (train): 0.897 (100pt moving_avg: 0.8637) (avg: 0.8536)
+(epoch 68) (batch 200/385) total_loss (train): 0.0758 (100pt moving_avg: 0.0752) (avg: 0.0773)
+(epoch 68) (batch 200/385) action_orien_cos_sim (train): 0.9769 (100pt moving_avg: 0.977) (avg: 0.9767)
+(epoch 68) (batch 200/385) multi_action_orien_cos_sim (train): 0.9769 (100pt moving_avg: 0.977) (avg: 0.9767)
+Training epoch 68:  78%|█████████████████     | 300/386 [07:53<02:08,  1.49s/it](epoch 68) (batch 300/385) dist_loss (train): 10.4658 (100pt moving_avg: 9.1206) (avg: 8.7879)
+(epoch 68) (batch 300/385) action_loss (train): 0.0549 (100pt moving_avg: 0.0666) (avg: 0.0679)
+(epoch 68) (batch 300/385) action_waypts_cos_sim (train): 0.9049 (100pt moving_avg: 0.8479) (avg: 0.851)
+(epoch 68) (batch 300/385) multi_action_waypts_cos_sim (train): 0.9127 (100pt moving_avg: 0.8497) (avg: 0.8523)
+(epoch 68) (batch 300/385) total_loss (train): 0.0798 (100pt moving_avg: 0.0789) (avg: 0.0779)
+(epoch 68) (batch 300/385) action_orien_cos_sim (train): 0.9788 (100pt moving_avg: 0.9774) (avg: 0.9769)
+(epoch 68) (batch 300/385) multi_action_orien_cos_sim (train): 0.9788 (100pt moving_avg: 0.9774) (avg: 0.9769)
+Training epoch 68: 100%|██████████████████████| 386/386 [10:04<00:00,  1.57s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 68/89
+Evaluating nuScenes_custom_test for epoch 68: 100%|█| 18/18 [02:48<00:00,  9.34s
+(epoch 68) dist_loss (nuScenes_custom_test) 22.35014745924208
+(epoch 68) action_loss (nuScenes_custom_test) 0.5077218413352966
+(epoch 68) action_waypts_cos_sim (nuScenes_custom_test) 0.8128922945923276
+(epoch 68) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.827281590965059
+(epoch 68) total_loss (nuScenes_custom_test) 0.36561165667242473
+(epoch 68) action_orien_cos_sim (nuScenes_custom_test) 0.9765083988507589
+(epoch 68) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9765083094437917
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 13/15
+Start idd_multi_test ViNT Testing Epoch 68/89
+Evaluating idd_multi_test for epoch 68: 100%|███| 12/12 [03:13<00:00, 16.14s/it]
+(epoch 68) dist_loss (idd_multi_test) 12.10995344320933
+(epoch 68) action_loss (idd_multi_test) 0.1895834511766831
+(epoch 68) action_waypts_cos_sim (idd_multi_test) 0.9694398244222006
+(epoch 68) multi_action_waypts_cos_sim (idd_multi_test) 0.9680098096529642
+(epoch 68) total_loss (idd_multi_test) 0.1553414948284626
+(epoch 68) action_orien_cos_sim (idd_multi_test) 0.970191165804863
+(epoch 68) multi_action_orien_cos_sim (idd_multi_test) 0.9701910763978958
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 14/15
+Start ViNT Training Epoch 69/89
+Training epoch 69:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 69) (batch 0/385) dist_loss (train): 7.5634 (100pt moving_avg: 7.5634) (avg: 7.5634)
+(epoch 69) (batch 0/385) action_loss (train): 0.0916 (100pt moving_avg: 0.0916) (avg: 0.0916)
+(epoch 69) (batch 0/385) action_waypts_cos_sim (train): 0.8972 (100pt moving_avg: 0.8972) (avg: 0.8972)
+(epoch 69) (batch 0/385) multi_action_waypts_cos_sim (train): 0.882 (100pt moving_avg: 0.882) (avg: 0.882)
+(epoch 69) (batch 0/385) total_loss (train): 0.0836 (100pt moving_avg: 0.0836) (avg: 0.0836)
+(epoch 69) (batch 0/385) action_orien_cos_sim (train): 0.9709 (100pt moving_avg: 0.9709) (avg: 0.9709)
+(epoch 69) (batch 0/385) multi_action_orien_cos_sim (train): 0.9709 (100pt moving_avg: 0.9709) (avg: 0.9709)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 69:  26%|█████▋                | 100/386 [02:44<07:13,  1.51s/it](epoch 69) (batch 100/385) dist_loss (train): 9.1335 (100pt moving_avg: 8.6575) (avg: 8.6466)
+(epoch 69) (batch 100/385) action_loss (train): 0.0511 (100pt moving_avg: 0.0592) (avg: 0.0595)
+(epoch 69) (batch 100/385) action_waypts_cos_sim (train): 0.7389 (100pt moving_avg: 0.8468) (avg: 0.8473)
+(epoch 69) (batch 100/385) multi_action_waypts_cos_sim (train): 0.7331 (100pt moving_avg: 0.8519) (avg: 0.8522)
+(epoch 69) (batch 100/385) total_loss (train): 0.0712 (100pt moving_avg: 0.0729) (avg: 0.073)
+(epoch 69) (batch 100/385) action_orien_cos_sim (train): 0.9797 (100pt moving_avg: 0.9762) (avg: 0.9762)
+(epoch 69) (batch 100/385) multi_action_orien_cos_sim (train): 0.9797 (100pt moving_avg: 0.9762) (avg: 0.9762)
+Training epoch 69:  52%|███████████▍          | 200/386 [05:14<03:07,  1.01s/it](epoch 69) (batch 200/385) dist_loss (train): 5.7265 (100pt moving_avg: 8.2811) (avg: 8.4648)
+(epoch 69) (batch 200/385) action_loss (train): 0.0615 (100pt moving_avg: 0.0599) (avg: 0.0597)
+(epoch 69) (batch 200/385) action_waypts_cos_sim (train): 0.8983 (100pt moving_avg: 0.8424) (avg: 0.8448)
+(epoch 69) (batch 200/385) multi_action_waypts_cos_sim (train): 0.914 (100pt moving_avg: 0.848) (avg: 0.8501)
+(epoch 69) (batch 200/385) total_loss (train): 0.0594 (100pt moving_avg: 0.0713) (avg: 0.0722)
+(epoch 69) (batch 200/385) action_orien_cos_sim (train): 0.9768 (100pt moving_avg: 0.9766) (avg: 0.9764)
+(epoch 69) (batch 200/385) multi_action_orien_cos_sim (train): 0.9768 (100pt moving_avg: 0.9766) (avg: 0.9764)
+Training epoch 69:  78%|█████████████████     | 300/386 [07:53<02:37,  1.83s/it](epoch 69) (batch 300/385) dist_loss (train): 12.4137 (100pt moving_avg: 8.8862) (avg: 8.6048)
+(epoch 69) (batch 300/385) action_loss (train): 0.0438 (100pt moving_avg: 0.0702) (avg: 0.0632)
+(epoch 69) (batch 300/385) action_waypts_cos_sim (train): 0.9303 (100pt moving_avg: 0.849) (avg: 0.8462)
+(epoch 69) (batch 300/385) multi_action_waypts_cos_sim (train): 0.9272 (100pt moving_avg: 0.8524) (avg: 0.8509)
+(epoch 69) (batch 300/385) total_loss (train): 0.084 (100pt moving_avg: 0.0795) (avg: 0.0746)
+(epoch 69) (batch 300/385) action_orien_cos_sim (train): 0.9781 (100pt moving_avg: 0.9771) (avg: 0.9766)
+(epoch 69) (batch 300/385) multi_action_orien_cos_sim (train): 0.9781 (100pt moving_avg: 0.9771) (avg: 0.9766)
+Training epoch 69: 100%|██████████████████████| 386/386 [09:59<00:00,  1.55s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 69/89
+Evaluating nuScenes_custom_test for epoch 69: 100%|█| 18/18 [02:50<00:00,  9.46s
+(epoch 69) dist_loss (nuScenes_custom_test) 22.123141606648762
+(epoch 69) action_loss (nuScenes_custom_test) 0.4093552024828063
+(epoch 69) action_waypts_cos_sim (nuScenes_custom_test) 0.8032169044017792
+(epoch 69) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8005730046166314
+(epoch 69) total_loss (nuScenes_custom_test) 0.3152933087613847
+(epoch 69) action_orien_cos_sim (nuScenes_custom_test) 0.9784605337513818
+(epoch 69) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9784604708353678
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 15/15
+� Early stopping triggered.
+Start ViNT Training Epoch 70/89
+Training epoch 70:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 70) (batch 0/385) dist_loss (train): 7.6482 (100pt moving_avg: 7.6482) (avg: 7.6482)
+(epoch 70) (batch 0/385) action_loss (train): 0.0528 (100pt moving_avg: 0.0528) (avg: 0.0528)
+(epoch 70) (batch 0/385) action_waypts_cos_sim (train): 0.8226 (100pt moving_avg: 0.8226) (avg: 0.8226)
+(epoch 70) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8167 (100pt moving_avg: 0.8167) (avg: 0.8167)
+(epoch 70) (batch 0/385) total_loss (train): 0.0646 (100pt moving_avg: 0.0646) (avg: 0.0646)
+(epoch 70) (batch 0/385) action_orien_cos_sim (train): 0.972 (100pt moving_avg: 0.972) (avg: 0.972)
+(epoch 70) (batch 0/385) multi_action_orien_cos_sim (train): 0.972 (100pt moving_avg: 0.972) (avg: 0.972)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 70:  26%|█████▋                | 100/386 [02:43<06:45,  1.42s/it](epoch 70) (batch 100/385) dist_loss (train): 9.9958 (100pt moving_avg: 8.3161) (avg: 8.3095)
+(epoch 70) (batch 100/385) action_loss (train): 0.0493 (100pt moving_avg: 0.0584) (avg: 0.0583)
+(epoch 70) (batch 100/385) action_waypts_cos_sim (train): 0.8034 (100pt moving_avg: 0.8491) (avg: 0.8488)
+(epoch 70) (batch 100/385) multi_action_waypts_cos_sim (train): 0.819 (100pt moving_avg: 0.8509) (avg: 0.8505)
+(epoch 70) (batch 100/385) total_loss (train): 0.0746 (100pt moving_avg: 0.0708) (avg: 0.0707)
+(epoch 70) (batch 100/385) action_orien_cos_sim (train): 0.9732 (100pt moving_avg: 0.9779) (avg: 0.9778)
+(epoch 70) (batch 100/385) multi_action_orien_cos_sim (train): 0.9732 (100pt moving_avg: 0.9779) (avg: 0.9778)
+Training epoch 70:  52%|███████████▍          | 200/386 [05:12<02:57,  1.05it/s](epoch 70) (batch 200/385) dist_loss (train): 5.8514 (100pt moving_avg: 9.2927) (avg: 8.7987)
+(epoch 70) (batch 200/385) action_loss (train): 0.0565 (100pt moving_avg: 0.0901) (avg: 0.0742)
+(epoch 70) (batch 200/385) action_waypts_cos_sim (train): 0.8196 (100pt moving_avg: 0.8552) (avg: 0.852)
+(epoch 70) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8269 (100pt moving_avg: 0.8596) (avg: 0.855)
+(epoch 70) (batch 200/385) total_loss (train): 0.0575 (100pt moving_avg: 0.0915) (avg: 0.0811)
+(epoch 70) (batch 200/385) action_orien_cos_sim (train): 0.9804 (100pt moving_avg: 0.977) (avg: 0.9774)
+(epoch 70) (batch 200/385) multi_action_orien_cos_sim (train): 0.9804 (100pt moving_avg: 0.977) (avg: 0.9774)
+Training epoch 70:  78%|█████████████████     | 300/386 [07:48<02:03,  1.44s/it](epoch 70) (batch 300/385) dist_loss (train): 5.0967 (100pt moving_avg: 9.2828) (avg: 8.9595)
+(epoch 70) (batch 300/385) action_loss (train): 0.0596 (100pt moving_avg: 0.0809) (avg: 0.0764)
+(epoch 70) (batch 300/385) action_waypts_cos_sim (train): 0.8719 (100pt moving_avg: 0.848) (avg: 0.8507)
+(epoch 70) (batch 300/385) multi_action_waypts_cos_sim (train): 0.8729 (100pt moving_avg: 0.8516) (avg: 0.8539)
+(epoch 70) (batch 300/385) total_loss (train): 0.0553 (100pt moving_avg: 0.0869) (avg: 0.083)
+(epoch 70) (batch 300/385) action_orien_cos_sim (train): 0.9782 (100pt moving_avg: 0.9771) (avg: 0.9773)
+(epoch 70) (batch 300/385) multi_action_orien_cos_sim (train): 0.9782 (100pt moving_avg: 0.9771) (avg: 0.9773)
+Training epoch 70: 100%|██████████████████████| 386/386 [10:00<00:00,  1.56s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 70/89
+Evaluating nuScenes_custom_test for epoch 70: 100%|█| 18/18 [02:51<00:00,  9.51s
+(epoch 70) dist_loss (nuScenes_custom_test) 20.704675939348007
+(epoch 70) action_loss (nuScenes_custom_test) 0.48512950787941617
+(epoch 70) action_waypts_cos_sim (nuScenes_custom_test) 0.7961156335141923
+(epoch 70) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.7986941238244375
+(epoch 70) total_loss (nuScenes_custom_test) 0.3460881296131346
+(epoch 70) action_orien_cos_sim (nuScenes_custom_test) 0.9751926130718656
+(epoch 70) multi_action_orien_cos_sim (nuScenes_custom_test) 0.975192560089959
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 16/15
+� Early stopping triggered.
+Start ViNT Training Epoch 71/89
+Training epoch 71:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 71) (batch 0/385) dist_loss (train): 6.3823 (100pt moving_avg: 6.3823) (avg: 6.3823)
+(epoch 71) (batch 0/385) action_loss (train): 0.1043 (100pt moving_avg: 0.1043) (avg: 0.1043)
+(epoch 71) (batch 0/385) action_waypts_cos_sim (train): 0.8723 (100pt moving_avg: 0.8723) (avg: 0.8723)
+(epoch 71) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8603 (100pt moving_avg: 0.8603) (avg: 0.8603)
+(epoch 71) (batch 0/385) total_loss (train): 0.0841 (100pt moving_avg: 0.0841) (avg: 0.0841)
+(epoch 71) (batch 0/385) action_orien_cos_sim (train): 0.9781 (100pt moving_avg: 0.9781) (avg: 0.9781)
+(epoch 71) (batch 0/385) multi_action_orien_cos_sim (train): 0.9781 (100pt moving_avg: 0.9781) (avg: 0.9781)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 71:  26%|█████▋                | 100/386 [02:41<06:58,  1.46s/it](epoch 71) (batch 100/385) dist_loss (train): 5.0339 (100pt moving_avg: 8.2137) (avg: 8.1956)
+(epoch 71) (batch 100/385) action_loss (train): 0.0392 (100pt moving_avg: 0.0645) (avg: 0.0649)
+(epoch 71) (batch 100/385) action_waypts_cos_sim (train): 0.8373 (100pt moving_avg: 0.842) (avg: 0.8423)
+(epoch 71) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8391 (100pt moving_avg: 0.8438) (avg: 0.8439)
+(epoch 71) (batch 100/385) total_loss (train): 0.0448 (100pt moving_avg: 0.0733) (avg: 0.0734)
+(epoch 71) (batch 100/385) action_orien_cos_sim (train): 0.9812 (100pt moving_avg: 0.977) (avg: 0.977)
+(epoch 71) (batch 100/385) multi_action_orien_cos_sim (train): 0.9812 (100pt moving_avg: 0.977) (avg: 0.977)
+Training epoch 71:  52%|███████████▍          | 200/386 [05:15<02:55,  1.06it/s](epoch 71) (batch 200/385) dist_loss (train): 6.5108 (100pt moving_avg: 8.0301) (avg: 8.1132)
+(epoch 71) (batch 200/385) action_loss (train): 0.0498 (100pt moving_avg: 0.0593) (avg: 0.0621)
+(epoch 71) (batch 200/385) action_waypts_cos_sim (train): 0.8603 (100pt moving_avg: 0.8476) (avg: 0.8449)
+(epoch 71) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8647 (100pt moving_avg: 0.8522) (avg: 0.8481)
+(epoch 71) (batch 200/385) total_loss (train): 0.0574 (100pt moving_avg: 0.0698) (avg: 0.0716)
+(epoch 71) (batch 200/385) action_orien_cos_sim (train): 0.9791 (100pt moving_avg: 0.9765) (avg: 0.9768)
+(epoch 71) (batch 200/385) multi_action_orien_cos_sim (train): 0.9791 (100pt moving_avg: 0.9765) (avg: 0.9768)
+Training epoch 71:  78%|█████████████████     | 300/386 [07:55<02:56,  2.05s/it](epoch 71) (batch 300/385) dist_loss (train): 5.8423 (100pt moving_avg: 8.2245) (avg: 8.1502)
+(epoch 71) (batch 300/385) action_loss (train): 0.0442 (100pt moving_avg: 0.066) (avg: 0.0634)
+(epoch 71) (batch 300/385) action_waypts_cos_sim (train): 0.8351 (100pt moving_avg: 0.8574) (avg: 0.8491)
+(epoch 71) (batch 300/385) multi_action_waypts_cos_sim (train): 0.8336 (100pt moving_avg: 0.8612) (avg: 0.8524)
+(epoch 71) (batch 300/385) total_loss (train): 0.0513 (100pt moving_avg: 0.0741) (avg: 0.0724)
+(epoch 71) (batch 300/385) action_orien_cos_sim (train): 0.9803 (100pt moving_avg: 0.9769) (avg: 0.9768)
+(epoch 71) (batch 300/385) multi_action_orien_cos_sim (train): 0.9803 (100pt moving_avg: 0.9769) (avg: 0.9768)
+Training epoch 71: 100%|██████████████████████| 386/386 [10:03<00:00,  1.56s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 71/89
+Evaluating nuScenes_custom_test for epoch 71: 100%|█| 18/18 [02:48<00:00,  9.36s
+(epoch 71) dist_loss (nuScenes_custom_test) 22.770508501264786
+(epoch 71) action_loss (nuScenes_custom_test) 0.5300549119710922
+(epoch 71) action_waypts_cos_sim (nuScenes_custom_test) 0.8058397306336297
+(epoch 71) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.808678557475408
+(epoch 71) total_loss (nuScenes_custom_test) 0.37887999415397644
+(epoch 71) action_orien_cos_sim (nuScenes_custom_test) 0.9756096568372514
+(epoch 71) multi_action_orien_cos_sim (nuScenes_custom_test) 0.975609560807546
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 17/15
+� Early stopping triggered.
+Start ViNT Training Epoch 72/89
+Training epoch 72:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 72) (batch 0/385) dist_loss (train): 8.6771 (100pt moving_avg: 8.6771) (avg: 8.6771)
+(epoch 72) (batch 0/385) action_loss (train): 0.0939 (100pt moving_avg: 0.0939) (avg: 0.0939)
+(epoch 72) (batch 0/385) action_waypts_cos_sim (train): 0.7804 (100pt moving_avg: 0.7804) (avg: 0.7804)
+(epoch 72) (batch 0/385) multi_action_waypts_cos_sim (train): 0.7774 (100pt moving_avg: 0.7774) (avg: 0.7774)
+(epoch 72) (batch 0/385) total_loss (train): 0.0903 (100pt moving_avg: 0.0903) (avg: 0.0903)
+(epoch 72) (batch 0/385) action_orien_cos_sim (train): 0.9498 (100pt moving_avg: 0.9498) (avg: 0.9498)
+(epoch 72) (batch 0/385) multi_action_orien_cos_sim (train): 0.9498 (100pt moving_avg: 0.9498) (avg: 0.9498)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 72:  26%|█████▋                | 100/386 [02:46<07:05,  1.49s/it](epoch 72) (batch 100/385) dist_loss (train): 6.1394 (100pt moving_avg: 8.1513) (avg: 8.1565)
+(epoch 72) (batch 100/385) action_loss (train): 0.0464 (100pt moving_avg: 0.0563) (avg: 0.0567)
+(epoch 72) (batch 100/385) action_waypts_cos_sim (train): 0.9508 (100pt moving_avg: 0.8493) (avg: 0.8486)
+(epoch 72) (batch 100/385) multi_action_waypts_cos_sim (train): 0.9524 (100pt moving_avg: 0.8548) (avg: 0.854)
+(epoch 72) (batch 100/385) total_loss (train): 0.0539 (100pt moving_avg: 0.0689) (avg: 0.0691)
+(epoch 72) (batch 100/385) action_orien_cos_sim (train): 0.9795 (100pt moving_avg: 0.9774) (avg: 0.9771)
+(epoch 72) (batch 100/385) multi_action_orien_cos_sim (train): 0.9795 (100pt moving_avg: 0.9774) (avg: 0.9771)
+Training epoch 72:  52%|███████████▍          | 200/386 [05:18<02:53,  1.07it/s](epoch 72) (batch 200/385) dist_loss (train): 8.6237 (100pt moving_avg: 7.4455) (avg: 7.8028)
+(epoch 72) (batch 200/385) action_loss (train): 0.0508 (100pt moving_avg: 0.0579) (avg: 0.0573)
+(epoch 72) (batch 200/385) action_waypts_cos_sim (train): 0.7267 (100pt moving_avg: 0.8529) (avg: 0.8508)
+(epoch 72) (batch 200/385) multi_action_waypts_cos_sim (train): 0.7329 (100pt moving_avg: 0.8574) (avg: 0.8557)
+(epoch 72) (batch 200/385) total_loss (train): 0.0685 (100pt moving_avg: 0.0662) (avg: 0.0677)
+(epoch 72) (batch 200/385) action_orien_cos_sim (train): 0.9801 (100pt moving_avg: 0.9765) (avg: 0.9768)
+(epoch 72) (batch 200/385) multi_action_orien_cos_sim (train): 0.9801 (100pt moving_avg: 0.9765) (avg: 0.9768)
+Training epoch 72:  78%|█████████████████     | 300/386 [08:00<02:46,  1.94s/it](epoch 72) (batch 300/385) dist_loss (train): 5.8055 (100pt moving_avg: 8.0672) (avg: 7.8906)
+(epoch 72) (batch 300/385) action_loss (train): 0.0352 (100pt moving_avg: 0.0576) (avg: 0.0574)
+(epoch 72) (batch 300/385) action_waypts_cos_sim (train): 0.8853 (100pt moving_avg: 0.8561) (avg: 0.8525)
+(epoch 72) (batch 300/385) multi_action_waypts_cos_sim (train): 0.8746 (100pt moving_avg: 0.8596) (avg: 0.857)
+(epoch 72) (batch 300/385) total_loss (train): 0.0466 (100pt moving_avg: 0.0691) (avg: 0.0681)
+(epoch 72) (batch 300/385) action_orien_cos_sim (train): 0.9785 (100pt moving_avg: 0.9778) (avg: 0.9772)
+(epoch 72) (batch 300/385) multi_action_orien_cos_sim (train): 0.9785 (100pt moving_avg: 0.9778) (avg: 0.9772)
+Training epoch 72: 100%|██████████████████████| 386/386 [10:16<00:00,  1.60s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 72/89
+Evaluating nuScenes_custom_test for epoch 72: 100%|█| 18/18 [02:53<00:00,  9.64s
+(epoch 72) dist_loss (nuScenes_custom_test) 23.66628297170003
+(epoch 72) action_loss (nuScenes_custom_test) 0.5360701282819113
+(epoch 72) action_waypts_cos_sim (nuScenes_custom_test) 0.7625256313218011
+(epoch 72) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.7694538666142358
+(epoch 72) total_loss (nuScenes_custom_test) 0.38636647330390084
+(epoch 72) action_orien_cos_sim (nuScenes_custom_test) 0.9760534200403426
+(epoch 72) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9760533538129594
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 18/15
+� Early stopping triggered.
+Start ViNT Training Epoch 73/89
+Training epoch 73:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 73) (batch 0/385) dist_loss (train): 6.0617 (100pt moving_avg: 6.0617) (avg: 6.0617)
+(epoch 73) (batch 0/385) action_loss (train): 0.0538 (100pt moving_avg: 0.0538) (avg: 0.0538)
+(epoch 73) (batch 0/385) action_waypts_cos_sim (train): 0.8556 (100pt moving_avg: 0.8556) (avg: 0.8556)
+(epoch 73) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8739 (100pt moving_avg: 0.8739) (avg: 0.8739)
+(epoch 73) (batch 0/385) total_loss (train): 0.0572 (100pt moving_avg: 0.0572) (avg: 0.0572)
+(epoch 73) (batch 0/385) action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9786) (avg: 0.9786)
+(epoch 73) (batch 0/385) multi_action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9786) (avg: 0.9786)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 73:  26%|█████▋                | 100/386 [02:44<06:47,  1.42s/it](epoch 73) (batch 100/385) dist_loss (train): 4.7157 (100pt moving_avg: 7.4177) (avg: 7.4043)
+(epoch 73) (batch 100/385) action_loss (train): 0.0729 (100pt moving_avg: 0.0523) (avg: 0.0524)
+(epoch 73) (batch 100/385) action_waypts_cos_sim (train): 0.8733 (100pt moving_avg: 0.8521) (avg: 0.8521)
+(epoch 73) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8821 (100pt moving_avg: 0.8555) (avg: 0.8557)
+(epoch 73) (batch 100/385) total_loss (train): 0.06 (100pt moving_avg: 0.0633) (avg: 0.0632)
+(epoch 73) (batch 100/385) action_orien_cos_sim (train): 0.9749 (100pt moving_avg: 0.9777) (avg: 0.9777)
+(epoch 73) (batch 100/385) multi_action_orien_cos_sim (train): 0.9749 (100pt moving_avg: 0.9777) (avg: 0.9777)
+Training epoch 73:  52%|███████████▍          | 200/386 [05:15<02:53,  1.07it/s](epoch 73) (batch 200/385) dist_loss (train): 3.656 (100pt moving_avg: 7.5131) (avg: 7.4584)
+(epoch 73) (batch 200/385) action_loss (train): 0.0365 (100pt moving_avg: 0.0561) (avg: 0.0542)
+(epoch 73) (batch 200/385) action_waypts_cos_sim (train): 0.8409 (100pt moving_avg: 0.8391) (avg: 0.8456)
+(epoch 73) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8389 (100pt moving_avg: 0.8421) (avg: 0.8489)
+(epoch 73) (batch 200/385) total_loss (train): 0.0365 (100pt moving_avg: 0.0656) (avg: 0.0644)
+(epoch 73) (batch 200/385) action_orien_cos_sim (train): 0.9757 (100pt moving_avg: 0.9762) (avg: 0.977)
+(epoch 73) (batch 200/385) multi_action_orien_cos_sim (train): 0.9757 (100pt moving_avg: 0.9762) (avg: 0.977)
+Training epoch 73:  78%|█████████████████     | 300/386 [08:03<02:29,  1.74s/it](epoch 73) (batch 300/385) dist_loss (train): 8.5219 (100pt moving_avg: 7.4669) (avg: 7.4612)
+(epoch 73) (batch 300/385) action_loss (train): 0.0597 (100pt moving_avg: 0.0578) (avg: 0.0554)
+(epoch 73) (batch 300/385) action_waypts_cos_sim (train): 0.831 (100pt moving_avg: 0.8519) (avg: 0.8477)
+(epoch 73) (batch 300/385) multi_action_waypts_cos_sim (train): 0.8386 (100pt moving_avg: 0.8554) (avg: 0.8511)
+(epoch 73) (batch 300/385) total_loss (train): 0.0724 (100pt moving_avg: 0.0662) (avg: 0.065)
+(epoch 73) (batch 300/385) action_orien_cos_sim (train): 0.9782 (100pt moving_avg: 0.9772) (avg: 0.977)
+(epoch 73) (batch 300/385) multi_action_orien_cos_sim (train): 0.9782 (100pt moving_avg: 0.9772) (avg: 0.977)
+Training epoch 73: 100%|██████████████████████| 386/386 [10:20<00:00,  1.61s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 73/89
+Evaluating nuScenes_custom_test for epoch 73: 100%|█| 18/18 [02:51<00:00,  9.54s
+(epoch 73) dist_loss (nuScenes_custom_test) 22.56107298533122
+(epoch 73) action_loss (nuScenes_custom_test) 0.45971003505918717
+(epoch 73) action_waypts_cos_sim (nuScenes_custom_test) 0.861336863703198
+(epoch 73) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8622408443027072
+(epoch 73) total_loss (nuScenes_custom_test) 0.342660375767284
+(epoch 73) action_orien_cos_sim (nuScenes_custom_test) 0.976537373330858
+(epoch 73) multi_action_orien_cos_sim (nuScenes_custom_test) 0.97653728723526
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 19/15
+� Early stopping triggered.
+Start ViNT Training Epoch 74/89
+Training epoch 74:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 74) (batch 0/385) dist_loss (train): 10.3709 (100pt moving_avg: 10.3709) (avg: 10.3709)
+(epoch 74) (batch 0/385) action_loss (train): 0.0528 (100pt moving_avg: 0.0528) (avg: 0.0528)
+(epoch 74) (batch 0/385) action_waypts_cos_sim (train): 0.9356 (100pt moving_avg: 0.9356) (avg: 0.9356)
+(epoch 74) (batch 0/385) multi_action_waypts_cos_sim (train): 0.935 (100pt moving_avg: 0.935) (avg: 0.935)
+(epoch 74) (batch 0/385) total_loss (train): 0.0783 (100pt moving_avg: 0.0783) (avg: 0.0783)
+(epoch 74) (batch 0/385) action_orien_cos_sim (train): 0.9773 (100pt moving_avg: 0.9773) (avg: 0.9773)
+(epoch 74) (batch 0/385) multi_action_orien_cos_sim (train): 0.9773 (100pt moving_avg: 0.9773) (avg: 0.9773)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 74:  26%|█████▋                | 100/386 [02:44<06:47,  1.42s/it](epoch 74) (batch 100/385) dist_loss (train): 6.042 (100pt moving_avg: 7.1533) (avg: 7.1851)
+(epoch 74) (batch 100/385) action_loss (train): 0.0334 (100pt moving_avg: 0.0546) (avg: 0.0545)
+(epoch 74) (batch 100/385) action_waypts_cos_sim (train): 0.8727 (100pt moving_avg: 0.8415) (avg: 0.8425)
+(epoch 74) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8633 (100pt moving_avg: 0.847) (avg: 0.8479)
+(epoch 74) (batch 100/385) total_loss (train): 0.0469 (100pt moving_avg: 0.063) (avg: 0.0632)
+(epoch 74) (batch 100/385) action_orien_cos_sim (train): 0.9792 (100pt moving_avg: 0.9773) (avg: 0.9773)
+(epoch 74) (batch 100/385) multi_action_orien_cos_sim (train): 0.9792 (100pt moving_avg: 0.9773) (avg: 0.9773)
+Training epoch 74:  52%|███████████▍          | 200/386 [05:16<03:03,  1.01it/s](epoch 74) (batch 200/385) dist_loss (train): 8.5579 (100pt moving_avg: 7.5926) (avg: 7.3879)
+(epoch 74) (batch 200/385) action_loss (train): 0.0655 (100pt moving_avg: 0.0538) (avg: 0.0542)
+(epoch 74) (batch 200/385) action_waypts_cos_sim (train): 0.8746 (100pt moving_avg: 0.8523) (avg: 0.8473)
+(epoch 74) (batch 200/385) multi_action_waypts_cos_sim (train): 0.89 (100pt moving_avg: 0.8577) (avg: 0.8527)
+(epoch 74) (batch 200/385) total_loss (train): 0.0756 (100pt moving_avg: 0.0648) (avg: 0.064)
+(epoch 74) (batch 200/385) action_orien_cos_sim (train): 0.9835 (100pt moving_avg: 0.9759) (avg: 0.9766)
+(epoch 74) (batch 200/385) multi_action_orien_cos_sim (train): 0.9835 (100pt moving_avg: 0.9759) (avg: 0.9766)
+Training epoch 74:  78%|█████████████████     | 300/386 [07:55<02:14,  1.56s/it](epoch 74) (batch 300/385) dist_loss (train): 7.9744 (100pt moving_avg: 8.7184) (avg: 7.8299)
+(epoch 74) (batch 300/385) action_loss (train): 0.1133 (100pt moving_avg: 0.0867) (avg: 0.065)
+(epoch 74) (batch 300/385) action_waypts_cos_sim (train): 0.787 (100pt moving_avg: 0.8514) (avg: 0.8487)
+(epoch 74) (batch 300/385) multi_action_waypts_cos_sim (train): 0.7855 (100pt moving_avg: 0.8574) (avg: 0.8543)
+(epoch 74) (batch 300/385) total_loss (train): 0.0965 (100pt moving_avg: 0.0869) (avg: 0.0716)
+(epoch 74) (batch 300/385) action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9775) (avg: 0.9769)
+(epoch 74) (batch 300/385) multi_action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9775) (avg: 0.9769)
+Training epoch 74: 100%|██████████████████████| 386/386 [10:12<00:00,  1.59s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 74/89
+Evaluating nuScenes_custom_test for epoch 74: 100%|█| 18/18 [02:55<00:00,  9.73s
+(epoch 74) dist_loss (nuScenes_custom_test) 23.5762603547838
+(epoch 74) action_loss (nuScenes_custom_test) 0.3955410321553548
+(epoch 74) action_waypts_cos_sim (nuScenes_custom_test) 0.7938602301809523
+(epoch 74) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8167764478259616
+(epoch 74) total_loss (nuScenes_custom_test) 0.3156518174542321
+(epoch 74) action_orien_cos_sim (nuScenes_custom_test) 0.9748760561148325
+(epoch 74) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9748759931988187
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 20/15
+� Early stopping triggered.
+Start ViNT Training Epoch 75/89
+Training epoch 75:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 75) (batch 0/385) dist_loss (train): 6.4381 (100pt moving_avg: 6.4381) (avg: 6.4381)
+(epoch 75) (batch 0/385) action_loss (train): 0.0466 (100pt moving_avg: 0.0466) (avg: 0.0466)
+(epoch 75) (batch 0/385) action_waypts_cos_sim (train): 0.8438 (100pt moving_avg: 0.8438) (avg: 0.8438)
+(epoch 75) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8398 (100pt moving_avg: 0.8398) (avg: 0.8398)
+(epoch 75) (batch 0/385) total_loss (train): 0.0555 (100pt moving_avg: 0.0555) (avg: 0.0555)
+(epoch 75) (batch 0/385) action_orien_cos_sim (train): 0.981 (100pt moving_avg: 0.981) (avg: 0.981)
+(epoch 75) (batch 0/385) multi_action_orien_cos_sim (train): 0.981 (100pt moving_avg: 0.981) (avg: 0.981)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 75:  26%|█████▋                | 100/386 [02:46<09:23,  1.97s/it](epoch 75) (batch 100/385) dist_loss (train): 5.9841 (100pt moving_avg: 7.973) (avg: 7.9578)
+(epoch 75) (batch 100/385) action_loss (train): 0.0596 (100pt moving_avg: 0.0629) (avg: 0.0627)
+(epoch 75) (batch 100/385) action_waypts_cos_sim (train): 0.722 (100pt moving_avg: 0.8587) (avg: 0.8585)
+(epoch 75) (batch 100/385) multi_action_waypts_cos_sim (train): 0.7349 (100pt moving_avg: 0.8653) (avg: 0.8651)
+(epoch 75) (batch 100/385) total_loss (train): 0.0597 (100pt moving_avg: 0.0713) (avg: 0.0711)
+(epoch 75) (batch 100/385) action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9774) (avg: 0.9775)
+(epoch 75) (batch 100/385) multi_action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9774) (avg: 0.9775)
+Training epoch 75:  52%|███████████▍          | 200/386 [05:14<02:53,  1.07it/s](epoch 75) (batch 200/385) dist_loss (train): 4.3799 (100pt moving_avg: 7.6247) (avg: 7.792)
+(epoch 75) (batch 200/385) action_loss (train): 0.049 (100pt moving_avg: 0.06) (avg: 0.0614)
+(epoch 75) (batch 200/385) action_waypts_cos_sim (train): 0.8957 (100pt moving_avg: 0.8483) (avg: 0.8535)
+(epoch 75) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8934 (100pt moving_avg: 0.853) (avg: 0.8591)
+(epoch 75) (batch 200/385) total_loss (train): 0.0464 (100pt moving_avg: 0.0681) (avg: 0.0696)
+(epoch 75) (batch 200/385) action_orien_cos_sim (train): 0.9774 (100pt moving_avg: 0.9763) (avg: 0.9769)
+(epoch 75) (batch 200/385) multi_action_orien_cos_sim (train): 0.9774 (100pt moving_avg: 0.9763) (avg: 0.9769)
+Training epoch 75:  78%|█████████████████     | 300/386 [07:53<02:24,  1.68s/it](epoch 75) (batch 300/385) dist_loss (train): 10.095 (100pt moving_avg: 7.8198) (avg: 7.8013)
+(epoch 75) (batch 300/385) action_loss (train): 0.0538 (100pt moving_avg: 0.0549) (avg: 0.0592)
+(epoch 75) (batch 300/385) action_waypts_cos_sim (train): 0.9094 (100pt moving_avg: 0.8417) (avg: 0.8495)
+(epoch 75) (batch 300/385) multi_action_waypts_cos_sim (train): 0.9168 (100pt moving_avg: 0.8457) (avg: 0.8546)
+(epoch 75) (batch 300/385) total_loss (train): 0.0774 (100pt moving_avg: 0.0666) (avg: 0.0686)
+(epoch 75) (batch 300/385) action_orien_cos_sim (train): 0.984 (100pt moving_avg: 0.9771) (avg: 0.977)
+(epoch 75) (batch 300/385) multi_action_orien_cos_sim (train): 0.984 (100pt moving_avg: 0.9771) (avg: 0.977)
+Training epoch 75: 100%|██████████████████████| 386/386 [10:00<00:00,  1.55s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 75/89
+Evaluating nuScenes_custom_test for epoch 75: 100%|█| 18/18 [02:51<00:00,  9.54s
+(epoch 75) dist_loss (nuScenes_custom_test) 23.781351884206135
+(epoch 75) action_loss (nuScenes_custom_test) 0.4393007308244705
+(epoch 75) action_waypts_cos_sim (nuScenes_custom_test) 0.8234031597773234
+(epoch 75) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8245181408193376
+(epoch 75) total_loss (nuScenes_custom_test) 0.3385571183429824
+(epoch 75) action_orien_cos_sim (nuScenes_custom_test) 0.9767744806077745
+(epoch 75) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9767744474940829
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 21/15
+� Early stopping triggered.
+Start ViNT Training Epoch 76/89
+Training epoch 76:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 76) (batch 0/385) dist_loss (train): 5.7765 (100pt moving_avg: 5.7765) (avg: 5.7765)
+(epoch 76) (batch 0/385) action_loss (train): 0.0435 (100pt moving_avg: 0.0435) (avg: 0.0435)
+(epoch 76) (batch 0/385) action_waypts_cos_sim (train): 0.9213 (100pt moving_avg: 0.9213) (avg: 0.9213)
+(epoch 76) (batch 0/385) multi_action_waypts_cos_sim (train): 0.9137 (100pt moving_avg: 0.9137) (avg: 0.9137)
+(epoch 76) (batch 0/385) total_loss (train): 0.0506 (100pt moving_avg: 0.0506) (avg: 0.0506)
+(epoch 76) (batch 0/385) action_orien_cos_sim (train): 0.9814 (100pt moving_avg: 0.9814) (avg: 0.9814)
+(epoch 76) (batch 0/385) multi_action_orien_cos_sim (train): 0.9814 (100pt moving_avg: 0.9814) (avg: 0.9814)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 76:  26%|█████▋                | 100/386 [02:45<06:31,  1.37s/it](epoch 76) (batch 100/385) dist_loss (train): 8.1204 (100pt moving_avg: 7.1121) (avg: 7.0989)
+(epoch 76) (batch 100/385) action_loss (train): 0.0578 (100pt moving_avg: 0.0502) (avg: 0.0501)
+(epoch 76) (batch 100/385) action_waypts_cos_sim (train): 0.9029 (100pt moving_avg: 0.8503) (avg: 0.851)
+(epoch 76) (batch 100/385) multi_action_waypts_cos_sim (train): 0.9191 (100pt moving_avg: 0.8562) (avg: 0.8568)
+(epoch 76) (batch 100/385) total_loss (train): 0.0695 (100pt moving_avg: 0.0606) (avg: 0.0605)
+(epoch 76) (batch 100/385) action_orien_cos_sim (train): 0.9767 (100pt moving_avg: 0.9773) (avg: 0.9773)
+(epoch 76) (batch 100/385) multi_action_orien_cos_sim (train): 0.9767 (100pt moving_avg: 0.9773) (avg: 0.9773)
+Training epoch 76:  52%|███████████▍          | 200/386 [05:13<02:44,  1.13it/s](epoch 76) (batch 200/385) dist_loss (train): 10.7586 (100pt moving_avg: 7.2826) (avg: 7.1903)
+(epoch 76) (batch 200/385) action_loss (train): 0.054 (100pt moving_avg: 0.0499) (avg: 0.05)
+(epoch 76) (batch 200/385) action_waypts_cos_sim (train): 0.8287 (100pt moving_avg: 0.8586) (avg: 0.8548)
+(epoch 76) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8315 (100pt moving_avg: 0.864) (avg: 0.8604)
+(epoch 76) (batch 200/385) total_loss (train): 0.0808 (100pt moving_avg: 0.0613) (avg: 0.0609)
+(epoch 76) (batch 200/385) action_orien_cos_sim (train): 0.9811 (100pt moving_avg: 0.9773) (avg: 0.9773)
+(epoch 76) (batch 200/385) multi_action_orien_cos_sim (train): 0.9811 (100pt moving_avg: 0.9773) (avg: 0.9773)
+Training epoch 76:  78%|█████████████████     | 300/386 [07:52<01:59,  1.39s/it](epoch 76) (batch 300/385) dist_loss (train): 11.4596 (100pt moving_avg: 7.2782) (avg: 7.2195)
+(epoch 76) (batch 300/385) action_loss (train): 0.0299 (100pt moving_avg: 0.0556) (avg: 0.0518)
+(epoch 76) (batch 300/385) action_waypts_cos_sim (train): 0.7521 (100pt moving_avg: 0.8486) (avg: 0.8527)
+(epoch 76) (batch 300/385) multi_action_waypts_cos_sim (train): 0.7476 (100pt moving_avg: 0.8548) (avg: 0.8585)
+(epoch 76) (batch 300/385) total_loss (train): 0.0723 (100pt moving_avg: 0.0642) (avg: 0.062)
+(epoch 76) (batch 300/385) action_orien_cos_sim (train): 0.9776 (100pt moving_avg: 0.9767) (avg: 0.9771)
+(epoch 76) (batch 300/385) multi_action_orien_cos_sim (train): 0.9776 (100pt moving_avg: 0.9767) (avg: 0.9771)
+Training epoch 76: 100%|██████████████████████| 386/386 [10:10<00:00,  1.58s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 76/89
+Evaluating nuScenes_custom_test for epoch 76: 100%|█| 18/18 [02:55<00:00,  9.73s
+(epoch 76) dist_loss (nuScenes_custom_test) 19.792518456776936
+(epoch 76) action_loss (nuScenes_custom_test) 0.44703103767500985
+(epoch 76) action_waypts_cos_sim (nuScenes_custom_test) 0.8239671124352349
+(epoch 76) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8233953317006429
+(epoch 76) total_loss (nuScenes_custom_test) 0.3224781122472551
+(epoch 76) action_orien_cos_sim (nuScenes_custom_test) 0.9754979312419891
+(epoch 76) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9754978683259752
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 22/15
+� Early stopping triggered.
+Start ViNT Training Epoch 77/89
+Training epoch 77:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 77) (batch 0/385) dist_loss (train): 7.1928 (100pt moving_avg: 7.1928) (avg: 7.1928)
+(epoch 77) (batch 0/385) action_loss (train): 0.0435 (100pt moving_avg: 0.0435) (avg: 0.0435)
+(epoch 77) (batch 0/385) action_waypts_cos_sim (train): 0.7781 (100pt moving_avg: 0.7781) (avg: 0.7781)
+(epoch 77) (batch 0/385) multi_action_waypts_cos_sim (train): 0.7868 (100pt moving_avg: 0.7868) (avg: 0.7868)
+(epoch 77) (batch 0/385) total_loss (train): 0.0577 (100pt moving_avg: 0.0577) (avg: 0.0577)
+(epoch 77) (batch 0/385) action_orien_cos_sim (train): 0.9839 (100pt moving_avg: 0.9839) (avg: 0.9839)
+(epoch 77) (batch 0/385) multi_action_orien_cos_sim (train): 0.9839 (100pt moving_avg: 0.9839) (avg: 0.9839)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 77:  26%|█████▋                | 100/386 [02:51<06:54,  1.45s/it](epoch 77) (batch 100/385) dist_loss (train): 7.1608 (100pt moving_avg: 6.7871) (avg: 6.7911)
+(epoch 77) (batch 100/385) action_loss (train): 0.0639 (100pt moving_avg: 0.0455) (avg: 0.0454)
+(epoch 77) (batch 100/385) action_waypts_cos_sim (train): 0.8442 (100pt moving_avg: 0.8373) (avg: 0.8367)
+(epoch 77) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8663 (100pt moving_avg: 0.8426) (avg: 0.842)
+(epoch 77) (batch 100/385) total_loss (train): 0.0677 (100pt moving_avg: 0.0567) (avg: 0.0567)
+(epoch 77) (batch 100/385) action_orien_cos_sim (train): 0.9739 (100pt moving_avg: 0.9766) (avg: 0.9767)
+(epoch 77) (batch 100/385) multi_action_orien_cos_sim (train): 0.9739 (100pt moving_avg: 0.9766) (avg: 0.9767)
+Training epoch 77:  52%|███████████▍          | 200/386 [05:29<02:53,  1.07it/s](epoch 77) (batch 200/385) dist_loss (train): 8.5139 (100pt moving_avg: 6.955) (avg: 6.8727)
+(epoch 77) (batch 200/385) action_loss (train): 0.0376 (100pt moving_avg: 0.0459) (avg: 0.0457)
+(epoch 77) (batch 200/385) action_waypts_cos_sim (train): 0.808 (100pt moving_avg: 0.8456) (avg: 0.8412)
+(epoch 77) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8366 (100pt moving_avg: 0.8503) (avg: 0.8462)
+(epoch 77) (batch 200/385) total_loss (train): 0.0614 (100pt moving_avg: 0.0577) (avg: 0.0572)
+(epoch 77) (batch 200/385) action_orien_cos_sim (train): 0.9811 (100pt moving_avg: 0.9772) (avg: 0.9769)
+(epoch 77) (batch 200/385) multi_action_orien_cos_sim (train): 0.9811 (100pt moving_avg: 0.9772) (avg: 0.9769)
+Training epoch 77:  78%|█████████████████     | 300/386 [08:11<02:08,  1.50s/it](epoch 77) (batch 300/385) dist_loss (train): 6.2673 (100pt moving_avg: 6.7838) (avg: 6.8431)
+(epoch 77) (batch 300/385) action_loss (train): 0.0621 (100pt moving_avg: 0.049) (avg: 0.0468)
+(epoch 77) (batch 300/385) action_waypts_cos_sim (train): 0.9435 (100pt moving_avg: 0.8504) (avg: 0.8442)
+(epoch 77) (batch 300/385) multi_action_waypts_cos_sim (train): 0.9386 (100pt moving_avg: 0.8566) (avg: 0.8496)
+(epoch 77) (batch 300/385) total_loss (train): 0.0624 (100pt moving_avg: 0.0584) (avg: 0.0576)
+(epoch 77) (batch 300/385) action_orien_cos_sim (train): 0.9814 (100pt moving_avg: 0.9774) (avg: 0.9771)
+(epoch 77) (batch 300/385) multi_action_orien_cos_sim (train): 0.9814 (100pt moving_avg: 0.9774) (avg: 0.9771)
+Training epoch 77: 100%|██████████████████████| 386/386 [10:24<00:00,  1.62s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 77/89
+Evaluating nuScenes_custom_test for epoch 77: 100%|█| 18/18 [02:54<00:00,  9.72s
+(epoch 77) dist_loss (nuScenes_custom_test) 23.268254809909397
+(epoch 77) action_loss (nuScenes_custom_test) 0.4615650748213132
+(epoch 77) action_waypts_cos_sim (nuScenes_custom_test) 0.8193147910965813
+(epoch 77) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8295929829279581
+(epoch 77) total_loss (nuScenes_custom_test) 0.34712380667527515
+(epoch 77) action_orien_cos_sim (nuScenes_custom_test) 0.977496345837911
+(epoch 77) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9774962762991587
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 23/15
+� Early stopping triggered.
+Start ViNT Training Epoch 78/89
+Training epoch 78:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 78) (batch 0/385) dist_loss (train): 4.5217 (100pt moving_avg: 4.5217) (avg: 4.5217)
+(epoch 78) (batch 0/385) action_loss (train): 0.0311 (100pt moving_avg: 0.0311) (avg: 0.0311)
+(epoch 78) (batch 0/385) action_waypts_cos_sim (train): 0.8548 (100pt moving_avg: 0.8548) (avg: 0.8548)
+(epoch 78) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8774 (100pt moving_avg: 0.8774) (avg: 0.8774)
+(epoch 78) (batch 0/385) total_loss (train): 0.0382 (100pt moving_avg: 0.0382) (avg: 0.0382)
+(epoch 78) (batch 0/385) action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9786) (avg: 0.9786)
+(epoch 78) (batch 0/385) multi_action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9786) (avg: 0.9786)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 78:  26%|█████▋                | 100/386 [02:49<07:41,  1.61s/it](epoch 78) (batch 100/385) dist_loss (train): 5.6906 (100pt moving_avg: 6.4935) (avg: 6.474)
+(epoch 78) (batch 100/385) action_loss (train): 0.0274 (100pt moving_avg: 0.0453) (avg: 0.0451)
+(epoch 78) (batch 100/385) action_waypts_cos_sim (train): 0.891 (100pt moving_avg: 0.8539) (avg: 0.8539)
+(epoch 78) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8931 (100pt moving_avg: 0.8603) (avg: 0.8605)
+(epoch 78) (batch 100/385) total_loss (train): 0.0421 (100pt moving_avg: 0.0551) (avg: 0.0549)
+(epoch 78) (batch 100/385) action_orien_cos_sim (train): 0.9814 (100pt moving_avg: 0.9774) (avg: 0.9774)
+(epoch 78) (batch 100/385) multi_action_orien_cos_sim (train): 0.9814 (100pt moving_avg: 0.9774) (avg: 0.9774)
+Training epoch 78:  52%|███████████▍          | 200/386 [05:30<03:54,  1.26s/it](epoch 78) (batch 200/385) dist_loss (train): 4.0756 (100pt moving_avg: 6.6544) (avg: 6.5637)
+(epoch 78) (batch 200/385) action_loss (train): 0.0485 (100pt moving_avg: 0.0468) (avg: 0.046)
+(epoch 78) (batch 200/385) action_waypts_cos_sim (train): 0.8465 (100pt moving_avg: 0.8425) (avg: 0.8482)
+(epoch 78) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8422 (100pt moving_avg: 0.8478) (avg: 0.8542)
+(epoch 78) (batch 200/385) total_loss (train): 0.0447 (100pt moving_avg: 0.0567) (avg: 0.0558)
+(epoch 78) (batch 200/385) action_orien_cos_sim (train): 0.9768 (100pt moving_avg: 0.977) (avg: 0.9772)
+(epoch 78) (batch 200/385) multi_action_orien_cos_sim (train): 0.9768 (100pt moving_avg: 0.977) (avg: 0.9772)
+Training epoch 78:  78%|█████████████████     | 300/386 [08:10<03:32,  2.47s/it](epoch 78) (batch 300/385) dist_loss (train): 9.9726 (100pt moving_avg: 6.4845) (avg: 6.5374)
+(epoch 78) (batch 300/385) action_loss (train): 0.0559 (100pt moving_avg: 0.0484) (avg: 0.0468)
+(epoch 78) (batch 300/385) action_waypts_cos_sim (train): 0.8325 (100pt moving_avg: 0.8395) (avg: 0.8453)
+(epoch 78) (batch 300/385) multi_action_waypts_cos_sim (train): 0.8376 (100pt moving_avg: 0.8451) (avg: 0.8511)
+(epoch 78) (batch 300/385) total_loss (train): 0.0778 (100pt moving_avg: 0.0566) (avg: 0.0561)
+(epoch 78) (batch 300/385) action_orien_cos_sim (train): 0.9758 (100pt moving_avg: 0.9776) (avg: 0.9774)
+(epoch 78) (batch 300/385) multi_action_orien_cos_sim (train): 0.9758 (100pt moving_avg: 0.9776) (avg: 0.9774)
+Training epoch 78: 100%|██████████████████████| 386/386 [10:23<00:00,  1.61s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 78/89
+Evaluating nuScenes_custom_test for epoch 78: 100%|█| 18/18 [02:49<00:00,  9.39s
+(epoch 78) dist_loss (nuScenes_custom_test) 20.636837111579048
+(epoch 78) action_loss (nuScenes_custom_test) 0.44820738832155865
+(epoch 78) action_waypts_cos_sim (nuScenes_custom_test) 0.8353817595375909
+(epoch 78) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8485253122117784
+(epoch 78) total_loss (nuScenes_custom_test) 0.32728787428802913
+(epoch 78) action_orien_cos_sim (nuScenes_custom_test) 0.9769359760814242
+(epoch 78) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9769359297222562
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 24/15
+� Early stopping triggered.
+Start ViNT Training Epoch 79/89
+Training epoch 79:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 79) (batch 0/385) dist_loss (train): 5.1366 (100pt moving_avg: 5.1366) (avg: 5.1366)
+(epoch 79) (batch 0/385) action_loss (train): 0.0412 (100pt moving_avg: 0.0412) (avg: 0.0412)
+(epoch 79) (batch 0/385) action_waypts_cos_sim (train): 0.8267 (100pt moving_avg: 0.8267) (avg: 0.8267)
+(epoch 79) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8159 (100pt moving_avg: 0.8159) (avg: 0.8159)
+(epoch 79) (batch 0/385) total_loss (train): 0.0463 (100pt moving_avg: 0.0463) (avg: 0.0463)
+(epoch 79) (batch 0/385) action_orien_cos_sim (train): 0.9798 (100pt moving_avg: 0.9798) (avg: 0.9798)
+(epoch 79) (batch 0/385) multi_action_orien_cos_sim (train): 0.9798 (100pt moving_avg: 0.9798) (avg: 0.9798)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 79:  26%|█████▋                | 100/386 [02:42<06:55,  1.45s/it](epoch 79) (batch 100/385) dist_loss (train): 6.668 (100pt moving_avg: 6.863) (avg: 6.8459)
+(epoch 79) (batch 100/385) action_loss (train): 0.097 (100pt moving_avg: 0.046) (avg: 0.046)
+(epoch 79) (batch 100/385) action_waypts_cos_sim (train): 0.9738 (100pt moving_avg: 0.8495) (avg: 0.8492)
+(epoch 79) (batch 100/385) multi_action_waypts_cos_sim (train): 0.9711 (100pt moving_avg: 0.8538) (avg: 0.8534)
+(epoch 79) (batch 100/385) total_loss (train): 0.0818 (100pt moving_avg: 0.0573) (avg: 0.0572)
+(epoch 79) (batch 100/385) action_orien_cos_sim (train): 0.9724 (100pt moving_avg: 0.9765) (avg: 0.9766)
+(epoch 79) (batch 100/385) multi_action_orien_cos_sim (train): 0.9724 (100pt moving_avg: 0.9765) (avg: 0.9766)
+Training epoch 79:  52%|███████████▍          | 200/386 [05:11<02:50,  1.09it/s](epoch 79) (batch 200/385) dist_loss (train): 7.576 (100pt moving_avg: 6.7377) (avg: 6.7921)
+(epoch 79) (batch 200/385) action_loss (train): 0.0617 (100pt moving_avg: 0.0514) (avg: 0.0487)
+(epoch 79) (batch 200/385) action_waypts_cos_sim (train): 0.9614 (100pt moving_avg: 0.8589) (avg: 0.854)
+(epoch 79) (batch 200/385) multi_action_waypts_cos_sim (train): 0.9634 (100pt moving_avg: 0.8633) (avg: 0.8583)
+(epoch 79) (batch 200/385) total_loss (train): 0.0687 (100pt moving_avg: 0.0594) (avg: 0.0583)
+(epoch 79) (batch 200/385) action_orien_cos_sim (train): 0.9755 (100pt moving_avg: 0.9776) (avg: 0.9771)
+(epoch 79) (batch 200/385) multi_action_orien_cos_sim (train): 0.9755 (100pt moving_avg: 0.9776) (avg: 0.9771)
+Training epoch 79:  78%|█████████████████     | 300/386 [07:50<02:04,  1.45s/it](epoch 79) (batch 300/385) dist_loss (train): 7.1257 (100pt moving_avg: 6.3314) (avg: 6.639)
+(epoch 79) (batch 300/385) action_loss (train): 0.0498 (100pt moving_avg: 0.0471) (avg: 0.0482)
+(epoch 79) (batch 300/385) action_waypts_cos_sim (train): 0.9127 (100pt moving_avg: 0.8484) (avg: 0.8522)
+(epoch 79) (batch 300/385) multi_action_waypts_cos_sim (train): 0.9109 (100pt moving_avg: 0.8505) (avg: 0.8557)
+(epoch 79) (batch 300/385) total_loss (train): 0.0605 (100pt moving_avg: 0.0552) (avg: 0.0573)
+(epoch 79) (batch 300/385) action_orien_cos_sim (train): 0.9819 (100pt moving_avg: 0.9776) (avg: 0.9773)
+(epoch 79) (batch 300/385) multi_action_orien_cos_sim (train): 0.9819 (100pt moving_avg: 0.9776) (avg: 0.9773)
+Training epoch 79: 100%|██████████████████████| 386/386 [10:01<00:00,  1.56s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 79/89
+Evaluating nuScenes_custom_test for epoch 79: 100%|█| 18/18 [02:53<00:00,  9.63s
+(epoch 79) dist_loss (nuScenes_custom_test) 23.90181064605713
+(epoch 79) action_loss (nuScenes_custom_test) 0.3817547592851851
+(epoch 79) action_waypts_cos_sim (nuScenes_custom_test) 0.8286629815896353
+(epoch 79) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8345232407251993
+(epoch 79) total_loss (nuScenes_custom_test) 0.31038643419742584
+(epoch 79) action_orien_cos_sim (nuScenes_custom_test) 0.977192567454444
+(epoch 79) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9771924979156918
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 25/15
+� Early stopping triggered.
+Start ViNT Training Epoch 80/89
+Training epoch 80:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 80) (batch 0/385) dist_loss (train): 9.7023 (100pt moving_avg: 9.7023) (avg: 9.7023)
+(epoch 80) (batch 0/385) action_loss (train): 0.0541 (100pt moving_avg: 0.0541) (avg: 0.0541)
+(epoch 80) (batch 0/385) action_waypts_cos_sim (train): 0.8312 (100pt moving_avg: 0.8312) (avg: 0.8312)
+(epoch 80) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8404 (100pt moving_avg: 0.8404) (avg: 0.8404)
+(epoch 80) (batch 0/385) total_loss (train): 0.0756 (100pt moving_avg: 0.0756) (avg: 0.0756)
+(epoch 80) (batch 0/385) action_orien_cos_sim (train): 0.977 (100pt moving_avg: 0.977) (avg: 0.977)
+(epoch 80) (batch 0/385) multi_action_orien_cos_sim (train): 0.977 (100pt moving_avg: 0.977) (avg: 0.977)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 80:  26%|█████▋                | 100/386 [02:52<07:48,  1.64s/it](epoch 80) (batch 100/385) dist_loss (train): 5.7078 (100pt moving_avg: 6.723) (avg: 6.7525)
+(epoch 80) (batch 100/385) action_loss (train): 0.0416 (100pt moving_avg: 0.0473) (avg: 0.0474)
+(epoch 80) (batch 100/385) action_waypts_cos_sim (train): 0.9026 (100pt moving_avg: 0.8562) (avg: 0.8559)
+(epoch 80) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8993 (100pt moving_avg: 0.86) (avg: 0.8598)
+(epoch 80) (batch 100/385) total_loss (train): 0.0494 (100pt moving_avg: 0.0573) (avg: 0.0574)
+(epoch 80) (batch 100/385) action_orien_cos_sim (train): 0.9762 (100pt moving_avg: 0.9778) (avg: 0.9778)
+(epoch 80) (batch 100/385) multi_action_orien_cos_sim (train): 0.9762 (100pt moving_avg: 0.9778) (avg: 0.9778)
+Training epoch 80:  52%|███████████▍          | 200/386 [05:29<02:50,  1.09it/s](epoch 80) (batch 200/385) dist_loss (train): 11.6327 (100pt moving_avg: 6.8273) (avg: 6.7897)
+(epoch 80) (batch 200/385) action_loss (train): 0.0487 (100pt moving_avg: 0.0468) (avg: 0.0471)
+(epoch 80) (batch 200/385) action_waypts_cos_sim (train): 0.9153 (100pt moving_avg: 0.8492) (avg: 0.8526)
+(epoch 80) (batch 200/385) multi_action_waypts_cos_sim (train): 0.9112 (100pt moving_avg: 0.8536) (avg: 0.8567)
+(epoch 80) (batch 200/385) total_loss (train): 0.0825 (100pt moving_avg: 0.0575) (avg: 0.0575)
+(epoch 80) (batch 200/385) action_orien_cos_sim (train): 0.9775 (100pt moving_avg: 0.9773) (avg: 0.9775)
+(epoch 80) (batch 200/385) multi_action_orien_cos_sim (train): 0.9775 (100pt moving_avg: 0.9773) (avg: 0.9775)
+Training epoch 80:  78%|█████████████████     | 300/386 [08:13<02:09,  1.50s/it](epoch 80) (batch 300/385) dist_loss (train): 4.987 (100pt moving_avg: 6.2798) (avg: 6.6203)
+(epoch 80) (batch 300/385) action_loss (train): 0.0496 (100pt moving_avg: 0.0426) (avg: 0.0456)
+(epoch 80) (batch 300/385) action_waypts_cos_sim (train): 0.6827 (100pt moving_avg: 0.855) (avg: 0.8534)
+(epoch 80) (batch 300/385) multi_action_waypts_cos_sim (train): 0.714 (100pt moving_avg: 0.8567) (avg: 0.8567)
+(epoch 80) (batch 300/385) total_loss (train): 0.0497 (100pt moving_avg: 0.0527) (avg: 0.0559)
+(epoch 80) (batch 300/385) action_orien_cos_sim (train): 0.9749 (100pt moving_avg: 0.9783) (avg: 0.9778)
+(epoch 80) (batch 300/385) multi_action_orien_cos_sim (train): 0.9749 (100pt moving_avg: 0.9783) (avg: 0.9778)
+Training epoch 80: 100%|██████████████████████| 386/386 [10:29<00:00,  1.63s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 80/89
+Evaluating nuScenes_custom_test for epoch 80: 100%|█| 18/18 [02:57<00:00,  9.85s
+(epoch 80) dist_loss (nuScenes_custom_test) 22.362802187601726
+(epoch 80) action_loss (nuScenes_custom_test) 0.41294996523194843
+(epoch 80) action_waypts_cos_sim (nuScenes_custom_test) 0.8184676865736643
+(epoch 80) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8274949060546027
+(epoch 80) total_loss (nuScenes_custom_test) 0.31828898936510086
+(epoch 80) action_orien_cos_sim (nuScenes_custom_test) 0.9762935406631894
+(epoch 80) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9762935009267595
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 26/15
+� Early stopping triggered.
+Start ViNT Training Epoch 81/89
+Training epoch 81:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 81) (batch 0/385) dist_loss (train): 4.2988 (100pt moving_avg: 4.2988) (avg: 4.2988)
+(epoch 81) (batch 0/385) action_loss (train): 0.032 (100pt moving_avg: 0.032) (avg: 0.032)
+(epoch 81) (batch 0/385) action_waypts_cos_sim (train): 0.8883 (100pt moving_avg: 0.8883) (avg: 0.8883)
+(epoch 81) (batch 0/385) multi_action_waypts_cos_sim (train): 0.9237 (100pt moving_avg: 0.9237) (avg: 0.9237)
+(epoch 81) (batch 0/385) total_loss (train): 0.0375 (100pt moving_avg: 0.0375) (avg: 0.0375)
+(epoch 81) (batch 0/385) action_orien_cos_sim (train): 0.9811 (100pt moving_avg: 0.9811) (avg: 0.9811)
+(epoch 81) (batch 0/385) multi_action_orien_cos_sim (train): 0.9811 (100pt moving_avg: 0.9811) (avg: 0.9811)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 81:  26%|█████▋                | 100/386 [02:53<07:11,  1.51s/it](epoch 81) (batch 100/385) dist_loss (train): 6.5049 (100pt moving_avg: 6.2685) (avg: 6.249)
+(epoch 81) (batch 100/385) action_loss (train): 0.0356 (100pt moving_avg: 0.0439) (avg: 0.0438)
+(epoch 81) (batch 100/385) action_waypts_cos_sim (train): 0.8518 (100pt moving_avg: 0.8443) (avg: 0.8447)
+(epoch 81) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8499 (100pt moving_avg: 0.8493) (avg: 0.8501)
+(epoch 81) (batch 100/385) total_loss (train): 0.0503 (100pt moving_avg: 0.0533) (avg: 0.0532)
+(epoch 81) (batch 100/385) action_orien_cos_sim (train): 0.9752 (100pt moving_avg: 0.977) (avg: 0.977)
+(epoch 81) (batch 100/385) multi_action_orien_cos_sim (train): 0.9752 (100pt moving_avg: 0.977) (avg: 0.977)
+Training epoch 81:  52%|███████████▍          | 200/386 [05:32<02:56,  1.06it/s](epoch 81) (batch 200/385) dist_loss (train): 9.9483 (100pt moving_avg: 6.1486) (avg: 6.1991)
+(epoch 81) (batch 200/385) action_loss (train): 0.0523 (100pt moving_avg: 0.0455) (avg: 0.0447)
+(epoch 81) (batch 200/385) action_waypts_cos_sim (train): 0.9058 (100pt moving_avg: 0.8492) (avg: 0.8469)
+(epoch 81) (batch 200/385) multi_action_waypts_cos_sim (train): 0.9037 (100pt moving_avg: 0.8526) (avg: 0.8513)
+(epoch 81) (batch 200/385) total_loss (train): 0.0759 (100pt moving_avg: 0.0535) (avg: 0.0533)
+(epoch 81) (batch 200/385) action_orien_cos_sim (train): 0.9715 (100pt moving_avg: 0.9775) (avg: 0.9773)
+(epoch 81) (batch 200/385) multi_action_orien_cos_sim (train): 0.9715 (100pt moving_avg: 0.9775) (avg: 0.9773)
+Training epoch 81:  78%|█████████████████     | 300/386 [08:16<02:11,  1.53s/it](epoch 81) (batch 300/385) dist_loss (train): 5.1797 (100pt moving_avg: 6.5305) (avg: 6.3092)
+(epoch 81) (batch 300/385) action_loss (train): 0.036 (100pt moving_avg: 0.0443) (avg: 0.0445)
+(epoch 81) (batch 300/385) action_waypts_cos_sim (train): 0.7185 (100pt moving_avg: 0.8526) (avg: 0.8488)
+(epoch 81) (batch 300/385) multi_action_waypts_cos_sim (train): 0.7147 (100pt moving_avg: 0.8564) (avg: 0.853)
+(epoch 81) (batch 300/385) total_loss (train): 0.0439 (100pt moving_avg: 0.0548) (avg: 0.0538)
+(epoch 81) (batch 300/385) action_orien_cos_sim (train): 0.9831 (100pt moving_avg: 0.9774) (avg: 0.9773)
+(epoch 81) (batch 300/385) multi_action_orien_cos_sim (train): 0.9831 (100pt moving_avg: 0.9774) (avg: 0.9773)
+Training epoch 81: 100%|██████████████████████| 386/386 [10:31<00:00,  1.64s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 81/89
+Evaluating nuScenes_custom_test for epoch 81: 100%|█| 18/18 [02:55<00:00,  9.76s
+(epoch 81) dist_loss (nuScenes_custom_test) 25.55738597446018
+(epoch 81) action_loss (nuScenes_custom_test) 0.3846954744723108
+(epoch 81) action_waypts_cos_sim (nuScenes_custom_test) 0.812834362188975
+(epoch 81) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8120634721385108
+(epoch 81) total_loss (nuScenes_custom_test) 0.32013465960820514
+(epoch 81) action_orien_cos_sim (nuScenes_custom_test) 0.9763407475418515
+(epoch 81) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9763406978713142
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 27/15
+� Early stopping triggered.
+Start ViNT Training Epoch 82/89
+Training epoch 82:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 82) (batch 0/385) dist_loss (train): 6.055 (100pt moving_avg: 6.055) (avg: 6.055)
+(epoch 82) (batch 0/385) action_loss (train): 0.0367 (100pt moving_avg: 0.0367) (avg: 0.0367)
+(epoch 82) (batch 0/385) action_waypts_cos_sim (train): 0.8199 (100pt moving_avg: 0.8199) (avg: 0.8199)
+(epoch 82) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8385 (100pt moving_avg: 0.8385) (avg: 0.8385)
+(epoch 82) (batch 0/385) total_loss (train): 0.0486 (100pt moving_avg: 0.0486) (avg: 0.0486)
+(epoch 82) (batch 0/385) action_orien_cos_sim (train): 0.976 (100pt moving_avg: 0.976) (avg: 0.976)
+(epoch 82) (batch 0/385) multi_action_orien_cos_sim (train): 0.976 (100pt moving_avg: 0.976) (avg: 0.976)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 82:  26%|█████▋                | 100/386 [02:45<07:14,  1.52s/it](epoch 82) (batch 100/385) dist_loss (train): 5.6385 (100pt moving_avg: 5.8508) (avg: 5.8528)
+(epoch 82) (batch 100/385) action_loss (train): 0.0536 (100pt moving_avg: 0.0431) (avg: 0.0431)
+(epoch 82) (batch 100/385) action_waypts_cos_sim (train): 0.9335 (100pt moving_avg: 0.8639) (avg: 0.8635)
+(epoch 82) (batch 100/385) multi_action_waypts_cos_sim (train): 0.9304 (100pt moving_avg: 0.8684) (avg: 0.8681)
+(epoch 82) (batch 100/385) total_loss (train): 0.055 (100pt moving_avg: 0.0508) (avg: 0.0508)
+(epoch 82) (batch 100/385) action_orien_cos_sim (train): 0.9771 (100pt moving_avg: 0.9773) (avg: 0.9773)
+(epoch 82) (batch 100/385) multi_action_orien_cos_sim (train): 0.9771 (100pt moving_avg: 0.9773) (avg: 0.9773)
+Training epoch 82:  52%|███████████▍          | 200/386 [05:20<02:52,  1.08it/s](epoch 82) (batch 200/385) dist_loss (train): 7.1412 (100pt moving_avg: 6.0873) (avg: 5.9695)
+(epoch 82) (batch 200/385) action_loss (train): 0.0566 (100pt moving_avg: 0.0403) (avg: 0.0417)
+(epoch 82) (batch 200/385) action_waypts_cos_sim (train): 0.8671 (100pt moving_avg: 0.8554) (avg: 0.8595)
+(epoch 82) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8886 (100pt moving_avg: 0.8574) (avg: 0.8628)
+(epoch 82) (batch 200/385) total_loss (train): 0.064 (100pt moving_avg: 0.0506) (avg: 0.0507)
+(epoch 82) (batch 200/385) action_orien_cos_sim (train): 0.9813 (100pt moving_avg: 0.9767) (avg: 0.977)
+(epoch 82) (batch 200/385) multi_action_orien_cos_sim (train): 0.9813 (100pt moving_avg: 0.9767) (avg: 0.977)
+Training epoch 82:  78%|█████████████████     | 300/386 [07:52<01:45,  1.23s/it](epoch 82) (batch 300/385) dist_loss (train): 7.4648 (100pt moving_avg: 6.2112) (avg: 6.0498)
+(epoch 82) (batch 300/385) action_loss (train): 0.0419 (100pt moving_avg: 0.0408) (avg: 0.0414)
+(epoch 82) (batch 300/385) action_waypts_cos_sim (train): 0.913 (100pt moving_avg: 0.8424) (avg: 0.8538)
+(epoch 82) (batch 300/385) multi_action_waypts_cos_sim (train): 0.9159 (100pt moving_avg: 0.8458) (avg: 0.8572)
+(epoch 82) (batch 300/385) total_loss (train): 0.0583 (100pt moving_avg: 0.0515) (avg: 0.0509)
+(epoch 82) (batch 300/385) action_orien_cos_sim (train): 0.9757 (100pt moving_avg: 0.9781) (avg: 0.9774)
+(epoch 82) (batch 300/385) multi_action_orien_cos_sim (train): 0.9757 (100pt moving_avg: 0.9781) (avg: 0.9774)
+Training epoch 82: 100%|██████████████████████| 386/386 [10:03<00:00,  1.56s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 82/89
+Evaluating nuScenes_custom_test for epoch 82: 100%|█| 18/18 [02:50<00:00,  9.48s
+(epoch 82) dist_loss (nuScenes_custom_test) 21.593813101450603
+(epoch 82) action_loss (nuScenes_custom_test) 0.40038056174914044
+(epoch 82) action_waypts_cos_sim (nuScenes_custom_test) 0.8159945375389523
+(epoch 82) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8202949199411604
+(epoch 82) total_loss (nuScenes_custom_test) 0.3081593480375078
+(epoch 82) action_orien_cos_sim (nuScenes_custom_test) 0.9766114188565148
+(epoch 82) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9766113393836551
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 28/15
+� Early stopping triggered.
+Start ViNT Training Epoch 83/89
+Training epoch 83:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 83) (batch 0/385) dist_loss (train): 5.8176 (100pt moving_avg: 5.8176) (avg: 5.8176)
+(epoch 83) (batch 0/385) action_loss (train): 0.0349 (100pt moving_avg: 0.0349) (avg: 0.0349)
+(epoch 83) (batch 0/385) action_waypts_cos_sim (train): 0.8285 (100pt moving_avg: 0.8285) (avg: 0.8285)
+(epoch 83) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8302 (100pt moving_avg: 0.8302) (avg: 0.8302)
+(epoch 83) (batch 0/385) total_loss (train): 0.0465 (100pt moving_avg: 0.0465) (avg: 0.0465)
+(epoch 83) (batch 0/385) action_orien_cos_sim (train): 0.9766 (100pt moving_avg: 0.9766) (avg: 0.9766)
+(epoch 83) (batch 0/385) multi_action_orien_cos_sim (train): 0.9766 (100pt moving_avg: 0.9766) (avg: 0.9766)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 83:  26%|█████▋                | 100/386 [02:48<07:24,  1.55s/it](epoch 83) (batch 100/385) dist_loss (train): 7.3155 (100pt moving_avg: 5.5231) (avg: 5.5261)
+(epoch 83) (batch 100/385) action_loss (train): 0.0317 (100pt moving_avg: 0.0425) (avg: 0.0424)
+(epoch 83) (batch 100/385) action_waypts_cos_sim (train): 0.7375 (100pt moving_avg: 0.8545) (avg: 0.8542)
+(epoch 83) (batch 100/385) multi_action_waypts_cos_sim (train): 0.7611 (100pt moving_avg: 0.8586) (avg: 0.8584)
+(epoch 83) (batch 100/385) total_loss (train): 0.0524 (100pt moving_avg: 0.0489) (avg: 0.0488)
+(epoch 83) (batch 100/385) action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9776) (avg: 0.9776)
+(epoch 83) (batch 100/385) multi_action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9776) (avg: 0.9776)
+Training epoch 83:  52%|███████████▍          | 200/386 [05:20<03:17,  1.06s/it](epoch 83) (batch 200/385) dist_loss (train): 7.7352 (100pt moving_avg: 6.2191) (avg: 5.8708)
+(epoch 83) (batch 200/385) action_loss (train): 0.0471 (100pt moving_avg: 0.0431) (avg: 0.0428)
+(epoch 83) (batch 200/385) action_waypts_cos_sim (train): 0.8615 (100pt moving_avg: 0.858) (avg: 0.8561)
+(epoch 83) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8689 (100pt moving_avg: 0.8624) (avg: 0.8604)
+(epoch 83) (batch 200/385) total_loss (train): 0.0622 (100pt moving_avg: 0.0526) (avg: 0.0507)
+(epoch 83) (batch 200/385) action_orien_cos_sim (train): 0.9745 (100pt moving_avg: 0.9776) (avg: 0.9776)
+(epoch 83) (batch 200/385) multi_action_orien_cos_sim (train): 0.9745 (100pt moving_avg: 0.9776) (avg: 0.9776)
+Training epoch 83:  78%|█████████████████     | 300/386 [07:56<02:40,  1.87s/it](epoch 83) (batch 300/385) dist_loss (train): 8.0772 (100pt moving_avg: 6.1764) (avg: 5.9723)
+(epoch 83) (batch 300/385) action_loss (train): 0.048 (100pt moving_avg: 0.0437) (avg: 0.0431)
+(epoch 83) (batch 300/385) action_waypts_cos_sim (train): 0.8519 (100pt moving_avg: 0.8434) (avg: 0.8519)
+(epoch 83) (batch 300/385) multi_action_waypts_cos_sim (train): 0.8597 (100pt moving_avg: 0.8443) (avg: 0.855)
+(epoch 83) (batch 300/385) total_loss (train): 0.0644 (100pt moving_avg: 0.0527) (avg: 0.0514)
+(epoch 83) (batch 300/385) action_orien_cos_sim (train): 0.9835 (100pt moving_avg: 0.9778) (avg: 0.9776)
+(epoch 83) (batch 300/385) multi_action_orien_cos_sim (train): 0.9835 (100pt moving_avg: 0.9778) (avg: 0.9776)
+Training epoch 83: 100%|██████████████████████| 386/386 [10:03<00:00,  1.56s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 83/89
+Evaluating nuScenes_custom_test for epoch 83: 100%|█| 18/18 [02:53<00:00,  9.66s
+(epoch 83) dist_loss (nuScenes_custom_test) 21.8238984213935
+(epoch 83) action_loss (nuScenes_custom_test) 0.5341049581766129
+(epoch 83) action_waypts_cos_sim (nuScenes_custom_test) 0.8360034856531355
+(epoch 83) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8460817635059357
+(epoch 83) total_loss (nuScenes_custom_test) 0.3761719639102618
+(epoch 83) action_orien_cos_sim (nuScenes_custom_test) 0.9770050446192423
+(epoch 83) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9770049817032285
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 29/15
+� Early stopping triggered.
+Start ViNT Training Epoch 84/89
+Training epoch 84:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 84) (batch 0/385) dist_loss (train): 6.0382 (100pt moving_avg: 6.0382) (avg: 6.0382)
+(epoch 84) (batch 0/385) action_loss (train): 0.0461 (100pt moving_avg: 0.0461) (avg: 0.0461)
+(epoch 84) (batch 0/385) action_waypts_cos_sim (train): 0.8996 (100pt moving_avg: 0.8996) (avg: 0.8996)
+(epoch 84) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8904 (100pt moving_avg: 0.8904) (avg: 0.8904)
+(epoch 84) (batch 0/385) total_loss (train): 0.0533 (100pt moving_avg: 0.0533) (avg: 0.0533)
+(epoch 84) (batch 0/385) action_orien_cos_sim (train): 0.9767 (100pt moving_avg: 0.9767) (avg: 0.9767)
+(epoch 84) (batch 0/385) multi_action_orien_cos_sim (train): 0.9767 (100pt moving_avg: 0.9767) (avg: 0.9767)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 84:  26%|█████▋                | 100/386 [02:53<08:23,  1.76s/it](epoch 84) (batch 100/385) dist_loss (train): 4.6482 (100pt moving_avg: 5.6729) (avg: 5.6765)
+(epoch 84) (batch 100/385) action_loss (train): 0.043 (100pt moving_avg: 0.0379) (avg: 0.038)
+(epoch 84) (batch 100/385) action_waypts_cos_sim (train): 0.9328 (100pt moving_avg: 0.8546) (avg: 0.8551)
+(epoch 84) (batch 100/385) multi_action_waypts_cos_sim (train): 0.938 (100pt moving_avg: 0.8589) (avg: 0.8592)
+(epoch 84) (batch 100/385) total_loss (train): 0.0447 (100pt moving_avg: 0.0473) (avg: 0.0474)
+(epoch 84) (batch 100/385) action_orien_cos_sim (train): 0.9803 (100pt moving_avg: 0.9773) (avg: 0.9773)
+(epoch 84) (batch 100/385) multi_action_orien_cos_sim (train): 0.9803 (100pt moving_avg: 0.9773) (avg: 0.9773)
+Training epoch 84:  52%|███████████▍          | 200/386 [05:29<03:03,  1.01it/s](epoch 84) (batch 200/385) dist_loss (train): 5.8173 (100pt moving_avg: 6.0275) (avg: 5.8511)
+(epoch 84) (batch 200/385) action_loss (train): 0.0307 (100pt moving_avg: 0.0406) (avg: 0.0393)
+(epoch 84) (batch 200/385) action_waypts_cos_sim (train): 0.854 (100pt moving_avg: 0.8568) (avg: 0.8559)
+(epoch 84) (batch 200/385) multi_action_waypts_cos_sim (train): 0.8656 (100pt moving_avg: 0.8587) (avg: 0.8589)
+(epoch 84) (batch 200/385) total_loss (train): 0.0444 (100pt moving_avg: 0.0504) (avg: 0.0489)
+(epoch 84) (batch 200/385) action_orien_cos_sim (train): 0.9732 (100pt moving_avg: 0.9781) (avg: 0.9777)
+(epoch 84) (batch 200/385) multi_action_orien_cos_sim (train): 0.9732 (100pt moving_avg: 0.9781) (avg: 0.9777)
+Training epoch 84:  78%|█████████████████     | 300/386 [08:11<02:22,  1.65s/it](epoch 84) (batch 300/385) dist_loss (train): 5.3485 (100pt moving_avg: 5.7689) (avg: 5.8238)
+(epoch 84) (batch 300/385) action_loss (train): 0.0603 (100pt moving_avg: 0.0425) (avg: 0.0403)
+(epoch 84) (batch 300/385) action_waypts_cos_sim (train): 0.9751 (100pt moving_avg: 0.858) (avg: 0.8566)
+(epoch 84) (batch 300/385) multi_action_waypts_cos_sim (train): 0.9681 (100pt moving_avg: 0.8616) (avg: 0.8598)
+(epoch 84) (batch 300/385) total_loss (train): 0.0569 (100pt moving_avg: 0.0501) (avg: 0.0493)
+(epoch 84) (batch 300/385) action_orien_cos_sim (train): 0.9735 (100pt moving_avg: 0.9778) (avg: 0.9778)
+(epoch 84) (batch 300/385) multi_action_orien_cos_sim (train): 0.9735 (100pt moving_avg: 0.9778) (avg: 0.9778)
+Training epoch 84: 100%|██████████████████████| 386/386 [10:23<00:00,  1.61s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 84/89
+Evaluating nuScenes_custom_test for epoch 84: 100%|█| 18/18 [02:53<00:00,  9.66s
+(epoch 84) dist_loss (nuScenes_custom_test) 22.432746569315594
+(epoch 84) action_loss (nuScenes_custom_test) 0.44691196497943664
+(epoch 84) action_waypts_cos_sim (nuScenes_custom_test) 0.7935544318623013
+(epoch 84) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8009002109368643
+(epoch 84) total_loss (nuScenes_custom_test) 0.3356197145250108
+(epoch 84) action_orien_cos_sim (nuScenes_custom_test) 0.9770450558927324
+(epoch 84) multi_action_orien_cos_sim (nuScenes_custom_test) 0.977044963174396
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 30/15
+� Early stopping triggered.
+Start ViNT Training Epoch 85/89
+Training epoch 85:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 85) (batch 0/385) dist_loss (train): 5.0531 (100pt moving_avg: 5.0531) (avg: 5.0531)
+(epoch 85) (batch 0/385) action_loss (train): 0.0198 (100pt moving_avg: 0.0198) (avg: 0.0198)
+(epoch 85) (batch 0/385) action_waypts_cos_sim (train): 0.8116 (100pt moving_avg: 0.8116) (avg: 0.8116)
+(epoch 85) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8286 (100pt moving_avg: 0.8286) (avg: 0.8286)
+(epoch 85) (batch 0/385) total_loss (train): 0.0352 (100pt moving_avg: 0.0352) (avg: 0.0352)
+(epoch 85) (batch 0/385) action_orien_cos_sim (train): 0.9792 (100pt moving_avg: 0.9792) (avg: 0.9792)
+(epoch 85) (batch 0/385) multi_action_orien_cos_sim (train): 0.9792 (100pt moving_avg: 0.9792) (avg: 0.9792)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 85:  26%|█████▋                | 100/386 [02:45<07:22,  1.55s/it](epoch 85) (batch 100/385) dist_loss (train): 8.0608 (100pt moving_avg: 5.7221) (avg: 5.7154)
+(epoch 85) (batch 100/385) action_loss (train): 0.0336 (100pt moving_avg: 0.0435) (avg: 0.0433)
+(epoch 85) (batch 100/385) action_waypts_cos_sim (train): 0.8428 (100pt moving_avg: 0.8562) (avg: 0.8558)
+(epoch 85) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8613 (100pt moving_avg: 0.8612) (avg: 0.8609)
+(epoch 85) (batch 100/385) total_loss (train): 0.0571 (100pt moving_avg: 0.0504) (avg: 0.0502)
+(epoch 85) (batch 100/385) action_orien_cos_sim (train): 0.9815 (100pt moving_avg: 0.9778) (avg: 0.9778)
+(epoch 85) (batch 100/385) multi_action_orien_cos_sim (train): 0.9815 (100pt moving_avg: 0.9778) (avg: 0.9778)
+Training epoch 85:  52%|███████████▍          | 200/386 [05:14<02:47,  1.11it/s](epoch 85) (batch 200/385) dist_loss (train): 5.9056 (100pt moving_avg: 5.7599) (avg: 5.7375)
+(epoch 85) (batch 200/385) action_loss (train): 0.0382 (100pt moving_avg: 0.0405) (avg: 0.0419)
+(epoch 85) (batch 200/385) action_waypts_cos_sim (train): 0.9014 (100pt moving_avg: 0.8562) (avg: 0.856)
+(epoch 85) (batch 200/385) multi_action_waypts_cos_sim (train): 0.9045 (100pt moving_avg: 0.8615) (avg: 0.8612)
+(epoch 85) (batch 200/385) total_loss (train): 0.0486 (100pt moving_avg: 0.0491) (avg: 0.0496)
+(epoch 85) (batch 200/385) action_orien_cos_sim (train): 0.9725 (100pt moving_avg: 0.9776) (avg: 0.9777)
+(epoch 85) (batch 200/385) multi_action_orien_cos_sim (train): 0.9725 (100pt moving_avg: 0.9776) (avg: 0.9777)
+Training epoch 85:  78%|█████████████████     | 300/386 [07:51<02:12,  1.54s/it](epoch 85) (batch 300/385) dist_loss (train): 3.3108 (100pt moving_avg: 5.4975) (avg: 5.6578)
+(epoch 85) (batch 300/385) action_loss (train): 0.0361 (100pt moving_avg: 0.0394) (avg: 0.0411)
+(epoch 85) (batch 300/385) action_waypts_cos_sim (train): 0.9172 (100pt moving_avg: 0.8496) (avg: 0.8539)
+(epoch 85) (batch 300/385) multi_action_waypts_cos_sim (train): 0.9058 (100pt moving_avg: 0.8514) (avg: 0.8579)
+(epoch 85) (batch 300/385) total_loss (train): 0.0346 (100pt moving_avg: 0.0472) (avg: 0.0488)
+(epoch 85) (batch 300/385) action_orien_cos_sim (train): 0.9764 (100pt moving_avg: 0.9771) (avg: 0.9775)
+(epoch 85) (batch 300/385) multi_action_orien_cos_sim (train): 0.9764 (100pt moving_avg: 0.9771) (avg: 0.9775)
+Training epoch 85: 100%|██████████████████████| 386/386 [09:58<00:00,  1.55s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 85/89
+Evaluating nuScenes_custom_test for epoch 85: 100%|█| 18/18 [02:47<00:00,  9.33s
+(epoch 85) dist_loss (nuScenes_custom_test) 20.470348517100017
+(epoch 85) action_loss (nuScenes_custom_test) 0.3952188558048672
+(epoch 85) action_waypts_cos_sim (nuScenes_custom_test) 0.7680283387502035
+(epoch 85) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.7664648592472076
+(epoch 85) total_loss (nuScenes_custom_test) 0.299961168732908
+(epoch 85) action_orien_cos_sim (nuScenes_custom_test) 0.9773904515637292
+(epoch 85) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9773903754022386
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 31/15
+� Early stopping triggered.
+Start ViNT Training Epoch 86/89
+Training epoch 86:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 86) (batch 0/385) dist_loss (train): 6.4929 (100pt moving_avg: 6.4929) (avg: 6.4929)
+(epoch 86) (batch 0/385) action_loss (train): 0.0349 (100pt moving_avg: 0.0349) (avg: 0.0349)
+(epoch 86) (batch 0/385) action_waypts_cos_sim (train): 0.7384 (100pt moving_avg: 0.7384) (avg: 0.7384)
+(epoch 86) (batch 0/385) multi_action_waypts_cos_sim (train): 0.7465 (100pt moving_avg: 0.7465) (avg: 0.7465)
+(epoch 86) (batch 0/385) total_loss (train): 0.0499 (100pt moving_avg: 0.0499) (avg: 0.0499)
+(epoch 86) (batch 0/385) action_orien_cos_sim (train): 0.9815 (100pt moving_avg: 0.9815) (avg: 0.9815)
+(epoch 86) (batch 0/385) multi_action_orien_cos_sim (train): 0.9815 (100pt moving_avg: 0.9815) (avg: 0.9815)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 86:  26%|█████▋                | 100/386 [02:45<07:46,  1.63s/it](epoch 86) (batch 100/385) dist_loss (train): 5.5201 (100pt moving_avg: 5.6982) (avg: 5.7061)
+(epoch 86) (batch 100/385) action_loss (train): 0.0312 (100pt moving_avg: 0.0424) (avg: 0.0423)
+(epoch 86) (batch 100/385) action_waypts_cos_sim (train): 0.8379 (100pt moving_avg: 0.8515) (avg: 0.8503)
+(epoch 86) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8541 (100pt moving_avg: 0.8566) (avg: 0.8555)
+(epoch 86) (batch 100/385) total_loss (train): 0.0432 (100pt moving_avg: 0.0497) (avg: 0.0497)
+(epoch 86) (batch 100/385) action_orien_cos_sim (train): 0.9783 (100pt moving_avg: 0.9776) (avg: 0.9776)
+(epoch 86) (batch 100/385) multi_action_orien_cos_sim (train): 0.9783 (100pt moving_avg: 0.9776) (avg: 0.9776)
+Training epoch 86:  52%|███████████▍          | 200/386 [05:18<03:07,  1.01s/it](epoch 86) (batch 200/385) dist_loss (train): 4.5801 (100pt moving_avg: 5.8229) (avg: 5.7642)
+(epoch 86) (batch 200/385) action_loss (train): 0.0329 (100pt moving_avg: 0.0424) (avg: 0.0424)
+(epoch 86) (batch 200/385) action_waypts_cos_sim (train): 0.6757 (100pt moving_avg: 0.8612) (avg: 0.8557)
+(epoch 86) (batch 200/385) multi_action_waypts_cos_sim (train): 0.6755 (100pt moving_avg: 0.8642) (avg: 0.8598)
+(epoch 86) (batch 200/385) total_loss (train): 0.0393 (100pt moving_avg: 0.0503) (avg: 0.05)
+(epoch 86) (batch 200/385) action_orien_cos_sim (train): 0.9765 (100pt moving_avg: 0.9781) (avg: 0.9779)
+(epoch 86) (batch 200/385) multi_action_orien_cos_sim (train): 0.9765 (100pt moving_avg: 0.9781) (avg: 0.9779)
+Training epoch 86:  78%|█████████████████     | 300/386 [07:50<02:14,  1.56s/it](epoch 86) (batch 300/385) dist_loss (train): 5.3449 (100pt moving_avg: 5.5023) (avg: 5.6772)
+(epoch 86) (batch 300/385) action_loss (train): 0.0265 (100pt moving_avg: 0.0404) (avg: 0.0417)
+(epoch 86) (batch 300/385) action_waypts_cos_sim (train): 0.8738 (100pt moving_avg: 0.8511) (avg: 0.8542)
+(epoch 86) (batch 300/385) multi_action_waypts_cos_sim (train): 0.873 (100pt moving_avg: 0.8573) (avg: 0.859)
+(epoch 86) (batch 300/385) total_loss (train): 0.04 (100pt moving_avg: 0.0477) (avg: 0.0492)
+(epoch 86) (batch 300/385) action_orien_cos_sim (train): 0.9794 (100pt moving_avg: 0.9784) (avg: 0.9781)
+(epoch 86) (batch 300/385) multi_action_orien_cos_sim (train): 0.9794 (100pt moving_avg: 0.9784) (avg: 0.9781)
+Training epoch 86: 100%|██████████████████████| 386/386 [09:54<00:00,  1.54s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 86/89
+Evaluating nuScenes_custom_test for epoch 86: 100%|█| 18/18 [02:51<00:00,  9.50s
+(epoch 86) dist_loss (nuScenes_custom_test) 22.546874417199028
+(epoch 86) action_loss (nuScenes_custom_test) 0.516940250992775
+(epoch 86) action_waypts_cos_sim (nuScenes_custom_test) 0.7892713281843398
+(epoch 86) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.7937749260001712
+(epoch 86) total_loss (nuScenes_custom_test) 0.3712044937743081
+(epoch 86) action_orien_cos_sim (nuScenes_custom_test) 0.9751789404286278
+(epoch 86) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9751788609557681
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 32/15
+� Early stopping triggered.
+Start ViNT Training Epoch 87/89
+Training epoch 87:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 87) (batch 0/385) dist_loss (train): 5.8305 (100pt moving_avg: 5.8305) (avg: 5.8305)
+(epoch 87) (batch 0/385) action_loss (train): 0.0395 (100pt moving_avg: 0.0395) (avg: 0.0395)
+(epoch 87) (batch 0/385) action_waypts_cos_sim (train): 0.7907 (100pt moving_avg: 0.7907) (avg: 0.7907)
+(epoch 87) (batch 0/385) multi_action_waypts_cos_sim (train): 0.7757 (100pt moving_avg: 0.7757) (avg: 0.7757)
+(epoch 87) (batch 0/385) total_loss (train): 0.0489 (100pt moving_avg: 0.0489) (avg: 0.0489)
+(epoch 87) (batch 0/385) action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9786) (avg: 0.9786)
+(epoch 87) (batch 0/385) multi_action_orien_cos_sim (train): 0.9786 (100pt moving_avg: 0.9786) (avg: 0.9786)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 87:  26%|█████▋                | 100/386 [02:43<07:08,  1.50s/it](epoch 87) (batch 100/385) dist_loss (train): 5.2317 (100pt moving_avg: 5.3746) (avg: 5.3791)
+(epoch 87) (batch 100/385) action_loss (train): 0.0352 (100pt moving_avg: 0.0372) (avg: 0.0372)
+(epoch 87) (batch 100/385) action_waypts_cos_sim (train): 0.9017 (100pt moving_avg: 0.8518) (avg: 0.8512)
+(epoch 87) (batch 100/385) multi_action_waypts_cos_sim (train): 0.9051 (100pt moving_avg: 0.856) (avg: 0.8552)
+(epoch 87) (batch 100/385) total_loss (train): 0.0438 (100pt moving_avg: 0.0455) (avg: 0.0455)
+(epoch 87) (batch 100/385) action_orien_cos_sim (train): 0.9814 (100pt moving_avg: 0.9784) (avg: 0.9784)
+(epoch 87) (batch 100/385) multi_action_orien_cos_sim (train): 0.9814 (100pt moving_avg: 0.9784) (avg: 0.9784)
+Training epoch 87:  52%|███████████▍          | 200/386 [05:15<02:52,  1.08it/s](epoch 87) (batch 200/385) dist_loss (train): 4.723 (100pt moving_avg: 5.1985) (avg: 5.2892)
+(epoch 87) (batch 200/385) action_loss (train): 0.0284 (100pt moving_avg: 0.0382) (avg: 0.0377)
+(epoch 87) (batch 200/385) action_waypts_cos_sim (train): 0.9173 (100pt moving_avg: 0.8638) (avg: 0.8575)
+(epoch 87) (batch 200/385) multi_action_waypts_cos_sim (train): 0.9192 (100pt moving_avg: 0.871) (avg: 0.863)
+(epoch 87) (batch 200/385) total_loss (train): 0.0378 (100pt moving_avg: 0.0451) (avg: 0.0453)
+(epoch 87) (batch 200/385) action_orien_cos_sim (train): 0.976 (100pt moving_avg: 0.9779) (avg: 0.9781)
+(epoch 87) (batch 200/385) multi_action_orien_cos_sim (train): 0.976 (100pt moving_avg: 0.9779) (avg: 0.9781)
+Training epoch 87:  78%|█████████████████     | 300/386 [07:51<02:03,  1.44s/it](epoch 87) (batch 300/385) dist_loss (train): 5.2349 (100pt moving_avg: 5.4556) (avg: 5.3445)
+(epoch 87) (batch 300/385) action_loss (train): 0.0379 (100pt moving_avg: 0.0373) (avg: 0.0376)
+(epoch 87) (batch 300/385) action_waypts_cos_sim (train): 0.8456 (100pt moving_avg: 0.8461) (avg: 0.8537)
+(epoch 87) (batch 300/385) multi_action_waypts_cos_sim (train): 0.8285 (100pt moving_avg: 0.8473) (avg: 0.8578)
+(epoch 87) (batch 300/385) total_loss (train): 0.0451 (100pt moving_avg: 0.0459) (avg: 0.0455)
+(epoch 87) (batch 300/385) action_orien_cos_sim (train): 0.9796 (100pt moving_avg: 0.9784) (avg: 0.9782)
+(epoch 87) (batch 300/385) multi_action_orien_cos_sim (train): 0.9796 (100pt moving_avg: 0.9784) (avg: 0.9782)
+Training epoch 87: 100%|██████████████████████| 386/386 [10:03<00:00,  1.56s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 87/89
+Evaluating nuScenes_custom_test for epoch 87: 100%|█| 18/18 [02:52<00:00,  9.60s
+(epoch 87) dist_loss (nuScenes_custom_test) 20.710536426968044
+(epoch 87) action_loss (nuScenes_custom_test) 0.36523202806711197
+(epoch 87) action_waypts_cos_sim (nuScenes_custom_test) 0.8309617274337344
+(epoch 87) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8285283479425642
+(epoch 87) total_loss (nuScenes_custom_test) 0.2861686920126279
+(epoch 87) action_orien_cos_sim (nuScenes_custom_test) 0.978211929400762
+(epoch 87) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9782118499279022
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 33/15
+� Early stopping triggered.
+Start ViNT Training Epoch 88/89
+Training epoch 88:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 88) (batch 0/385) dist_loss (train): 9.8442 (100pt moving_avg: 9.8442) (avg: 9.8442)
+(epoch 88) (batch 0/385) action_loss (train): 0.0271 (100pt moving_avg: 0.0271) (avg: 0.0271)
+(epoch 88) (batch 0/385) action_waypts_cos_sim (train): 0.8937 (100pt moving_avg: 0.8937) (avg: 0.8937)
+(epoch 88) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8721 (100pt moving_avg: 0.8721) (avg: 0.8721)
+(epoch 88) (batch 0/385) total_loss (train): 0.0628 (100pt moving_avg: 0.0628) (avg: 0.0628)
+(epoch 88) (batch 0/385) action_orien_cos_sim (train): 0.981 (100pt moving_avg: 0.981) (avg: 0.981)
+(epoch 88) (batch 0/385) multi_action_orien_cos_sim (train): 0.981 (100pt moving_avg: 0.981) (avg: 0.981)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 88:  26%|█████▋                | 100/386 [02:44<06:53,  1.45s/it](epoch 88) (batch 100/385) dist_loss (train): 2.5717 (100pt moving_avg: 5.5037) (avg: 5.5467)
+(epoch 88) (batch 100/385) action_loss (train): 0.0476 (100pt moving_avg: 0.0383) (avg: 0.0382)
+(epoch 88) (batch 100/385) action_waypts_cos_sim (train): 0.9553 (100pt moving_avg: 0.8721) (avg: 0.8723)
+(epoch 88) (batch 100/385) multi_action_waypts_cos_sim (train): 0.9537 (100pt moving_avg: 0.8747) (avg: 0.8747)
+(epoch 88) (batch 100/385) total_loss (train): 0.0366 (100pt moving_avg: 0.0467) (avg: 0.0468)
+(epoch 88) (batch 100/385) action_orien_cos_sim (train): 0.9794 (100pt moving_avg: 0.9782) (avg: 0.9782)
+(epoch 88) (batch 100/385) multi_action_orien_cos_sim (train): 0.9794 (100pt moving_avg: 0.9782) (avg: 0.9782)
+Training epoch 88:  52%|███████████▍          | 200/386 [05:17<03:15,  1.05s/it](epoch 88) (batch 200/385) dist_loss (train): 8.6075 (100pt moving_avg: 5.3322) (avg: 5.44)
+(epoch 88) (batch 200/385) action_loss (train): 0.0288 (100pt moving_avg: 0.0369) (avg: 0.0376)
+(epoch 88) (batch 200/385) action_waypts_cos_sim (train): 0.7735 (100pt moving_avg: 0.851) (avg: 0.8617)
+(epoch 88) (batch 200/385) multi_action_waypts_cos_sim (train): 0.7946 (100pt moving_avg: 0.8552) (avg: 0.865)
+(epoch 88) (batch 200/385) total_loss (train): 0.0574 (100pt moving_avg: 0.0451) (avg: 0.046)
+(epoch 88) (batch 200/385) action_orien_cos_sim (train): 0.978 (100pt moving_avg: 0.9782) (avg: 0.9782)
+(epoch 88) (batch 200/385) multi_action_orien_cos_sim (train): 0.978 (100pt moving_avg: 0.9782) (avg: 0.9782)
+Training epoch 88:  78%|█████████████████     | 300/386 [08:00<02:39,  1.85s/it](epoch 88) (batch 300/385) dist_loss (train): 5.7436 (100pt moving_avg: 5.5066) (avg: 5.4621)
+(epoch 88) (batch 300/385) action_loss (train): 0.0452 (100pt moving_avg: 0.0385) (avg: 0.0379)
+(epoch 88) (batch 300/385) action_waypts_cos_sim (train): 0.8086 (100pt moving_avg: 0.8519) (avg: 0.8585)
+(epoch 88) (batch 300/385) multi_action_waypts_cos_sim (train): 0.8048 (100pt moving_avg: 0.8598) (avg: 0.8633)
+(epoch 88) (batch 300/385) total_loss (train): 0.0513 (100pt moving_avg: 0.0468) (avg: 0.0463)
+(epoch 88) (batch 300/385) action_orien_cos_sim (train): 0.9757 (100pt moving_avg: 0.9775) (avg: 0.978)
+(epoch 88) (batch 300/385) multi_action_orien_cos_sim (train): 0.9757 (100pt moving_avg: 0.9775) (avg: 0.978)
+Training epoch 88: 100%|██████████████████████| 386/386 [10:10<00:00,  1.58s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 88/89
+Evaluating nuScenes_custom_test for epoch 88: 100%|█| 18/18 [02:55<00:00,  9.73s
+(epoch 88) dist_loss (nuScenes_custom_test) 23.08578305774265
+(epoch 88) action_loss (nuScenes_custom_test) 0.39079614397552276
+(epoch 88) action_waypts_cos_sim (nuScenes_custom_test) 0.7735088169574738
+(epoch 88) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.7668349345525106
+(epoch 88) total_loss (nuScenes_custom_test) 0.31082698537243736
+(epoch 88) action_orien_cos_sim (nuScenes_custom_test) 0.9741127093633016
+(epoch 88) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9741126365131803
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 34/15
+� Early stopping triggered.
+Start ViNT Training Epoch 89/89
+Training epoch 89:   0%|                                | 0/386 [00:00<?, ?it/s](epoch 89) (batch 0/385) dist_loss (train): 7.3145 (100pt moving_avg: 7.3145) (avg: 7.3145)
+(epoch 89) (batch 0/385) action_loss (train): 0.0483 (100pt moving_avg: 0.0483) (avg: 0.0483)
+(epoch 89) (batch 0/385) action_waypts_cos_sim (train): 0.8622 (100pt moving_avg: 0.8622) (avg: 0.8622)
+(epoch 89) (batch 0/385) multi_action_waypts_cos_sim (train): 0.8787 (100pt moving_avg: 0.8787) (avg: 0.8787)
+(epoch 89) (batch 0/385) total_loss (train): 0.0607 (100pt moving_avg: 0.0607) (avg: 0.0607)
+(epoch 89) (batch 0/385) action_orien_cos_sim (train): 0.974 (100pt moving_avg: 0.974) (avg: 0.974)
+(epoch 89) (batch 0/385) multi_action_orien_cos_sim (train): 0.974 (100pt moving_avg: 0.974) (avg: 0.974)
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+Training epoch 89:  26%|█████▋                | 100/386 [02:48<06:48,  1.43s/it](epoch 89) (batch 100/385) dist_loss (train): 5.8758 (100pt moving_avg: 5.5557) (avg: 5.5731)
+(epoch 89) (batch 100/385) action_loss (train): 0.0429 (100pt moving_avg: 0.0448) (avg: 0.0448)
+(epoch 89) (batch 100/385) action_waypts_cos_sim (train): 0.8105 (100pt moving_avg: 0.8366) (avg: 0.8368)
+(epoch 89) (batch 100/385) multi_action_waypts_cos_sim (train): 0.8241 (100pt moving_avg: 0.8415) (avg: 0.8419)
+(epoch 89) (batch 100/385) total_loss (train): 0.0508 (100pt moving_avg: 0.0502) (avg: 0.0503)
+(epoch 89) (batch 100/385) action_orien_cos_sim (train): 0.9765 (100pt moving_avg: 0.9767) (avg: 0.9767)
+(epoch 89) (batch 100/385) multi_action_orien_cos_sim (train): 0.9765 (100pt moving_avg: 0.9767) (avg: 0.9767)
+Training epoch 89:  52%|███████████▍          | 200/386 [05:27<03:47,  1.23s/it](epoch 89) (batch 200/385) dist_loss (train): 5.9826 (100pt moving_avg: 5.424) (avg: 5.4989)
+(epoch 89) (batch 200/385) action_loss (train): 0.0449 (100pt moving_avg: 0.0387) (avg: 0.0418)
+(epoch 89) (batch 200/385) action_waypts_cos_sim (train): 0.9059 (100pt moving_avg: 0.8491) (avg: 0.8429)
+(epoch 89) (batch 200/385) multi_action_waypts_cos_sim (train): 0.9103 (100pt moving_avg: 0.8534) (avg: 0.8476)
+(epoch 89) (batch 200/385) total_loss (train): 0.0523 (100pt moving_avg: 0.0465) (avg: 0.0484)
+(epoch 89) (batch 200/385) action_orien_cos_sim (train): 0.98 (100pt moving_avg: 0.9781) (avg: 0.9773)
+(epoch 89) (batch 200/385) multi_action_orien_cos_sim (train): 0.98 (100pt moving_avg: 0.9781) (avg: 0.9773)
+Training epoch 89:  78%|█████████████████     | 300/386 [08:07<02:28,  1.73s/it](epoch 89) (batch 300/385) dist_loss (train): 5.3784 (100pt moving_avg: 5.5182) (avg: 5.5053)
+(epoch 89) (batch 300/385) action_loss (train): 0.0674 (100pt moving_avg: 0.0404) (avg: 0.0413)
+(epoch 89) (batch 300/385) action_waypts_cos_sim (train): 0.8049 (100pt moving_avg: 0.8539) (avg: 0.8466)
+(epoch 89) (batch 300/385) multi_action_waypts_cos_sim (train): 0.7881 (100pt moving_avg: 0.8573) (avg: 0.8508)
+(epoch 89) (batch 300/385) total_loss (train): 0.0606 (100pt moving_avg: 0.0478) (avg: 0.0482)
+(epoch 89) (batch 300/385) action_orien_cos_sim (train): 0.9741 (100pt moving_avg: 0.9777) (avg: 0.9775)
+(epoch 89) (batch 300/385) multi_action_orien_cos_sim (train): 0.9741 (100pt moving_avg: 0.9777) (avg: 0.9775)
+Training epoch 89: 100%|██████████████████████| 386/386 [10:23<00:00,  1.61s/it]
+Start nuScenes_custom_test ViNT Testing Epoch 89/89
+Evaluating nuScenes_custom_test for epoch 89: 100%|█| 18/18 [02:57<00:00,  9.84s
+(epoch 89) dist_loss (nuScenes_custom_test) 20.229610919952393
+(epoch 89) action_loss (nuScenes_custom_test) 0.3640766756402122
+(epoch 89) action_waypts_cos_sim (nuScenes_custom_test) 0.8226239416334364
+(epoch 89) multi_action_waypts_cos_sim (nuScenes_custom_test) 0.8266807165410783
+(epoch 89) total_loss (nuScenes_custom_test) 0.2831863893402947
+(epoch 89) action_orien_cos_sim (nuScenes_custom_test) 0.9758267170853085
+(epoch 89) multi_action_orien_cos_sim (nuScenes_custom_test) 0.9758266376124488
+WARNING:root:Images sizes do not match. This will causes images to be display incorrectly in the UI.
+EarlyStopping: patience 35/15
+� Early stopping triggered.
+
+FINISHED TRAINING
+wandb: 
+wandb: Run history:
+wandb:                       action_loss (idd_multi_test) ▅▅█▆▅▂▅▁▃
+wandb:                 action_loss (nuScenes_custom_test) ▄▆▄▆▆▇▆▆▇▃▆██▅▂▄▄▅▄▂▃▂▂█▄▂▇▁▂▁
+wandb:                                action_loss (train) ▇█▂▆▄▂▃▂▂▂▃▃▂▂▄▂▂▂▂▁▃▂▁▂▂▃▂▂▁▂▂▂▂▁▂▂▁▁▁▁
+wandb:              action_orien_cos_sim (idd_multi_test) ▆▇▁▄█▄▁▄▇
+wandb:        action_orien_cos_sim (nuScenes_custom_test) ▄▄▆▄█▅▄▂▅█▃▃▄▅▂▅▃▆▆▆▅▅▅▆▆▆▃█▁▄
+wandb:                       action_orien_cos_sim (train) ▅▅▇▆▅█▆▆▇▇▆▇▇▆██▇██▆▇▇█▆▆▆█▆▇█▇█▁▇▇▇▇▇▇█
+wandb:             action_waypts_cos_sim (idd_multi_test) ▂█▁▄▆▅▁▄▄
+wandb:       action_waypts_cos_sim (nuScenes_custom_test) ▄▁▅█▃▆▃▅▅▄▄▄▁█▃▅▅▅▆▆▅▅▅▆▃▂▃▆▂▅
+wandb:                      action_waypts_cos_sim (train) ▆▆▇▆▅▄▁▅▃▇▅▇▅▇▅▄▂▇▇▄▅▃▆▆▅█▇▂▅▆▇▅▅▄▇▇▄▆▄▆
+wandb:                                avg_total_test_loss ▁▂▁▂▂▂▂▂▂▅▆██▆▅▆▅▆▅▄▅▅▄▇▆▄▇▃▄▃
+wandb:                         dist_loss (idd_multi_test) ▄▁▄▃▁▄▇█▁
+wandb:                   dist_loss (nuScenes_custom_test) ▁▂▂▅▄▁▄▅▅▄▃▅▆▅▆▆▂▆▃▆▅█▄▄▅▂▅▃▅▂
+wandb:                                  dist_loss (train) ▇█▅▆▅▃▅▅▆▃▄▂▂▁▅▃▂▃▃▄▃▂▂▄▄▂▂▂▁▁▂▃▁▂▂▁▂▂▁▂
+wandb:                                                 lr ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:        multi_action_orien_cos_sim (idd_multi_test) ▆▇▁▄█▄▁▄▇
+wandb:  multi_action_orien_cos_sim (nuScenes_custom_test) ▄▄▆▄█▅▄▂▅█▃▃▄▅▂▅▃▆▆▆▅▅▅▆▆▆▃█▁▄
+wandb:                 multi_action_orien_cos_sim (train) ▅▅▇▆▅█▆▆▇▇▆▇▇▆██▇██▆▇▇█▆▆▆█▆▇█▇█▁▇▇▇▇▇▇█
+wandb:       multi_action_waypts_cos_sim (idd_multi_test) ▁█▁▄▇▅▁▃▄
+wandb: multi_action_waypts_cos_sim (nuScenes_custom_test) ▄▁▅█▃▇▃▄▆▄▄▄▂█▅▅▅▆▇▆▆▄▅▇▄▁▃▆▁▅
+wandb:                multi_action_waypts_cos_sim (train) ▇▆▇▆▅▄▁▅▄▇▅▇▆▇▆▄▂▇▇▄▅▃▆▆▅█▇▃▅▆█▅▅▅▇▇▄▅▄▆
+wandb:                        total_loss (idd_multi_test) ▅▄█▆▃▃█▅▁
+wandb:                  total_loss (nuScenes_custom_test) ▃▅▃▆▅▆▆▆▇▃▅▇█▅▃▅▄▅▄▃▃▄▃▇▅▂▇▁▃▁
+wandb:                                 total_loss (train) ▇█▃▆▄▂▄▃▃▂▃▂▂▂▄▂▂▂▂▂▃▂▁▂▂▃▂▂▁▁▂▂▁▁▂▂▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:                       action_loss (idd_multi_test) 0.18958
+wandb:                 action_loss (nuScenes_custom_test) 0.36408
+wandb:                                action_loss (train) 0.03399
+wandb:              action_orien_cos_sim (idd_multi_test) 0.97019
+wandb:        action_orien_cos_sim (nuScenes_custom_test) 0.97583
+wandb:                       action_orien_cos_sim (train) 0.97735
+wandb:             action_waypts_cos_sim (idd_multi_test) 0.96944
+wandb:       action_waypts_cos_sim (nuScenes_custom_test) 0.82262
+wandb:                      action_waypts_cos_sim (train) 0.94324
+wandb:                                avg_total_test_loss 0.28319
+wandb:                         dist_loss (idd_multi_test) 12.10995
+wandb:                   dist_loss (nuScenes_custom_test) 20.22961
+wandb:                                  dist_loss (train) 5.42865
+wandb:                                                 lr 0.00043
+wandb:        multi_action_orien_cos_sim (idd_multi_test) 0.97019
+wandb:  multi_action_orien_cos_sim (nuScenes_custom_test) 0.97583
+wandb:                 multi_action_orien_cos_sim (train) 0.97735
+wandb:       multi_action_waypts_cos_sim (idd_multi_test) 0.96801
+wandb: multi_action_waypts_cos_sim (nuScenes_custom_test) 0.82668
+wandb:                multi_action_waypts_cos_sim (train) 0.94698
+wandb:                        total_loss (idd_multi_test) 0.15534
+wandb:                  total_loss (nuScenes_custom_test) 0.28319
+wandb:                                 total_loss (train) 0.04414
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /home/paperspace/Documents/vint_project/trajectory-mapping/visualnav-transformer/train/wandb/offline-run-20250320_224118-nqthsh0f
+wandb: Find logs at: ./wandb/offline-run-20250320_224118-nqthsh0f/logs
+(vint_env) paperspace@psz6p9hqyzfy:~/Documents/vint_project/trajectory-mapping/visuiiisiisiiiiiisualnav-transformer/train$ 
+
