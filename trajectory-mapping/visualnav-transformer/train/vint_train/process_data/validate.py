@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 # Define the main dataset directory
-data_folder = "nu_output"  # Adjust this if needed (e.g., full absolute path)
+data_folder = "nu_output"  
 
 # Check if the data folder exists
 if not os.path.exists(data_folder):
@@ -20,20 +20,20 @@ def check_scene_structure(scene):
     traj_file = os.path.join(scene_path, "traj_data.pkl")
 
     if not images:
-        print(f"⚠️ Scene {scene} has no images!")
+        print(f"Scene {scene} has no images!")
     else:
-        print(f"✅ Scene {scene} - {len(images)} images found, first: {images[0]}, last: {images[-1]}")
+        print(f"Scene {scene} - {len(images)} images found, first: {images[0]}, last: {images[-1]}")
 
     if not os.path.exists(traj_file):
-        print(f"❌ Missing traj_data.pkl in {scene}!")
+        print(f"Missing traj_data.pkl in {scene}!")
     else:
-        print(f"✅ Found traj_data.pkl in {scene}")
+        print(f"Found traj_data.pkl in {scene}")
 
 # Run checks on all scenes
 for scene in scenes:
     check_scene_structure(scene)
 
-# Adjust get_data_path function for ViNT Dataset Loader
+# get_data_path function for ViNT Dataset Loader
 def get_data_path(data_folder: str, scene: str, frame_num: int) -> str:
     """ Generate correct path to an image file for ViNT data loading. """
     return os.path.join(data_folder, scene, f"{frame_num}.jpg")
@@ -44,6 +44,6 @@ if test_scene:
     test_img_path = get_data_path(data_folder, test_scene, 0)  # First frame
     print(f"\n🔍 Testing get_data_path: {test_img_path}")
     if os.path.exists(test_img_path):
-        print(f"✅ Path is correct and image exists: {test_img_path}")
+        print(f"Path is correct and image exists: {test_img_path}")
     else:
-        print(f"❌ Path does not exist: {test_img_path}. Check folder structure!")
+        print(f"Path does not exist: {test_img_path}. Check folder structure!")
