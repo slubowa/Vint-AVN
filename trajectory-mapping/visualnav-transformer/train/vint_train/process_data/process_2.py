@@ -7,8 +7,8 @@ from nuscenes.nuscenes import NuScenes
 from nuscenes.utils.data_classes import Quaternion
 
 # Set paths
-NUSCENES_ROOT = "/home/paperspace/Documents/vint_project/nuscenes_data"  # Adjusted path
-OUTPUT_FOLDER = "/home/paperspace/Documents/vint_project/nu_output"  # Output for ViNT format
+NUSCENES_ROOT = "/home/paperspace/Documents/vint_project/nuscenes_data"  
+OUTPUT_FOLDER = "/home/paperspace/Documents/vint_project/nu_output"  
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
 # Load NuScenes Full dataset
