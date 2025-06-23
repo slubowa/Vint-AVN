@@ -1,4 +1,4 @@
-# waymo_to_vint_pkl.py
+
 # Converts Waymo TFRecord data into ViNT-compatible image + .pkl trajectory format
 
 import os
@@ -9,14 +9,14 @@ import tensorflow as tf
 from tqdm import tqdm
 from waymo_open_dataset import dataset_pb2 as open_dataset
 
-# --- Utility: Get yaw angle (rotation around Z) from rotation matrix ---
+#Get yaw angle (rotation around Z) from rotation matrix
 def get_yaw_from_transform(transform):
     matrix = np.array(transform).reshape(4, 4)
     rot = matrix[:3, :3]
     yaw = math.atan2(rot[1, 0], rot[0, 0])
     return yaw
 
-# --- Utility: Convert global x, y coords to local (ego-frame) coordinates ---
+#Convert global x, y coords to local (ego-frame) coordinates
 def to_local_coords(xy_global, ref_xy, ref_yaw):
     dx, dy = xy_global[0] - ref_xy[0], xy_global[1] - ref_xy[1]
     cos_yaw = math.cos(-ref_yaw)
@@ -25,7 +25,7 @@ def to_local_coords(xy_global, ref_xy, ref_yaw):
     y_local = dx * sin_yaw + dy * cos_yaw
     return [x_local, y_local]
 
-# --- Main extraction function ---
+# Main extraction function 
 def process_waymo_tfrecord(tfrecord_path, output_dir, context_size=5, spacing=1, camera_name='FRONT'):
     os.makedirs(output_dir, exist_ok=True)
     dataset = tf.data.TFRecordDataset(tfrecord_path, compression_type='')
@@ -35,7 +35,7 @@ def process_waymo_tfrecord(tfrecord_path, output_dir, context_size=5, spacing=1,
 
     print("Reading frames from:", tfrecord_path)
 
-    # --- Step 1: Load all frames and store pose/image info ---
+    #Load all frames and store pose/image info
     for data in tqdm(dataset):
         frame = open_dataset.Frame()
         frame.ParseFromString(bytearray(data.numpy()))
@@ -58,7 +58,7 @@ def process_waymo_tfrecord(tfrecord_path, output_dir, context_size=5, spacing=1,
                 })
                 break
 
-    # --- Step 2: Build samples with context (ViNT needs sequences) ---
+    # Build samples with context
     sample_id = 0
     for i in range(len(frame_buffer) - context_size * spacing):
         ref_frame = frame_buffer[i]
@@ -75,7 +75,7 @@ def process_waymo_tfrecord(tfrecord_path, output_dir, context_size=5, spacing=1,
             local_pos = to_local_coords(cur_pos, ref_pos, ref_yaw)
 
             pos_seq.append(local_pos)
-            yaw_seq.append(cur['yaw'])  # Global yaw (ViNT expects absolute yaw)
+            yaw_seq.append(cur['yaw'])  # Global yaw 
 
         # Save image
         image_filename = f"frame_{sample_id:05d}.jpg"
@@ -100,9 +100,8 @@ def process_waymo_tfrecord(tfrecord_path, output_dir, context_size=5, spacing=1,
     print(f"Saved {sample_id} samples with context size {context_size}.")
     print("Output directory:", output_dir)
 
-# Example usage (you can comment this out if running as a module)
 process_waymo_tfrecord(
 tfrecord_path='your_file.tfrecord',
-output_dir='waymo_dataset/',
+output_dir='waymo',
 context_size=5,
 spacing=1)
